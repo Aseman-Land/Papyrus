@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
-#include "kaqaz.h"
-#include "sialantools/sialantools.h"
+#include "papyrus.h"
+#include "asemantools/asemantools.h"
 
 #include <QDesktopServices>
 #include <QUrl>
@@ -36,13 +36,13 @@ AboutDialog::AboutDialog(QWidget *parent) :
     p = new AboutDialogPrivate;
     p->ui = new Ui::AboutDialog;
     p->ui->setupUi(this);
-    p->ui->name_label->setText( p->ui->name_label->text() + " " + Kaqaz::version() );
-    p->ui->qtversion_lbl->setText( p->ui->qtversion_lbl->text() + " Qt" + SialanTools::qtVersion() );
+    p->ui->name_label->setText( p->ui->name_label->text() + " " + Papyrus::version() );
+    p->ui->qtversion_lbl->setText( p->ui->qtversion_lbl->text() + " Qt" + AsemanTools::qtVersion() );
 }
 
 void AboutDialog::donateUs()
 {
-    QDesktopServices::openUrl( QUrl("http://labs.sialan.org/donate") );
+    QDesktopServices::openUrl( QUrl("http://aseman.co/donate") );
 }
 
 AboutDialog::~AboutDialog()

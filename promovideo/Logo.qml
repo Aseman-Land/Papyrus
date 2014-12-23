@@ -5,16 +5,16 @@ Item {
     height: 130
 
     Image {
-        id: kaqaz_img
+        id: papyrus_img
         anchors.fill: parent
-        source: "files/kaqaz-icon.png"
+        source: "files/papyrus-icon.png"
         sourceSize: Qt.size(width,height)
     }
 
     AnimatedImage {
-        anchors.centerIn: kaqaz_img
+        anchors.centerIn: papyrus_img
         anchors.margins: -70
-        source: "files/animated-sialan-icon.gif"
+        source: "files/animated-aseman-icon.gif"
         playing: true
     }
 }

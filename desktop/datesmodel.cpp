@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
 
 #include "datesmodel.h"
 #include "database.h"
-#include "kaqaz.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "papyrus.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QIcon>
 
@@ -27,7 +27,7 @@ class DatesModelPrivate
 {
 public:
     Database *db;
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
     QList<int> dates;
 };
 
@@ -35,8 +35,8 @@ DatesModel::DatesModel(QObject *parent) :
     QAbstractListModel(parent)
 {
     p = new DatesModelPrivate;
-    p->kaqaz = Kaqaz::instance();
-    p->db = Kaqaz::database();
+    p->papyrus = Papyrus::instance();
+    p->db = Papyrus::database();
 
     connect(p->db, SIGNAL(datesListChanged()), SLOT(datesChanged()), Qt::QueuedConnection );
 
@@ -62,7 +62,7 @@ QVariant DatesModel::data(const QModelIndex &index, int role) const
     switch( role )
     {
     case Qt::DisplayRole:
-        res = p->kaqaz->calendarConverter()->convertIntToStringDate(days);
+        res = p->papyrus->calendarConverter()->convertIntToStringDate(days);
         break;
 
     case Qt::DecorationRole:

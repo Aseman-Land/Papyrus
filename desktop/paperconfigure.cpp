@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
 
 #include "paperconfigure.h"
 #include "ui_paperconfigure.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 #include "mapwidget.h"
 #include "datewidget.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QTimer>
 #include <QMenu>
@@ -45,7 +45,7 @@ public:
     QVBoxLayout *date_layout;
     QPushButton *date_btn;
 
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
     int signal_blocker;
 };
 
@@ -53,7 +53,7 @@ PaperConfigure::PaperConfigure(int paperId, QWidget *parent) :
     QDialog(parent)
 {
     p = new PaperConfigurePrivate;
-    p->kaqaz = Kaqaz::instance();
+    p->papyrus = Papyrus::instance();
     p->paperId = paperId;
     p->signal_blocker = false;
 
@@ -76,7 +76,7 @@ PaperConfigure::PaperConfigure(int paperId, QWidget *parent) :
 
     setAttribute( Qt::WA_DeleteOnClose, true );
 
-    connect( Kaqaz::database(), SIGNAL(paperChanged(int))       , SLOT(paper_changed(int)) );
+    connect( Papyrus::database(), SIGNAL(paperChanged(int))       , SLOT(paper_changed(int)) );
     connect( p->ui->date_btn  , SIGNAL(clicked())               , SLOT(show_date_menu())   );
     connect( p->date_btn      , SIGNAL(clicked())               , SLOT(apply_date())       );
     connect( p->ui->type_combo, SIGNAL(currentIndexChanged(int)), SLOT(typeChanged(int))   );
@@ -89,7 +89,7 @@ void PaperConfigure::showConfigure(int paperId)
 {
     PaperConfigure *conf = paper_configure_objs.value(paperId);
     if( !conf )
-        conf = new PaperConfigure(paperId, static_cast<QWidget*>(Kaqaz::instance()->view()) );
+        conf = new PaperConfigure(paperId, static_cast<QWidget*>(Papyrus::instance()->view()) );
 
     conf->show();
 }
@@ -98,11 +98,11 @@ void PaperConfigure::refresh()
 {
     p->signal_blocker = true;
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
 
     p->ui->title_line->setText( db->paperTitle(p->paperId) );
-    p->ui->cdate_line->setText( p->kaqaz->calendarConverter()->convertDateTimeToString(db->paperCreatedDate(p->paperId)) );
-    p->ui->mdate_line->setText( p->kaqaz->calendarConverter()->convertDateTimeToString(db->paperModifiedDate(p->paperId)) );
+    p->ui->cdate_line->setText( p->papyrus->calendarConverter()->convertDateTimeToString(db->paperCreatedDate(p->paperId)) );
+    p->ui->mdate_line->setText( p->papyrus->calendarConverter()->convertDateTimeToString(db->paperModifiedDate(p->paperId)) );
 
     p->ui->type_combo->setCurrentIndex( db->paperType(p->paperId) );
     p->map->setGeo( db->paperLocation(p->paperId) );
@@ -134,7 +134,7 @@ void PaperConfigure::apply_date()
     if( p->signal_blocker )
         return;
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setPaperCreatedDate( p->paperId, p->date_wgt->dateTime() );
 }
 
@@ -143,7 +143,7 @@ void PaperConfigure::typeChanged(int type)
     if( p->signal_blocker )
         return;
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setPaperType( p->paperId, type );
 }
 

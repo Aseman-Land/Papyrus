@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 */
 
 #include "addgroupdialog.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 
 #include <QColorDialog>
@@ -114,7 +114,7 @@ AddGroupDialog::AddGroupDialog(int gid, QWidget *parent) :
 
     if( p->groupId != -1 )
     {
-        Database *db = Kaqaz::database();
+        Database *db = Papyrus::database();
         p->name_line->setText( db->groupName(p->groupId) );
         p->color->setCurrentColor( db->groupColor(p->groupId) );
     }
@@ -122,7 +122,7 @@ AddGroupDialog::AddGroupDialog(int gid, QWidget *parent) :
 
 void AddGroupDialog::accept()
 {
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     if( p->name_line->text().trimmed().isEmpty() )
     {
         p->color->show();

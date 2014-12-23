@@ -1,15 +1,15 @@
 {
-    "name": "org.sialan.kaqaz",
-    "description": "Kaqaz note manager",
+    "name": "org.aseman.papyrus",
+    "description": "Papyrus note manager",
     "framework": "ubuntu-sdk-14.04",
     "architecture": "all",
-    "title": "Kaqaz",
+    "title": "Papyrus",
     "hooks": {
-        "Kaqaz": {
-            "apparmor": "kaqaz.json",
-            "desktop": "kaqaz.desktop"
+        "Papyrus": {
+            "apparmor": "papyrus.json",
+            "desktop": "papyrus.desktop"
         }
     },
     "version": "1.2.0",
-    "maintainer": "Sialan Labs <contact@sialan.org>"
+    "maintainer": "Aseman <contact@aseman.org>"
 }

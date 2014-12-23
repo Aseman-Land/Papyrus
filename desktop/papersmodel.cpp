@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -75,7 +75,7 @@ QVariant PapersModel::data(const QModelIndex &index, int role) const
             break;
         }
 
-        SImage image(":/qml/Kaqaz/files/paper-item.png");
+        SImage image(":/qml/Papyrus/files/paper-item.png");
         image = image.scaled(32,32,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
         image = image.colorize(clr.rgb());
 

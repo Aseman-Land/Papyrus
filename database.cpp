@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kaqazmacros.h"
+#include "papyrusmacros.h"
 
 #define CACHE_SIZE 20
 #define DB_EMIT if( !p->signal_blocker ) emit
@@ -36,9 +36,9 @@
     END_FNC_DEBUG
 
 #include "database.h"
-#include "kaqazmacros.h"
-#include "kaqaz.h"
-#include "sialandeveloper_macros.h"
+#include "papyrusmacros.h"
+#include "papyrus.h"
+#include "asemandeveloper_macros.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -83,7 +83,7 @@ Database::Database(QObject *parent) :
     p = new DatabasePrivate;
     p->current_activity = 0;
     p->max_paper_id = 0;
-    p->path = Kaqaz::instance()->profilePath() + "/database.sqlite";
+    p->path = Papyrus::instance()->profilePath() + "/database.sqlite";
     p->signal_blocker = false;
     p->begined = false;
     p->commit_timer = 0;
@@ -92,13 +92,13 @@ Database::Database(QObject *parent) :
     qRegisterMetaType<SyncItemHash>("SyncItemHash");
     qRegisterMetaType<SyncItem>("SyncItem");
 
-    if( !Kaqaz::settings()->value("initialize/userdata_db",false).toBool() )
+    if( !Papyrus::settings()->value("initialize/userdata_db",false).toBool() )
     {
         QFile::copy(":/files/database/database.sqlite",p->path);
         QFile(p->path).setPermissions(QFileDevice::WriteOwner|QFileDevice::WriteGroup|QFileDevice::ReadUser|QFileDevice::ReadGroup);
     }
 
-    Kaqaz::settings()->setValue("initialize/userdata_db",true);
+    Papyrus::settings()->setValue("initialize/userdata_db",true);
 
     p->db = QSqlDatabase::addDatabase( "QSQLITE", DATA_DB_CONNECTION );
     setPath(p->path);

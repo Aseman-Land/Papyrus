@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -19,9 +19,9 @@
 #define BUFFER_SIZE 3
 
 #include "papermanager.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QQmlComponent>
 #include <QQmlContext>
@@ -55,7 +55,7 @@ public:
 
     QList<int> papers;
 
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
     int current;
 };
 
@@ -63,7 +63,7 @@ PaperManager::PaperManager(QQuickItem *parent) :
     QQuickItem(parent)
 {
     p = new PaperManagerPrivate;
-    p->kaqaz = 0;
+    p->papyrus = 0;
     p->current = 0;
     p->root = 0;
     p->type = PaperManager::Clean;
@@ -80,23 +80,23 @@ QQuickItem *PaperManager::createPaper()
     return res.value<QQuickItem*>();
 }
 
-Kaqaz *PaperManager::getKaqaz()
+Papyrus *PaperManager::getPapyrus()
 {
-    if( p->kaqaz )
-        return p->kaqaz;
+    if( p->papyrus )
+        return p->papyrus;
 
     QVariant res;
 
     QQuickView *view = static_cast<QQuickView*>(window());
-    QMetaObject::invokeMethod( view->rootObject(), "getKaqaz", Q_RETURN_ARG(QVariant, res));
+    QMetaObject::invokeMethod( view->rootObject(), "getPapyrus", Q_RETURN_ARG(QVariant, res));
 
-    p->kaqaz = res.value<Kaqaz*>();
-    return p->kaqaz;
+    p->papyrus = res.value<Papyrus*>();
+    return p->papyrus;
 }
 
 bool actionLessThan( int a, int b)
 {
-    return Kaqaz::database()->paperCreatedDate(a) > Kaqaz::database()->paperCreatedDate(b);
+    return Papyrus::database()->paperCreatedDate(a) > Papyrus::database()->paperCreatedDate(b);
 }
 
 void PaperManager::setRoot(int id)
@@ -113,7 +113,7 @@ void PaperManager::setRoot(int id)
         break;
 
     case All:
-        p->papers = Kaqaz::database()->papers();
+        p->papers = Papyrus::database()->papers();
         break;
 
     case Search:
@@ -121,12 +121,12 @@ void PaperManager::setRoot(int id)
         if( p->keyword.isEmpty() )
             break;
 
-        p->papers = Kaqaz::database()->search(p->keyword);
+        p->papers = Papyrus::database()->search(p->keyword);
         break;
 
     case AdvanceSearch:
         p->papers.clear();
-        p->papers = Kaqaz::database()->advanceSearch(p->advsearch_keyword, p->advsearch_startDate,
+        p->papers = Papyrus::database()->advanceSearch(p->advsearch_keyword, p->advsearch_startDate,
                                                      p->advsearch_endDate, p->advsearch_startTime,
                                                      p->advsearch_endTime, p->advsearch_group,
                                                      p->advsearch_domain , p->advsearch_geo,
@@ -134,11 +134,11 @@ void PaperManager::setRoot(int id)
         break;
 
     case Date:
-        p->papers = Kaqaz::database()->papersOf( SialanCalendarConverter::convertDaysToDate(id) );
+        p->papers = Papyrus::database()->papersOf( AsemanCalendarConverter::convertDaysToDate(id) );
         break;
 
     case Group:
-        p->papers = Kaqaz::database()->papersOf(id);
+        p->papers = Papyrus::database()->papersOf(id);
         qSort( p->papers.begin(), p->papers.end(), actionLessThan );
         break;
     }
@@ -318,7 +318,7 @@ void PaperManager::deletePaper(const QVariant & var)
     paper->setProperty("paperItem", -1 );
     paper->setProperty("paperItem", nextId );
 
-    Kaqaz::database()->deletePaper(paperId);
+    Papyrus::database()->deletePaper(paperId);
     reindexBuffer();
     load_buffers();
     emit papersChanged();

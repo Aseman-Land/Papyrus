@@ -49,10 +49,10 @@
      <widget class="QWidget" name="kaqaz_wgt">
       <attribute name="icon">
        <iconset resource="../resource.qrc">
-        <normaloff>:/qml/Kaqaz/files/kaqaz.png</normaloff>:/qml/Kaqaz/files/kaqaz.png</iconset>
+        <normaloff>:/qml/Papyrus/files/kaqaz.png</normaloff>:/qml/Papyrus/files/kaqaz.png</iconset>
       </attribute>
       <attribute name="title">
-       <string>Kaqaz</string>
+       <string>Papyrus</string>
       </attribute>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
@@ -134,7 +134,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/kaqaz.png</pixmap>
+              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/kaqaz.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -164,7 +164,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Kaqaz</string>
+            <string>Papyrus</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -244,7 +244,7 @@
      <widget class="QWidget" name="sialan_wgt">
       <attribute name="icon">
        <iconset resource="../resource.qrc">
-        <normaloff>:/qml/Kaqaz/files/sialan.png</normaloff>:/qml/Kaqaz/files/sialan.png</iconset>
+        <normaloff>:/qml/Papyrus/files/sialan.png</normaloff>:/qml/Papyrus/files/sialan.png</iconset>
       </attribute>
       <attribute name="title">
        <string>Sialan</string>
@@ -341,7 +341,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/sialan.png</pixmap>
+              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/sialan.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -441,7 +441,7 @@
      <widget class="QWidget" name="donate_wgt">
       <attribute name="icon">
        <iconset resource="../resource.qrc">
-        <normaloff>:/qml/Kaqaz/files/done.png</normaloff>:/qml/Kaqaz/files/done.png</iconset>
+        <normaloff>:/qml/Papyrus/files/done.png</normaloff>:/qml/Papyrus/files/done.png</iconset>
       </attribute>
       <attribute name="title">
        <string>Donate</string>
@@ -496,7 +496,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/buy-troll.png</pixmap>
+            <pixmap resource="../resource.qrc">:/qml/Papyrus/files/buy-troll.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>

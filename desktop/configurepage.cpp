@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,13 +18,13 @@
 
 #include "configurepage.h"
 #include "ui_configurepage.h"
-#include "kaqaz.h"
-#include "kaqazmacros.h"
+#include "papyrus.h"
+#include "papyrusmacros.h"
 #include "backuper.h"
-#include "kaqazsync.h"
+#include "papyrussync.h"
 #include "database.h"
-#include "sialantools/sialancalendarconverter.h"
-#include "sialantools/sialantools.h"
+#include "asemantools/asemancalendarconverter.h"
+#include "asemantools/asemantools.h"
 
 #include <QSettings>
 #include <QDir>
@@ -42,7 +42,7 @@ class ConfigurePagePrivate
 public:
     Ui::ConfigurePage *ui;
     QSettings *settings;
-    Kaqaz *kqz;
+    Papyrus *kqz;
     Backuper *backuper;
 
     QFileSystemModel *backups_model;
@@ -56,8 +56,8 @@ ConfigurePage::ConfigurePage(QWidget *parent) :
 {
     p = new ConfigurePagePrivate;
     p->signal_blocker = false;
-    p->kqz = Kaqaz::instance();
-    p->settings = Kaqaz::settings();
+    p->kqz = Papyrus::instance();
+    p->settings = Papyrus::settings();
     p->backuper_started = false;
 
     QDir().mkpath(BACKUP_PATH);
@@ -86,7 +86,7 @@ ConfigurePage::ConfigurePage(QWidget *parent) :
     connect( p->backuper, SIGNAL(failed())     , SLOT(backupFailed())      );
     connect( p->backuper, SIGNAL(success())    , SLOT(backupFinished())    );
 
-    connect( p->kqz->kaqazSync(), SIGNAL(authorizeRequest()), SLOT(syncAuthorizeRequest()) );
+    connect( p->kqz->papyrusSync(), SIGNAL(authorizeRequest()), SLOT(syncAuthorizeRequest()) );
 
     refresh();
 }
@@ -123,8 +123,8 @@ void ConfigurePage::refresh()
     p->ui->bodyfont_spin->setValue( p->kqz->bodyFont().pointSize() );
 
     p->ui->dropbox_finish_wgt->setVisible( false );
-    p->ui->dropbox_token_btn->setVisible( !p->kqz->kaqazSync()->tokenAvailable() );
-    p->ui->dropbox_dc_btn->setVisible( p->kqz->kaqazSync()->tokenAvailable() );
+    p->ui->dropbox_token_btn->setVisible( !p->kqz->papyrusSync()->tokenAvailable() );
+    p->ui->dropbox_dc_btn->setVisible( p->kqz->papyrusSync()->tokenAvailable() );
 
     p->ui->security_cpass->setVisible( !p->kqz->database()->password().isEmpty() );
 
@@ -133,7 +133,7 @@ void ConfigurePage::refresh()
 
 void ConfigurePage::uiChanged(int row)
 {
-    Kaqaz::instance()->setDesktopTouchMode(row);
+    Papyrus::instance()->setDesktopTouchMode(row);
 }
 
 void ConfigurePage::calendarChanged(int id)
@@ -184,7 +184,7 @@ void ConfigurePage::makeBackup()
         if( input.isEmpty() )
             return;
 
-        if( pass != SialanTools::passToMd5(input) )
+        if( pass != AsemanTools::passToMd5(input) )
             return;
     }
 
@@ -209,7 +209,7 @@ void ConfigurePage::restoreSelected()
         if( pass.isEmpty() )
             return;
 
-        p->backuper->restore( path, SialanTools::passToMd5(pass) );
+        p->backuper->restore( path, AsemanTools::passToMd5(pass) );
     }
 }
 
@@ -268,7 +268,7 @@ void ConfigurePage::backupFinished()
 
 void ConfigurePage::getToken()
 {
-    KaqazSync *sync = p->kqz->kaqazSync();
+    PapyrusSync *sync = p->kqz->papyrusSync();
     if( sync->tokenAvailable() )
         return;
 
@@ -285,7 +285,7 @@ void ConfigurePage::syncAuthorizeRequest()
 
 void ConfigurePage::syncLoginFinished()
 {
-    KaqazSync *sync = p->kqz->kaqazSync();
+    PapyrusSync *sync = p->kqz->papyrusSync();
     sync->authorizeDone();
     sync->refresh();
     refresh();
@@ -293,7 +293,7 @@ void ConfigurePage::syncLoginFinished()
 
 void ConfigurePage::syncDisconnect()
 {
-    KaqazSync *sync = p->kqz->kaqazSync();
+    PapyrusSync *sync = p->kqz->papyrusSync();
     sync->stop();
 }
 
@@ -304,7 +304,7 @@ void ConfigurePage::changePassword()
     if( !cpass.isEmpty() )
     {
         const QString & dlg_cpass = p->ui->security_cpass->text();
-        if( cpass != SialanTools::passToMd5(dlg_cpass) )
+        if( cpass != AsemanTools::passToMd5(dlg_cpass) )
         {
             QMessageBox::critical(this, tr("Incorrect"), tr("Current password is incorrect!") );
             return;
@@ -319,7 +319,7 @@ void ConfigurePage::changePassword()
         return;
     }
 
-    db->setPassword( SialanTools::passToMd5(dlg_pass) );
+    db->setPassword( AsemanTools::passToMd5(dlg_pass) );
 
     p->ui->security_cpass->clear();
     p->ui->security_pass->clear();

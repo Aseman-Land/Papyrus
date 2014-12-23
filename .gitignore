@@ -9,7 +9,6 @@
 *.so
 *.dll
 *.dylib
-*.backup
 
 # Qt-es
 
@@ -27,3 +26,7 @@ Makefile*
 # QtCreator
 
 *.autosave
+
+#QtCtreator Qml
+*.qmlproject.user
+*.qmlproject.user.*

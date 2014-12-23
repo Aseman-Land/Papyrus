@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -16,10 +16,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kaqazmacros.h"
-#include "kaqaz.h"
+#include "papyrusmacros.h"
+#include "papyrus.h"
 #include "resourcemanager.h"
-#include "sialantools/sialanapplication.h"
+#include "asemantools/asemanapplication.h"
 
 #ifdef DESKTOP_DEVICE
 #include "desktop/uiselectordialog.h"
@@ -32,12 +32,12 @@
 
 int main(int argc, char *argv[])
 {
-    SialanApplication app(argc, argv);
-    app.setApplicationName("Kaqaz");
-    app.setApplicationDisplayName("Kaqaz");
-    app.setOrganizationDomain("org.sialan.kaqaz");
-    app.setOrganizationName("Sialan");
-    app.setWindowIcon(QIcon(app.applicationDirPath()+"/qml/Kaqaz/files/kaqaz.png"));
+    AsemanApplication app(argc, argv);
+    app.setApplicationName("Papyrus");
+    app.setApplicationDisplayName("Papyrus");
+    app.setOrganizationDomain("land.aseman");
+    app.setOrganizationName("Aseman");
+    app.setWindowIcon(QIcon(app.applicationDirPath()+"/qml/Papyrus/files/papyrus.png"));
 
 #ifdef DESKTOP_DEVICE
     if( app.isRunning() )
@@ -47,11 +47,11 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    Kaqaz *kaqaz = Kaqaz::instance();
+    Papyrus *papyrus = Papyrus::instance();
 
 #ifdef DESKTOP_DEVICE
 #ifdef Q_OS_MAC
-    if( !kaqaz->settings()->value("General/uiselected",false).toBool() )
+    if( !papyrus->settings()->value("General/uiselected",false).toBool() )
     {
         UiSelectorDialog dialog;
         dialog.exec();
@@ -59,23 +59,23 @@ int main(int argc, char *argv[])
         if( !dialog.isAccepted() )
             return 0;
         if( dialog.isDesktopTouch() )
-            kaqaz->setDesktopTouchMode(true);
+            papyrus->setDesktopTouchMode(true);
         else
-            kaqaz->setDesktopTouchMode(false);
+            papyrus->setDesktopTouchMode(false);
 
-        kaqaz->settings()->setValue("General/uiselected",true);
+        papyrus->settings()->setValue("General/uiselected",true);
     }
 #else
     if( app.arguments().contains("--touch") )
-        kaqaz->setDesktopTouchMode(true);
+        papyrus->setDesktopTouchMode(true);
 #endif
 #endif
 
-    if( !kaqaz->start() )
+    if( !papyrus->start() )
         return 0;
 
 #ifdef DESKTOP_DEVICE
-    QObject::connect( &app, SIGNAL(messageReceived(QString)), kaqaz, SLOT(incomingAppMessage(QString)) );
+    QObject::connect( &app, SIGNAL(messageReceived(QString)), papyrus, SLOT(incomingAppMessage(QString)) );
 #endif
 
     return app.exec();

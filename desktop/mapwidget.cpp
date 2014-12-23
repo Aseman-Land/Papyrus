@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -57,7 +57,7 @@ MapWidget::MapWidget(QWidget *parent) :
     p->image_loaded = false;
 
     if( !map_widget_pin )
-        map_widget_pin = new QImage(QImage(":/qml/Kaqaz/files/map-pin.png").scaled(MAP_PIN_WIDTH,MAP_PIN_WIDTH,
+        map_widget_pin = new QImage(QImage(":/qml/Papyrus/files/map-pin.png").scaled(MAP_PIN_WIDTH,MAP_PIN_WIDTH,
                                                                             Qt::IgnoreAspectRatio,
                                                                             Qt::SmoothTransformation) );
 
@@ -66,7 +66,7 @@ MapWidget::MapWidget(QWidget *parent) :
 
 void MapWidget::setGeo(const QGeoCoordinate &geo)
 {
-    p->image = QImage(":/qml/Kaqaz/files/map-loading.png").scaled(width(),height(),
+    p->image = QImage(":/qml/Papyrus/files/map-loading.png").scaled(width(),height(),
                                                                   Qt::IgnoreAspectRatio,
                                                                   Qt::SmoothTransformation);
 

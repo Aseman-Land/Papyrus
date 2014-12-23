@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -21,7 +21,7 @@
         PATH = PATH.mid(7);
 
 #include "repository.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 
 #include <QDir>
 #include <QCryptographicHash>
@@ -37,21 +37,21 @@
 class RepositoryPrivate
 {
 public:
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
 };
 
 Repository::Repository(QObject *parent) :
     QObject(parent)
 {
     p = new RepositoryPrivate;
-    p->kaqaz = Kaqaz::instance();
+    p->papyrus = Papyrus::instance();
 }
 
 QString Repository::insert(QString path)
 {
     NORMALIZE_PATH(path)
     QString id = generateID(path);
-    QString dest = p->kaqaz->repositoryPath() + "/" + id;
+    QString dest = p->papyrus->repositoryPath() + "/" + id;
 
     if( QFile::exists(dest) )
         return id;
@@ -62,12 +62,12 @@ QString Repository::insert(QString path)
 
 QString Repository::getPath(const QString &id)
 {
-    return p->kaqaz->repositoryPath() + "/" + id;
+    return p->papyrus->repositoryPath() + "/" + id;
 }
 
 QString Repository::repositoryPath()
 {
-    return p->kaqaz->repositoryPath();
+    return p->papyrus->repositoryPath();
 }
 
 QString Repository::copyImageToRepository(QString path, int size)

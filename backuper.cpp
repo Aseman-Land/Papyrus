@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -17,8 +17,8 @@
 */
 
 #include "backuper.h"
-#include "kaqazmacros.h"
-#include "kaqaz.h"
+#include "papyrusmacros.h"
+#include "papyrus.h"
 #include "resourcemanager.h"
 #include "database.h"
 
@@ -29,7 +29,7 @@ class BackuperPrivate
 {
 public:
     QThread *thread;
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
     BackuperCore *core;
 };
 
@@ -37,7 +37,7 @@ Backuper::Backuper() :
     QObject()
 {
     p = new BackuperPrivate;
-    p->kaqaz = Kaqaz::instance();
+    p->papyrus = Papyrus::instance();
     p->thread = new QThread();
 
     p->core = new BackuperCore();
@@ -53,8 +53,8 @@ Backuper::Backuper() :
 void Backuper::makeBackup( const QString & password )
 {
     BEGIN_FNC_DEBUG
-    const QString & db_path = Kaqaz::database()->path();
-    const QString & repository_path = p->kaqaz->repositoryPath();
+    const QString & db_path = Papyrus::database()->path();
+    const QString & repository_path = p->papyrus->repositoryPath();
     const QString & conf_path = HOME_PATH + "/config.ini";
 
     QMetaObject::invokeMethod( p->core, "makeBackup", Q_ARG(QString,repository_path), Q_ARG(QString,db_path), Q_ARG(QString,conf_path), Q_ARG(QString,password) );
@@ -70,10 +70,10 @@ bool Backuper::restore(const QString &path, const QString &password)
         rsrc.close();
 
     BEGIN_FNC_DEBUG
-    const QString & home_path = p->kaqaz->profilePath();
-    const QString & repository_path = p->kaqaz->repositoryPath();
+    const QString & home_path = p->papyrus->profilePath();
+    const QString & repository_path = p->papyrus->repositoryPath();
 
-    p->kaqaz->disconnectAllResources();
+    p->papyrus->disconnectAllResources();
 
     QMetaObject::invokeMethod( p->core, "restore", Q_ARG(QString,repository_path), Q_ARG(QString,home_path), Q_ARG(QString,path), Q_ARG(QString,password) );
 
@@ -99,13 +99,13 @@ Backuper::~Backuper()
 class BackuperCorePrivate
 {
 public:
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
 };
 
 BackuperCore::BackuperCore()
 {
     p = new BackuperCorePrivate;
-    p->kaqaz = Kaqaz::instance();
+    p->papyrus = Papyrus::instance();
 }
 
 void BackuperCore::makeBackup(const QString &repository_path, const QString &db_path, const QString &cnf_path, const QString &password)
@@ -114,7 +114,7 @@ void BackuperCore::makeBackup(const QString &repository_path, const QString &db_
     QString path = BACKUP_PATH;
     QDir().mkpath(path);
 
-    QString dest = path + "/kaqaz_backup_" + QDateTime::currentDateTime().toString("ddd - MMM dd yyyy - hh_mm") + ".kqz";
+    QString dest = path + "/papyrus_backup_" + QDateTime::currentDateTime().toString("ddd - MMM dd yyyy - hh_mm") + ".kqz";
     QStringList reps_files = QDir(repository_path).entryList(QDir::Files);
 
     emit progress(0);
@@ -153,7 +153,7 @@ void BackuperCore::restore(const QString &repository_path, const QString &home_p
     foreach( const QString & f, reps_files )
         QFile::remove( repository_path + "/" + f );
 
-    QString tempFile = QString(TEMP_PATH) + "/kaqaz_restore_temp";
+    QString tempFile = QString(TEMP_PATH) + "/papyrus_restore_temp";
     QString fileName = rsrc.extractFile(tempFile,password);
     emit progress( ((qreal)rsrc.currentPosition()/rsrc.size())*100 );
 
@@ -169,7 +169,7 @@ void BackuperCore::restore(const QString &repository_path, const QString &home_p
         emit progress( ((qreal)rsrc.currentPosition()/rsrc.size())*100 );
     }
 
-    QMetaObject::invokeMethod( p->kaqaz, "reconnectAllResources" );
+    QMetaObject::invokeMethod( p->papyrus, "reconnectAllResources" );
     emit success();
     END_FNC_DEBUG
 }

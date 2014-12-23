@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 #include "papersmodel.h"
 #include "database.h"
 #include "paperviewdelegate.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "paperconfigure.h"
 
 #include <QScrollBar>
@@ -33,7 +33,7 @@
 class PapersViewPrivate
 {
 public:
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
     PapersModel *model;
     PaperViewDelegate *delegate;
 };
@@ -42,9 +42,9 @@ PapersView::PapersView(QWidget *parent) :
     QListView(parent)
 {
     p = new PapersViewPrivate;
-    p->kaqaz = Kaqaz::instance();
+    p->papyrus = Papyrus::instance();
 
-    p->model = new PapersModel(Kaqaz::database(),this);
+    p->model = new PapersModel(Papyrus::database(),this);
     p->delegate = new PaperViewDelegate;
 
     setModel(p->model);
@@ -108,7 +108,7 @@ void PapersView::showPaperMenu()
     }
     if( res == dlte )
     {
-        Database *db = Kaqaz::database();
+        Database *db = Papyrus::database();
         int del = QMessageBox::warning(this, tr("Delete Label"), tr("Do you realy want to delete \"%1\"?").arg(db->paperTitle(pid)), QMessageBox::Yes|QMessageBox::No);
         if( del == QMessageBox::Yes )
             db->deletePaper(pid);

@@ -63,7 +63,7 @@ ApplicationWindow {
         font.family: "Ubuntu"
         font.pointSize: 24
         color: "#333333"
-        text: "Searching \"Kaqaz\"..."
+        text: "Searching \"Papyrus\"..."
         opacity: main.frame<353 || main.frame>373? 0 : 1
         scale: main.frame<353 || main.frame>373? 1.05 : 1
 
@@ -101,7 +101,7 @@ ApplicationWindow {
         font.family: "Ubuntu"
         font.pointSize: 18
         color: "#333333"
-        text: "Kaqaz is a multi platform application and running on Windows, Linux, Mac, Android and iOS soon."
+        text: "Papyrus is a multi platform application and running on Windows, Linux, Mac, Android and iOS soon."
         opacity: main.frame<453 || main.frame>473? 0 : 1
         scale: main.frame<453 || main.frame>473? 1.05 : 1
 
@@ -120,7 +120,7 @@ ApplicationWindow {
         font.family: "Ubuntu"
         font.pointSize: 18
         color: "#333333"
-        text: "Kaqaz also has encrypted synchronization feature via Dropbox among all your devices"
+        text: "Papyrus also has encrypted synchronization feature via Dropbox among all your devices"
         opacity: main.frame<483 || main.frame>503? 0 : 1
         scale: main.frame<483 || main.frame>503? 1.05 : 1
 
@@ -161,7 +161,7 @@ ApplicationWindow {
         height: papersHeight
         rotation: main.frame<60 || main.frame>350? 10 : (main.frame>270? 0 : -2)
         text: main.frame<280? "" : "Ask"
-        bodyText: main.frame<290? "" : "Just ask Kaqaz what you want.          \n"+
+        bodyText: main.frame<290? "" : "Just ask Papyrus what you want.          \n"+
                                   "you can search it, browse using labels, history and ..."
 
         Behavior on x {
@@ -204,7 +204,7 @@ ApplicationWindow {
         width: papersWidth
         height: papersHeight
         rotation: main.frame<62? -10 : (main.frame>175 && main.frame<360? 10 : 0)
-        text: main.frame<70? "" : "Kaqaz intro"
+        text: main.frame<70? "" : "Papyrus intro"
         bodyText: main.frame<80? "" : "Write your notes, memories, to-do, ... and go to the next paper using cool gestures." +
                                  "\n                 \nYou can also attach images or audios to papers."
         image: main.frame<165? "" : "files/img.png"
@@ -237,7 +237,7 @@ ApplicationWindow {
         y: large? main.height/2-largeHeight/2 : main.height - smallHeight - 10
         width: large? largeWidth :smallWidth
         height: large? largeHeight :smallHeight
-        source: "files/sialan-labs.png"
+        source: "files/aseman-labs.png"
         sourceSize: Qt.size(large?largeWidth:smallWidth ,large?largeHeight:smallHeight )
         opacity: main.frame<540 || main.frame>570? 1 : 0
 

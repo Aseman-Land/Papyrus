@@ -1,13 +1,13 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
-    Kaqaz is free software: you can redistribute it and/or modify
+    Papyrus is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    Kaqaz is distributed in the hope that it will be useful,
+    Papyrus is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kaqazmacros.h"
+#include "papyrusmacros.h"
 
 #define BEGIN_FNC \
     if(p->started) return; \
@@ -75,13 +75,13 @@
     if( RES.isEmpty() ) \
         END_FNC
 
-#define PAPER_DATA_HEADER  QString("KaqazPaper")
+#define PAPER_DATA_HEADER  QString("PapyrusPaper")
 #define PAPER_DATA_VERSION QString("1.3")
-#define GROUP_DATA_HEADER  QString("KaqazGroups")
+#define GROUP_DATA_HEADER  QString("PapyrusGroups")
 #define GROUP_DATA_VERSION QString("1.0")
 
-#define CALL_CORE_VOID( METHOD ) SialanTools::call(p->core, NAME_OF(METHOD), Qt::QueuedConnection );
-#define CALL_CORE( METHOD, ... ) SialanTools::call(p->core, NAME_OF(METHOD), Qt::QueuedConnection, __VA_ARGS__ );
+#define CALL_CORE_VOID( METHOD ) AsemanTools::call(p->core, NAME_OF(METHOD), Qt::QueuedConnection );
+#define CALL_CORE( METHOD, ... ) AsemanTools::call(p->core, NAME_OF(METHOD), Qt::QueuedConnection, __VA_ARGS__ );
 
 #define ALLOC_DBOX(NAME) \
     QDropbox NAME( DROPBOX_APP_KEY, DROPBOX_APP_SECRET, QDropbox::Plaintext, "api.dropbox.com", this ); \
@@ -94,10 +94,10 @@
     QDropboxFile FILE(PATH,&dbox);
 
 #include "smartiodboxsingle.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
-#include "sialantools/sialantools.h"
-#include "kaqazmacros.h"
+#include "asemantools/asemantools.h"
+#include "papyrusmacros.h"
 #include "qdropbox.h"
 #include "qdropboxfile.h"
 #include "qdropboxfileinfo.h"
@@ -144,7 +144,7 @@ SmartIODBoxSingle::SmartIODBoxSingle(QObject *parent) :
     p->loop = new QEventLoop(this);
 
     p->core = new SmartIODBoxSingleCore();
-    p->core->moveToThread( Kaqaz::database()->thread() );
+    p->core->moveToThread( Papyrus::database()->thread() );
 
     p->thread = new QThread();
     moveToThread(p->thread);
@@ -409,7 +409,7 @@ SmartIODBoxSingle::~SmartIODBoxSingle()
 void SmartIODBoxSingleCore::requestPaperToSync(const QString &uuid)
 {
     BEGIN_FNC_DEBUG
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     int paperId = db->paperUuidId(uuid);
     if( paperId == -1 )
     {
@@ -446,7 +446,7 @@ void SmartIODBoxSingleCore::requestPaperToSync(const QString &uuid)
 void SmartIODBoxSingleCore::requestGroupsToSync()
 {
     BEGIN_FNC_DEBUG
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
 
     QByteArray data;
     QBuffer mainBuffer(&data);
@@ -481,7 +481,7 @@ void SmartIODBoxSingleCore::requestGroupsToSync()
 void SmartIODBoxSingleCore::paperPushed(const QString &id, quint64 revision)
 {
     BEGIN_FNC_DEBUG
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setSignalBlocker(true);
     db->setRevision(id,revision);
     db->setSignalBlocker(false);
@@ -499,7 +499,7 @@ void SmartIODBoxSingleCore::paperFetched(const QString &uuid, const QByteArray &
         return;
     }
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setSignalBlocker(true);
 
     QByteArray d = d_const;
@@ -559,7 +559,7 @@ void SmartIODBoxSingleCore::paperFetched(const QString &uuid, const QByteArray &
 void SmartIODBoxSingleCore::groupsPushed(quint64 revision)
 {
     BEGIN_FNC_DEBUG
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setSignalBlocker(true);
     db->setRevision( GROUPS_SYNC_KEY, revision );
     db->setSignalBlocker(false);
@@ -577,7 +577,7 @@ void SmartIODBoxSingleCore::groupsFetched(const QByteArray &data, quint64 revisi
         return;
     }
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     db->setSignalBlocker(true);
 
     QByteArray mainData = data;
@@ -626,7 +626,7 @@ void SmartIODBoxSingleCore::groupsFetched(const QByteArray &data, quint64 revisi
 void SmartIODBoxSingleCore::paperDeleted(const QString &id)
 {
     BEGIN_FNC_DEBUG
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     int paperId = db->paperUuidId(id);
     if( paperId == -1 )
     {

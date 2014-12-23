@@ -678,7 +678,7 @@
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/dropbox.png</pixmap>
+                      <pixmap resource="../resource.qrc">:/qml/Papyrus/files/dropbox.png</pixmap>
                      </property>
                      <property name="scaledContents">
                       <bool>true</bool>
@@ -931,7 +931,7 @@
                   <string/>
                  </property>
                  <property name="pixmap">
-                  <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/active-troll.png</pixmap>
+                  <pixmap resource="../resource.qrc">:/qml/Papyrus/files/active-troll.png</pixmap>
                  </property>
                  <property name="scaledContents">
                   <bool>true</bool>

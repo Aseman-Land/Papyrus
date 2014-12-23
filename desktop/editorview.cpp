@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,13 +29,13 @@
 #define FILES_HEIGHT 250
 
 #include "editorview.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 #include "editorview.h"
 #include "groupbutton.h"
-#include "sialantools/sialantools.h"
-#include "sialantools/sialancalendarconverter.h"
-#include "kaqazsync.h"
+#include "asemantools/asemantools.h"
+#include "asemantools/asemancalendarconverter.h"
+#include "papyrussync.h"
 #include "paperfilesview.h"
 #include "simage.h"
 #include "papertextarea.h"
@@ -98,18 +98,18 @@ EditorView::EditorView(QWidget *parent) :
     p->has_files = false;
 
     if( !back_image )
-        back_image = new QImage(":/qml/Kaqaz/files/background.jpg");
+        back_image = new QImage(":/qml/Papyrus/files/background.jpg");
     if( !papers_image )
-        papers_image = new QImage(":/qml/Kaqaz/files/paper.png");
+        papers_image = new QImage(":/qml/Papyrus/files/paper.png");
     if( !paper_clip )
-        paper_clip = new QImage(":/qml/Kaqaz/files/paper-clip.png");
+        paper_clip = new QImage(":/qml/Papyrus/files/paper-clip.png");
     if( !paper_clip_off )
-        paper_clip_off = new QImage(":/qml/Kaqaz/files/paper-clip-off.png");
+        paper_clip_off = new QImage(":/qml/Papyrus/files/paper-clip-off.png");
 
     p->attach_img = *paper_clip;
 
-    p->title_font = Kaqaz::instance()->titleFont();
-    p->body_font = Kaqaz::instance()->bodyFont();
+    p->title_font = Papyrus::instance()->titleFont();
+    p->body_font = Papyrus::instance()->bodyFont();
 
     p->group_font.setFamily("Droid Kaqaz Sans");
     p->group_font.setPointSize(9);
@@ -173,10 +173,10 @@ EditorView::EditorView(QWidget *parent) :
 
     connect( p->attach_btn, SIGNAL(clicked()), p->files, SLOT(show()) );
 
-    connect( Kaqaz::instance(), SIGNAL(titleFontChanged())          , SLOT(titleFontChanged())           );
-    connect( Kaqaz::instance(), SIGNAL(bodyFontChanged())           , SLOT(bodyFontChanged())            );
-    connect( Kaqaz::database(), SIGNAL(revisionChanged(QString,int)), SLOT(revisionChanged(QString,int)) );
-    connect( Kaqaz::database(), SIGNAL(paperChanged(int))           , SLOT(paperChanged(int))            );
+    connect( Papyrus::instance(), SIGNAL(titleFontChanged())          , SLOT(titleFontChanged())           );
+    connect( Papyrus::instance(), SIGNAL(bodyFontChanged())           , SLOT(bodyFontChanged())            );
+    connect( Papyrus::database(), SIGNAL(revisionChanged(QString,int)), SLOT(revisionChanged(QString,int)) );
+    connect( Papyrus::database(), SIGNAL(paperChanged(int))           , SLOT(paperChanged(int))            );
 }
 
 int EditorView::paperId() const
@@ -196,7 +196,7 @@ void EditorView::setPaper(int pid)
     p->signal_blocker = true;
 
     p->paperId = pid;
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     if( !p->paperId )
     {
         p->title->setText(QString());
@@ -215,7 +215,7 @@ void EditorView::setPaper(int pid)
     p->body->setText( db->paperText(pid) );
     p->body->setType( db->paperType(pid) );
     p->group->setGroup( db->paperGroup(pid) );
-    p->date->setText( "<font color=\"#888888\">" + Kaqaz::instance()->calendarConverter()->convertDateTimeToString(db->paperCreatedDate(pid)) + "</font>" );
+    p->date->setText( "<font color=\"#888888\">" + Papyrus::instance()->calendarConverter()->convertDateTimeToString(db->paperCreatedDate(pid)) + "</font>" );
     p->files->setPaper(pid);
     p->synced = (db->revisionOf(db->paperUuid(pid))!=-1);
     p->attach_img = SImage(*paper_clip).colorize(db->groupColor(p->group->group()).rgba());
@@ -230,7 +230,7 @@ void EditorView::save()
     if( p->title->text().isEmpty() && p->body->text().isEmpty() )
         return;
 
-    Database *db = Kaqaz::database();
+    Database *db = Papyrus::database();
     if( p->paperId == 0 )
         p->paperId = db->createPaper();
 
@@ -257,13 +257,13 @@ void EditorView::delayedSave()
 
 void EditorView::titleFontChanged()
 {
-    p->title_font = Kaqaz::instance()->titleFont();
+    p->title_font = Papyrus::instance()->titleFont();
     p->title->setFont(p->title_font);
 }
 
 void EditorView::bodyFontChanged()
 {
-    p->body_font = Kaqaz::instance()->bodyFont();
+    p->body_font = Papyrus::instance()->bodyFont();
     p->body->setViewFont(p->body_font);
 }
 
@@ -272,7 +272,7 @@ void EditorView::revisionChanged(const QString &iid, int revision)
     if( !p->paperId )
         return;
 
-    const QString & uuid = Kaqaz::database()->paperUuid(p->paperId);
+    const QString & uuid = Papyrus::database()->paperUuid(p->paperId);
     if( uuid != iid )
         return;
 
@@ -334,7 +334,7 @@ void EditorView::paintEvent(QPaintEvent *e)
     gradient.setColorAt(0.7, QColor(p->synced?"#50ab99":"#C51313"));
     gradient.setColorAt(0.9, QColor(0,0,0,0));
 
-    if( p->paperId && Kaqaz::instance()->kaqazSync()->tokenAvailable() )
+    if( p->paperId && Papyrus::instance()->papyrusSync()->tokenAvailable() )
         painter.fillRect( sync_rect, gradient );
 
     QImage & clip_img = !p->has_files? *paper_clip_off : p->attach_img;

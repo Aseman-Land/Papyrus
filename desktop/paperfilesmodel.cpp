@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 #include "paperfilesmodel.h"
 #include "database.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 
 #include <QMimeDatabase>
 #include <QIcon>
@@ -78,7 +78,7 @@ QString PaperFilesModel::id(int row) const
 
 QString PaperFilesModel::pathOf(const QModelIndex &idx) const
 {
-    return Kaqaz::instance()->repositoryPath()+"/"+id(idx);
+    return Papyrus::instance()->repositoryPath()+"/"+id(idx);
 }
 
 int PaperFilesModel::indexOf(const QString & pid) const

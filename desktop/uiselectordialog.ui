@@ -86,7 +86,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/ui-classic-scshot.png</pixmap>
+          <pixmap resource="../resource.qrc">:/qml/Papyrus/files/ui-classic-scshot.png</pixmap>
          </property>
         </widget>
        </item>
@@ -128,7 +128,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../resource.qrc">:/qml/Kaqaz/files/ui-touch-scshot.png</pixmap>
+          <pixmap resource="../resource.qrc">:/qml/Papyrus/files/ui-touch-scshot.png</pixmap>
          </property>
         </widget>
        </item>

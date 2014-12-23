@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: kaqaz
-Source: labs.sialan.org/projects/kaqaz
+Upstream-Name: papyrus
+Source: aseman.co/projects/papyrus
 
 Files: *
-Copyright: 2014 Sialan Labs
+Copyright: 2014 Aseman
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2014 Sialan Labs <contact@sialan.org>
+Copyright: 2014 Aseman <contact@aseman.org>
 License: GPL-3.0+
 
 License: GPL-3.0+

@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,8 +17,8 @@
 */
 
 #include "datewidget.h"
-#include "kaqaz.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "papyrus.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -167,7 +167,7 @@ QString DateWidget::timeText() const
 
 QDateTime DateWidget::dateTime() const
 {
-    Kaqaz *kqz = Kaqaz::instance();
+    Papyrus *kqz = Papyrus::instance();
     const QDate & date = kqz->calendarConverter()->convertDateToGragorian( p->year_spin->value(), p->month_spin->value(),
                                                       p->day_spin->value() );
 
@@ -178,7 +178,7 @@ QDateTime DateWidget::dateTime() const
 
 void DateWidget::setDateTime(const QDateTime &dt)
 {
-    Kaqaz *kqz = Kaqaz::instance();
+    Papyrus *kqz = Papyrus::instance();
     const DateProperty & pr = kqz->calendarConverter()->convertDate(dt.date());
 
     int year = kqz->calendarConverter()->currentYear();
@@ -205,7 +205,7 @@ void DateWidget::setDateTime(const QDateTime &dt)
 
 void DateWidget::refresh_days()
 {
-    Kaqaz *kqz = Kaqaz::instance();
+    Papyrus *kqz = Papyrus::instance();
     p->day_spin->setMaximum( kqz->calendarConverter()->daysOfMonth(p->year_spin->value(),p->month_spin->value()) );
 }
 

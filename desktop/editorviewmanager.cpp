@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 #include "editorviewmanager.h"
 #include "editorview.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 #include "paperconfigure.h"
 
@@ -79,7 +79,7 @@ EditorViewManager::EditorViewManager(QWidget *parent) :
     connect( p->tabbar        , SIGNAL(currentChanged(int))   , p->stacked, SLOT(setCurrentIndex(int)) );
     connect( p->tabbar        , SIGNAL(tabCloseRequested(int)), this      , SLOT(close(int))           );
     connect( p->tabbar        , SIGNAL(customContextMenuRequested(QPoint)), SLOT(showTabMenu())        );
-    connect( Kaqaz::database(), SIGNAL(paperChanged(int))     , this      , SLOT(paperChanged(int)) );
+    connect( Papyrus::database(), SIGNAL(paperChanged(int))     , this      , SLOT(paperChanged(int)) );
 }
 
 QTabBar *EditorViewManager::tabBar() const
@@ -101,7 +101,7 @@ void EditorViewManager::addPaper(int pid)
         editor->setPaper(pid);
 
     p->stacked->addWidget(editor);
-    p->tabbar->addTab( pid? Kaqaz::database()->paperTitle(pid) : tr("New Paper") );
+    p->tabbar->addTab( pid? Papyrus::database()->paperTitle(pid) : tr("New Paper") );
     p->tabbar->setCurrentIndex( p->tabbar->count()-1 );
 
     p->tabs << pid;
@@ -187,7 +187,7 @@ void EditorViewManager::paperSaved(int pid)
         return;
 
     p->tabs[idx] = pid;
-    p->tabbar->setTabText( idx, Kaqaz::database()->paperTitle(pid) );
+    p->tabbar->setTabText( idx, Papyrus::database()->paperTitle(pid) );
 }
 
 void EditorViewManager::paperChanged(int pid)
@@ -196,7 +196,7 @@ void EditorViewManager::paperChanged(int pid)
         return;
 
     int idx = p->tabs.indexOf(pid);
-    p->tabbar->setTabText( idx, Kaqaz::database()->paperTitle(pid) );
+    p->tabbar->setTabText( idx, Papyrus::database()->paperTitle(pid) );
 }
 
 void EditorViewManager::resizeEvent(QResizeEvent *e)

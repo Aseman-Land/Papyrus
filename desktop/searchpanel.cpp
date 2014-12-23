@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,11 +17,11 @@
 */
 
 #include "searchpanel.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 #include "datewidget.h"
 #include "categoriesmodel.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QLabel>
 #include <QLineEdit>
@@ -91,7 +91,7 @@ SearchPanel::SearchPanel(QWidget *parent) :
     p->group_label = new QLabel();
     p->group_label->setText( "<font color=\"#ffffff\">" + tr("Label") + "</font>" );
 
-    p->group_model = new CategoriesModel(Kaqaz::database(),this);
+    p->group_model = new CategoriesModel(Papyrus::database(),this);
     p->group_combo = new QComboBox();
     p->group_combo->setModel(p->group_model);
 
@@ -147,7 +147,7 @@ void SearchPanel::refreshResult()
         return;
     }
 
-    QList<int> result = Kaqaz::database()->advanceSearch(kwd, p->date_from.date(), p->date_to.date(),
+    QList<int> result = Papyrus::database()->advanceSearch(kwd, p->date_from.date(), p->date_to.date(),
                                                          p->time_from.time(), p->time_to.time(),
                                                          p->group_combo->currentIndex()? p->group_model->id(p->group_combo->currentIndex()) : -1,
                                                          Enums::AllPapers);
@@ -202,8 +202,8 @@ void SearchPanel::showDateDomain()
     {
         p->date_from = from_date->dateTime();
         p->date_to   = to_date->dateTime();
-        p->date_btn->setText( tr("From: %1").arg(Kaqaz::instance()->calendarConverter()->convertDateTimeToLittleString(p->date_from.date())) + "\n" +
-                              tr("To: %1").arg(Kaqaz::instance()->calendarConverter()->convertDateTimeToLittleString(p->date_to.date())));
+        p->date_btn->setText( tr("From: %1").arg(Papyrus::instance()->calendarConverter()->convertDateTimeToLittleString(p->date_from.date())) + "\n" +
+                              tr("To: %1").arg(Papyrus::instance()->calendarConverter()->convertDateTimeToLittleString(p->date_to.date())));
     }
     if( reset_btn->isChecked() )
     {

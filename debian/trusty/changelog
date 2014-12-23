@@ -1,4 +1,4 @@
-kaqaz (1.2.0trusty1) trusty; urgency=medium
+papyrus (1.2.0trusty1) trusty; urgency=medium
 
   * Optimized for larg tablets (landscape mode)
   * Attach weather and temperature to notes automatically. (pro version)
@@ -6,7 +6,7 @@ kaqaz (1.2.0trusty1) trusty; urgency=medium
   * Move location search to free version.
   * Move password and security features to free version.
   * Move attach documents and audios features to free version.
-  * Add easy translators feature to translate kaqaz to another languages.
+  * Add easy translators feature to translate papyrus to another languages.
   * Search notes with weather and temperature, note wrote. (pro version)
   * Canvas to painting and also paint on attached images. (pro version)
   * Improve on startup loading speed (2x)
@@ -18,58 +18,58 @@ kaqaz (1.2.0trusty1) trusty; urgency=medium
   * Keyboard size bugfix
   * Many other improvments, bugfixes and crash fixes.
 
- -- Sialan Labs <contact@sialan.org>  Tue, 04 Nov 2014 14:08:14 +0330
+ -- Aseman <contact@aseman.org>  Tue, 04 Nov 2014 14:08:14 +0330
 
-kaqaz (1.1.2ubuntu1) trusty; urgency=medium
+papyrus (1.1.2ubuntu1) trusty; urgency=medium
 
   * Back system bugfix and improvment
   * Fix word suggestion on/off button bug
   * Search on papers by user current geo location
   * Update Translations
   * Fix start splash bug
-  * Update sialan tools
+  * Update aseman tools
   * Many other improvments and bugfixes
 
- -- Sialan Labs <contact@sialan.org>  Wed, 15 Oct 2014 23:17:43 +0330
+ -- Aseman <contact@aseman.org>  Wed, 15 Oct 2014 23:17:43 +0330
 
-kaqaz (1.1.1ubuntu6) trusty; urgency=medium
+papyrus (1.1.1ubuntu6) trusty; urgency=medium
 
-  * Move app files to /opt/sialan/kaqaz
+  * Move app files to /opt/aseman/papyrus
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 20:17:02 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 20:17:02 +0330
 
-kaqaz (1.1.1ubuntu5) trusty; urgency=medium
+papyrus (1.1.1ubuntu5) trusty; urgency=medium
 
   * Add Missed positioning and multimedia qt modules to control file.
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 19:04:58 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 19:04:58 +0330
 
-kaqaz (1.1.1ubuntu4) trusty; urgency=medium
+papyrus (1.1.1ubuntu4) trusty; urgency=medium
 
   * Missed qt5-default in control file.
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 18:58:10 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 18:58:10 +0330
 
-kaqaz (1.1.1ubuntu3) trusty; urgency=medium
+papyrus (1.1.1ubuntu3) trusty; urgency=medium
 
   * Bugfix on dh build rule.
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 18:49:33 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 18:49:33 +0330
 
-kaqaz (1.1.1ubuntu2) trusty; urgency=medium
+papyrus (1.1.1ubuntu2) trusty; urgency=medium
 
   * Fix problem on qmake on build system.
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 18:35:30 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 18:35:30 +0330
 
-kaqaz (1.1.1ubuntu1) trusty; urgency=medium
+papyrus (1.1.1ubuntu1) trusty; urgency=medium
 
   * Install location changed to /opt/extras.ubuntu.com
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 18:26:00 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 18:26:00 +0330
 
-kaqaz (1.1.1) trusty; urgency=low
+papyrus (1.1.1) trusty; urgency=low
 
   * Initial Release.
 
- -- Sialan Labs <contact@sialan.org>  Sun, 05 Oct 2014 14:16:45 +0330
+ -- Aseman <contact@aseman.org>  Sun, 05 Oct 2014 14:16:45 +0330

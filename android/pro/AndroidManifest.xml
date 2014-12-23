@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<manifest android:versionCode="17" package="org.sialan.kaqaz" android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2.1">
-    <application android:name="org.sialan.android.SialanApplication" android:label="Kaqaz Pro" android:icon="@drawable/icon">
-        <activity android:name="org.sialan.android.SialanActivity" android:launchMode="singleInstance" android:label="Kaqaz Pro" android:screenOrientation="nosensor" android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
+<manifest android:versionCode="16" package="org.sialan.kaqaz" android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.2.0">
+    <application android:name="org.sialan.android.SialanApplication" android:label="Papyrus Pro" android:icon="@drawable/icon">
+        <activity android:name="org.sialan.android.SialanActivity" android:launchMode="singleInstance" android:label="Papyrus Pro" android:screenOrientation="nosensor" android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|locale|fontScale|keyboard|keyboardHidden|navigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

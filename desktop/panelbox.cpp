@@ -1,6 +1,6 @@
 /*
-    Copyright (C) 2014 Sialan Labs
-    http://labs.sialan.org
+    Copyright (C) 2014 Aseman
+    http://aseman.co
 
     This project is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,11 +19,11 @@
 #include "panelbox.h"
 #include "categoriesmodel.h"
 #include "datesmodel.h"
-#include "kaqaz.h"
+#include "papyrus.h"
 #include "database.h"
 #include "searchpanel.h"
 #include "addgroupdialog.h"
-#include "sialantools/sialancalendarconverter.h"
+#include "asemantools/asemancalendarconverter.h"
 
 #include <QListView>
 #include <QMenu>
@@ -41,15 +41,15 @@ public:
     QListView *dates;
     SearchPanel *search;
 
-    Kaqaz *kaqaz;
+    Papyrus *papyrus;
 };
 
 PanelBox::PanelBox(QWidget *parent) :
     QToolBox(parent)
 {
     p = new PanelBoxPrivate;
-    p->kaqaz = Kaqaz::instance();
-    p->groups_model = new CategoriesModel(Kaqaz::database(), this);
+    p->papyrus = Papyrus::instance();
+    p->groups_model = new CategoriesModel(Papyrus::database(), this);
     p->dates_model = new DatesModel(this);
 
     p->dates = new QListView(this);
@@ -100,13 +100,13 @@ PanelBox::PanelBox(QWidget *parent) :
 void PanelBox::date_selected(const QModelIndex &idx)
 {
     const int days = p->dates_model->id(idx);
-    emit showPaperRequest( p->kaqaz->database()->papersOf(p->kaqaz->calendarConverter()->convertDaysToDate(days)) );
+    emit showPaperRequest( p->papyrus->database()->papersOf(p->papyrus->calendarConverter()->convertDaysToDate(days)) );
 }
 
 void PanelBox::group_selected(const QModelIndex &idx)
 {
     const int gid = p->groups_model->id(idx);
-    emit showPaperRequest( p->kaqaz->database()->papersOf(gid) );
+    emit showPaperRequest( p->papyrus->database()->papersOf(gid) );
 }
 
 void PanelBox::showGroupMenu()
@@ -132,7 +132,7 @@ void PanelBox::showGroupMenu()
     }
     if( res == dlte )
     {
-        Database *db = Kaqaz::database();
+        Database *db = Papyrus::database();
         int del = QMessageBox::warning(this, tr("Delete Label"), tr("Do you realy want to delete \"%1\"?").arg(db->groupName(gid)), QMessageBox::Yes|QMessageBox::No);
         if( del == QMessageBox::Yes )
             db->deleteGroup(gid);

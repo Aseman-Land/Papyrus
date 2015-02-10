@@ -92,7 +92,7 @@ Item {
         anchors.right: more_btn.left
         anchors.margins: 10*Devices.density
         font.pixelSize: 13*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         inputMethodHints: Qt.ImhNoPredictiveText
     }
 
@@ -105,7 +105,7 @@ Item {
         width: 60*Devices.density
         text: more? qsTr("Less") : qsTr("More")
         textFont.pixelSize: 10*Devices.fontDensity
-        textFont.family: AsemanApp.globalFontFamily
+        textFont.family: AsemanApp.globalFont.family
         textColor: press? "#0d80ec" : "#333333"
         highlightColor: "#00000000"
         onClicked: {

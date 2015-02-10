@@ -40,7 +40,7 @@ ListView {
             anchors.verticalCenter: parent.verticalCenter
             text: itemText
             horizontalAlignment: Text.AlignLeft
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.bold: selectedMode == itemMode
             font.pixelSize: 11*Devices.fontDensity
             color: "#333333"

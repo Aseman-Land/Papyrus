@@ -43,7 +43,7 @@ Rectangle {
         Text {
             anchors.left: parent.left
             anchors.top: parent.top
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 9*Devices.fontDensity
             text: latitude + ", " + longitude
         }
@@ -51,7 +51,7 @@ Rectangle {
         Text {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 13*Devices.fontDensity
             text: unknown? qsTr("Unknown point") : qsTr("Loading Map...")
         }

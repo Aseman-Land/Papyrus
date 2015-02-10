@@ -79,7 +79,7 @@ AsemanMain {
     FontLoader{
         id: papyrus_normal_font
         source: papyrus.resourcePath + "/fonts/DroidKaqazSans.ttf"
-        onStatusChanged: if(status == FontLoader.Ready) AsemanApp.globalFontFamily = name
+        onStatusChanged: if(status == FontLoader.Ready) AsemanApp.globalFont.family = name
     }
 
     FontLoader{

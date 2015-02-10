@@ -64,7 +64,7 @@ Item {
                 anchors.margins: 30*Devices.density
                 y: parent.height/2 - height/2
                 font.pixelSize: Devices.isMobile? 11*Devices.fontDensity : 13*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: file_sync.press? "#ffffff" : "#333333"
                 wrapMode: TextInput.WordWrap
                 text: qsTr("Sync files")

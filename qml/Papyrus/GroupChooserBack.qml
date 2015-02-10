@@ -54,7 +54,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         font.bold: Devices.isTablet
         font.pixelSize: Devices.isTouchDevice? (Devices.isMobile? 8*Devices.fontDensity : 9*Devices.fontDensity) : 10*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         color: "#ffffff"
         horizontalAlignment: Text.AlignHCenter
         maximumLineCount: 1

@@ -46,14 +46,14 @@ Item {
         Text {
             id: done_section_text
             font.pixelSize: 20*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             text: tr_model.doneCount + "/"
         }
 
         Text {
             id: count_section_text
             font.pixelSize: 12*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             anchors.bottom: parent.bottom
             text: tr_model.count
         }
@@ -101,7 +101,7 @@ Item {
                     text: originalText
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     font.pixelSize: 14*Devices.fontDensity
-                    font.family: AsemanApp.globalFontFamily
+                    font.family: AsemanApp.globalFont.family
                     textFormat: Text.PlainText
                     color: "#333333"
                 }
@@ -126,7 +126,7 @@ Item {
                         wrapMode: TextInput.WrapAnywhere
                         text: translation
                         font.pixelSize: 11*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         onTextChanged: translation = text
                     }
@@ -209,7 +209,7 @@ Item {
                 Text {
                     anchors.centerIn: parent
                     font.pixelSize: 12*Devices.fontDensity
-                    font.family: AsemanApp.globalFontFamily
+                    font.family: AsemanApp.globalFont.family
                     text: qsTr("Are you sure?")
                     color: "#ffffff"
                 }

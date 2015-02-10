@@ -52,7 +52,7 @@ PaperAbstractButton {
         anchors.horizontalCenter: parent.horizontalCenter
         color: "#333333"
         font.pixelSize: 30*Devices.density
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         font.bold: true
     }
 
@@ -63,7 +63,7 @@ PaperAbstractButton {
         anchors.topMargin: 18*Devices.density
         color: "#ffffff"
         font.pixelSize: 11*Devices.density
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
     }
 
     Text {
@@ -73,7 +73,7 @@ PaperAbstractButton {
         anchors.topMargin: 30*Devices.density
         color: "#333333"
         font.pixelSize: 11*Devices.density
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
     }
 
     Component {

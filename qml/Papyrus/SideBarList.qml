@@ -130,7 +130,7 @@ Rectangle {
                 y: parent.height/2 - height/2
                 text: parent.text
                 font.pixelSize: 9*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 horizontalAlignment: Qt.AlignLeft
                 color: item.press? "#ffffff" : fontColor
             }

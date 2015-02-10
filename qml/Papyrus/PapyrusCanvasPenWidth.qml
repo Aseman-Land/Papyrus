@@ -57,7 +57,7 @@ ListView {
             anchors.verticalCenter: parent.verticalCenter
             text: itemWidth + " " + qsTr("Pixel")
             horizontalAlignment: Text.AlignLeft
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 11*Devices.fontDensity
             font.bold: selectedPen == itemWidth
             color: "#333333"

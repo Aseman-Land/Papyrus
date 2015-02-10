@@ -47,7 +47,7 @@ PaperAbstractButton {
         Text {
             anchors.centerIn: parent
             font.pixelSize: 12*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#ffffff"
             text: qsTr("Share Paper")
         }

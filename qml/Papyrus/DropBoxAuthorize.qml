@@ -79,7 +79,7 @@ Item {
             Text {
                 anchors.horizontalCenter: parent.horizontalCenter
                 font.pixelSize: 20*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: "#007ee5"
                 text: "Dropbox Authorize"
             }
@@ -102,7 +102,7 @@ Item {
             anchors.top: indicator.bottom
             anchors.topMargin: 8*Devices.density
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#555555"
             text: qsTr("Connecting...")
         }

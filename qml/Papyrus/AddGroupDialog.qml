@@ -63,7 +63,7 @@ Item {
             width: parent.width
             font.pixelSize: 14*Devices.fontDensity
             font.bold: Devices.isWindows? false : true
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "white"
             horizontalAlignment: Text.AlignHCenter
             inputMethodHints: globalInputMethodHints

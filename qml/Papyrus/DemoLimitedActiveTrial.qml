@@ -38,7 +38,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             font.pixelSize: 30*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             height: 70*Devices.density
             horizontalAlignment: Text.AlignHCenter
             color: "#333333"
@@ -51,7 +51,7 @@ Item {
             anchors.right: parent.right
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 12*Devices.fontDensity
             color: "#333333"
             text: qsTr("Active Papyrus trial until next use.")

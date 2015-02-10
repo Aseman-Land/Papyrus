@@ -46,7 +46,7 @@ Item {
             anchors.right: parent.right
             anchors.margins: 10*Devices.density
             font.pixelSize: 15*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -66,7 +66,7 @@ Item {
                 anchors.margins: 30*Devices.density
                 y: parent.height/2 - height/2
                 font.pixelSize: Devices.isMobile? 11*Devices.fontDensity : 13*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: marea.pressed? "#ffffff" : "#333333"
                 wrapMode: TextInput.WordWrap
                 text: qsTr("Numeric Password")
@@ -104,7 +104,7 @@ Item {
                 id: pass_placeholder
                 color: "#bbbbbb"
                 font.pixelSize: pass.font.pixelSize
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 y: pass.y
                 anchors.left: pass.left
                 anchors.right: pass.right
@@ -116,7 +116,7 @@ Item {
                 id: pass
                 color: "#333333"
                 font.pixelSize: 11*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 y: pass_frame.height/2-height/2
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -142,7 +142,7 @@ Item {
                 id: pass_repeat_placeholder
                 color: "#bbbbbb"
                 font.pixelSize: pass_repeat.font.pixelSize
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 y: pass_repeat.y
                 anchors.left: pass_repeat.left
                 anchors.right: pass_repeat.right
@@ -154,7 +154,7 @@ Item {
                 id: pass_repeat
                 color: "#333333"
                 font.pixelSize: 11*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 y: pass_repeat_frame.height/2-height/2
                 anchors.left: parent.left
                 anchors.right: parent.right

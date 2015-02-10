@@ -83,7 +83,7 @@ Item {
                 text: paperItem && paperItem.text.length!=0? paperItem.text: qsTr("Untitled Paper")
                 font.pixelSize: Devices.isMobile? 22*Devices.fontDensity : 25*Devices.fontDensity
                 font.weight: Font.Light
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: "#333333"
                 elide: Text.ElideRight
                 wrapMode: Text.WrapAnywhere
@@ -97,7 +97,7 @@ Item {
                 text: paperItem? paperItem.bodyText : ""
                 font.pixelSize: Devices.isMobile? 9*Devices.fontDensity : 10*Devices.fontDensity
                 font.weight: Font.Light
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 maximumLineCount: 2
                 elide: Text.ElideRight

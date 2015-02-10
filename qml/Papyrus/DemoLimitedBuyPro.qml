@@ -38,7 +38,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             font.pixelSize: 30*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             height: 70*Devices.density
             horizontalAlignment: Text.AlignHCenter
             color: "#333333"
@@ -52,7 +52,7 @@ Item {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 12*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
             text: qsTr("Buy papyrus unlimited version")
         }

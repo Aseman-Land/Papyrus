@@ -84,7 +84,7 @@ PaperAbstractButton {
         anchors.bottomMargin: 1*Devices.density
         color: "#ffffff"
         font.pixelSize: 10*Devices.density
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         font.bold: true
     }
 

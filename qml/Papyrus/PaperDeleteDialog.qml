@@ -89,7 +89,7 @@ Item {
             id: cancel_txt
             anchors.centerIn: parent
             text: qsTr("Cancel")
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 15*Devices.fontDensity
             color: "#333333"
         }

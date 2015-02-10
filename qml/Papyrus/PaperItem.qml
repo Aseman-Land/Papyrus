@@ -315,7 +315,7 @@ AnimationItem {
             anchors.left: parent.left
             anchors.right: parent.right
             font.pixelSize: Devices.isLargeTablet? 15*Devices.fontDensity : (Devices.isMobile? 12*Devices.fontDensity : 14*Devices.fontDensity)
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
             selectionColor: "#0d80ec"
             selectedTextColor: "#ffffff"
@@ -355,7 +355,7 @@ AnimationItem {
         anchors.left: parent.left
         anchors.margins: 20+pad + 7*Devices.density
         font.pixelSize: 7*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         color: "#aaaaaa"
     }
 

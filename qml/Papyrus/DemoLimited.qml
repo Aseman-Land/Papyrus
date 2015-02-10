@@ -91,7 +91,7 @@ Item {
             id: troll_text
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 20*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
         }
     }

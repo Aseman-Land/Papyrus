@@ -61,7 +61,7 @@ Item {
                 anchors.right: parent.right
                 anchors.margins: 7*Devices.density
                 font.pixelSize: 7*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: "#aaaaaa"
                 text: CalendarConv.convertDateTimeToString( database.paperCreatedDate(pitem.paperId) )
             }
@@ -75,7 +75,7 @@ Item {
                 anchors.leftMargin: gc_back.x + gc_back.width
                 anchors.rightMargin: gc_back.x + gc_back.width
                 font.pixelSize: 14*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: title.length==0? "#cccccc" : "#333333"
                 text: title.length==0? qsTr("Title") : title
                 horizontalAlignment: Text.AlignHCenter
@@ -92,7 +92,7 @@ Item {
                 anchors.margins: 20*Devices.density
                 anchors.topMargin: 0
                 font.pixelSize: 9*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 wrapMode: Text.Wrap
                 smooth: true
                 color: "#333333"

@@ -36,7 +36,7 @@ PaperAbstractButton {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottomMargin: 3*Devices.density
         font.pixelSize: 30*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         font.bold: true
         color: "#ffffff"
         text: paperTemperature + "°"
@@ -87,7 +87,7 @@ PaperAbstractButton {
                     width: 30*Devices.density
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.margins: 10*Devices.density
-                    font.family: AsemanApp.globalFontFamily
+                    font.family: AsemanApp.globalFont.family
                     font.pixelSize: 20*Devices.fontDensity
                     color: "#333333"
                     text: Math.floor((slider.value-50)*2) + "°"

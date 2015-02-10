@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import QtQuick 2.2
+import QtQuick 2.0
 import AsemanTools 1.0
 
 Rectangle {
@@ -28,7 +28,7 @@ Rectangle {
     smooth: true
 
     property real percent: 0
-    property color topColor: top.color
+    property alias topColor: top.color
 
     Rectangle {
         id: top

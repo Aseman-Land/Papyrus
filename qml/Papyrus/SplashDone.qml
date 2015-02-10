@@ -47,7 +47,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             font.pixelSize: 18*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             color: "#333333"

@@ -60,7 +60,7 @@ Rectangle {
         Text {
             id: swype_p_text
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#0d80ec"
             anchors.top: swype_circle.bottom
             anchors.right: helper.right
@@ -81,7 +81,7 @@ Rectangle {
         Text {
             id: swype_group_text
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#0d80ec"
             anchors.verticalCenter: swype_group.verticalCenter
             anchors.left: swype_group.right
@@ -101,7 +101,7 @@ Rectangle {
         Text {
             id: swype_left_text
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#0d80ec"
             anchors.top: swype_left.bottom
             anchors.horizontalCenter: swype_left.horizontalCenter
@@ -122,7 +122,7 @@ Rectangle {
         Text {
             id: swype_right_text
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#0d80ec"
             anchors.bottom: swype_right.top
             anchors.horizontalCenter: helper.horizontalCenter
@@ -156,7 +156,7 @@ Rectangle {
         Text {
             id: date_p_text
             font.pixelSize: 10*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#0d80ec"
             anchors.top: date_pointer.top
             anchors.left: date_pointer.right

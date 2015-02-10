@@ -77,7 +77,7 @@ Item {
                 anchors.right: parent.right
                 text: qsTr("Country")
                 font.pixelSize: 15*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: "#333333"
             }
 
@@ -105,7 +105,7 @@ Item {
                             y: parent.height/2 - height/2
                             text: name
                             font.pixelSize: Devices.isMobile? 11*Devices.fontDensity : 12*Devices.fontDensity
-                            font.family: AsemanApp.globalFontFamily
+                            font.family: AsemanApp.globalFont.family
                             color: marea.pressed? "#ffffff" : "#333333"
                         }
 
@@ -131,7 +131,7 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 text: qsTr("Language")
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 font.pixelSize: 15*Devices.fontDensity
                 color: "#333333"
             }
@@ -160,7 +160,7 @@ Item {
                             y: parent.height/2 - height/2
                             text: name
                             font.pixelSize: Devices.isMobile? 11*Devices.fontDensity : 12*Devices.fontDensity
-                            font.family: AsemanApp.globalFontFamily
+                            font.family: AsemanApp.globalFont.family
                             color: lmarea.pressed? "#ffffff" : "#333333"
                         }
 
@@ -196,7 +196,7 @@ Item {
         anchors.rightMargin: 20*Devices.density
         anchors.bottomMargin: 2*Devices.density
         font.pixelSize: 10*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         text: "Will save to: " + papyrus.getTempPath() + ".ts" +
               "\nPlease send this file to contact@aseman.org after saved."
     }

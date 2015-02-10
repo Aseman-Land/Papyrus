@@ -34,7 +34,7 @@ Item {
         anchors.bottomMargin: 10*Devices.density
         font.pixelSize: 20*Devices.fontDensity
         horizontalAlignment: Text.AlignHCenter
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         color: "#333333"
     }
 
@@ -70,7 +70,7 @@ Item {
                 y: parent.height/2 - height/2
                 text: parent.text
                 font.pixelSize: 13*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: marea.pressed? "#ffffff" : "#333333"
             }
 

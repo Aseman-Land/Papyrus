@@ -41,7 +41,7 @@ ListView {
             anchors.verticalCenter: parent.verticalCenter
             text: magLevel + "x " + qsTr("Zoom")
             horizontalAlignment: Text.AlignLeft
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 11*Devices.fontDensity
             font.bold: selectedLevel == magLevel
             color: "#333333"

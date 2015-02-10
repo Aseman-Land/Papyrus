@@ -44,7 +44,7 @@ Item {
         anchors.bottomMargin: 20*Devices.density
         text: "slide to next"
         font.pixelSize: 12*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         color: "#333333"
         speed: 1200
         glowWidth: 60*Devices.density

@@ -67,7 +67,7 @@ PaperAbstractButton {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: 10*Devices.density
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 font.pixelSize: 12*Devices.fontDensity
                 color: "#333333"
                 text: qsTr("Please select weather")

@@ -32,7 +32,7 @@ Item {
             id: limit_text
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 30*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
             height: 70*Devices.density
             text: qsTr("TRIAL EXPIRED")
@@ -42,7 +42,7 @@ Item {
             id: choice_text
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 13*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             color: "#333333"
             text: qsTr("Now you have 2 choice")
         }
@@ -52,7 +52,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: scroll_img.top
         font.pixelSize: 9*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         color: "#666666"
         text: qsTr("scroll down")
     }

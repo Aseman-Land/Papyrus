@@ -39,7 +39,7 @@ Item {
         anchors.right: backup_wait.right
         anchors.margins: 20*Devices.density
         font.pixelSize: 15*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         horizontalAlignment: Text.AlignHCenter
         color: "#333333"
     }

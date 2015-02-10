@@ -37,7 +37,7 @@ Rectangle {
     Text {
         anchors.centerIn: parent
         text: qsTr("Put your fingers on screen\nand move them on screen")
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         font.pixelSize: 15*Devices.fontDensity
         font.bold: true
         rotation: -45

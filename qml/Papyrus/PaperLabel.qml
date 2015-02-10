@@ -94,7 +94,7 @@ Item {
         anchors.fill: parent
         anchors.topMargin: 5*Devices.density
         font.pixelSize: Devices.isLargeTablet? 10*Devices.fontDensity : 9*Devices.fontDensity
-        font.family: AsemanApp.globalFontFamily
+        font.family: AsemanApp.globalFont.family
         wrapMode: Text.Wrap
         smooth: true
         selectionColor: "#0d80ec"

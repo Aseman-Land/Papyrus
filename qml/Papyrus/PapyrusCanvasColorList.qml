@@ -53,7 +53,7 @@ ListView {
             anchors.verticalCenter: parent.verticalCenter
             text: itemColor
             horizontalAlignment: Text.AlignLeft
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             font.pixelSize: 11*Devices.fontDensity
             color: "#333333"
         }

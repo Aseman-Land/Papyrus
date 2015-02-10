@@ -55,7 +55,7 @@ Item {
         Text {
             id: delete_warn
             font.pixelSize: 17*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             anchors.margins: 10*Devices.density
             anchors.left: parent.left
             anchors.right: parent.horizontalCenter

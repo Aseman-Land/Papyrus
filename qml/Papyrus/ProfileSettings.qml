@@ -59,7 +59,7 @@ Item {
                 y: parent.height/2 - height/2
                 text: parent.text
                 font.pixelSize: Devices.isMobile? 11*Devices.fontDensity : 13*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: marea.pressed? "#ffffff" : "#333333"
             }
 

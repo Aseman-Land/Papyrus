@@ -33,7 +33,7 @@ Item {
         Text {
             id: delete_warn
             font.pixelSize: 17*Devices.fontDensity
-            font.family: AsemanApp.globalFontFamily
+            font.family: AsemanApp.globalFont.family
             anchors.margins: 10*Devices.density
             anchors.left: parent.left
             anchors.right: parent.horizontalCenter
@@ -134,7 +134,7 @@ Item {
                 y: parent.height/2 - height/2
                 text: parent.text
                 font.pixelSize: 12*Devices.fontDensity
-                font.family: AsemanApp.globalFontFamily
+                font.family: AsemanApp.globalFont.family
                 color: item.press? "#ffffff" : "#333333"
                 horizontalAlignment: Text.AlignLeft
             }

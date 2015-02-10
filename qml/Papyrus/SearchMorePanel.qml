@@ -142,7 +142,7 @@ Item {
                     Text {
                         id: start_date_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.dateIsSet? "<b>From:</b> " + CalendarConv.convertIntToStringDate(CalendarConv.convertDateToDays(more_panel.startDate)) : ""
                     }
@@ -150,7 +150,7 @@ Item {
                     Text {
                         id: end_date_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.dateIsSet? "<b>To:</b> " + CalendarConv.convertIntToStringDate(CalendarConv.convertDateToDays(more_panel.endDate)) : ""
                     }
@@ -180,7 +180,7 @@ Item {
                     Text {
                         id: start_time_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.timeIsSet? "<b>From:</b> " + more_panel.startTime.toLocaleTimeString() : ""
                     }
@@ -188,7 +188,7 @@ Item {
                     Text {
                         id: end_time_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.timeIsSet? "<b>To:</b> " + more_panel.endTime.toLocaleTimeString() : ""
                     }
@@ -215,7 +215,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     x: geo_select_btn.textAlignment==Text.AlignRight? 10*Devices.density : parent.width-width-10*Devices.density
                     font.pixelSize: 8*Devices.fontDensity
-                    font.family: AsemanApp.globalFontFamily
+                    font.family: AsemanApp.globalFont.family
                     color: "#333333"
                     text: more_panel.geo? littleNum(more_panel.geo.y) + ", " + littleNum(more_panel.geo.x) + "  " +
                                           littleNum(more_panel.geo.width) + "x" + littleNum(more_panel.geo.height) : ""
@@ -250,7 +250,7 @@ Item {
                     Text {
                         id: weather_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.weather
                     }
@@ -280,7 +280,7 @@ Item {
                     Text {
                         id: group_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.selectedGid!=-1? database.groupName(more_panel.selectedGid) : ""
                     }
@@ -310,7 +310,7 @@ Item {
                     Text {
                         id: paper_type_text
                         font.pixelSize: 8*Devices.fontDensity
-                        font.family: AsemanApp.globalFontFamily
+                        font.family: AsemanApp.globalFont.family
                         color: "#333333"
                         text: more_panel.domainSelectedText
                     }

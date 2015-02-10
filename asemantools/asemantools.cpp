@@ -28,6 +28,8 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QStringList>
+#include <QProcess>
+#include <QUuid>
 
 QString aseman_tools_numtranslate_0 = "0";
 QString aseman_tools_numtranslate_1 = "1";
@@ -119,6 +121,11 @@ qreal AsemanTools::colorSaturation(const QColor &clr)
     return clr.saturation()/255.0;
 }
 
+void AsemanTools::mkDir(const QString &dir)
+{
+    QDir().mkpath(dir);
+}
+
 QVariantMap AsemanTools::colorHsl(const QColor &clr)
 {
     QVariantMap res;
@@ -127,6 +134,38 @@ QVariantMap AsemanTools::colorHsl(const QColor &clr)
     res["saturation"] = colorSaturation(clr);
 
     return res;
+}
+
+bool AsemanTools::createVideoThumbnail(const QString &video, const QString &output, QString ffmpegPath)
+{
+    if(ffmpegPath.isEmpty())
+#ifndef Q_OS_WIN
+        ffmpegPath = "ffmpeg";
+#else
+        ffmpegPath = "ffmpeg.exe";
+#endif
+
+    QStringList args;
+    args << "-itsoffset";
+    args << "-4";
+    args << "-i";
+    args << video;
+    args << "-vcodec";
+    args << "mjpeg";
+    args << "-vframes";
+    args << "1";
+    args << "-an";
+    args << "-f";
+    args << "rawvideo";
+    args << output;
+    args << "-y";
+
+    QProcess prc;
+    prc.start(ffmpegPath, args);
+    prc.waitForStarted();
+    prc.waitForFinished();
+
+    return prc.exitCode() == 0;
 }
 
 QString AsemanTools::translateNumbers(QString input)
@@ -150,6 +189,11 @@ QString AsemanTools::passToMd5(const QString &pass)
         return QString();
 
     return QCryptographicHash::hash( pass.toUtf8(), QCryptographicHash::Md5 ).toHex();
+}
+
+QString AsemanTools::createUuid()
+{
+    return QUuid::createUuid().toString();
 }
 
 void AsemanTools::copyDirectory(const QString &src, const QString &dst)

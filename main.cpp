@@ -20,6 +20,7 @@
 #include "papyrus.h"
 #include "resourcemanager.h"
 #include "asemantools/asemanapplication.h"
+#include "asemantools/asemantools.h"
 
 #ifdef DESKTOP_DEVICE
 #include "desktop/uiselectordialog.h"
@@ -29,6 +30,35 @@
 #include <QIcon>
 #include <QSettings>
 #include <QDebug>
+#include <QDir>
+
+#ifdef Q_OS_ANDROID
+#define SIALAN_KAQAZ_HOME_PATH QDir::homePath().replace("land.aseman","org.sialan").replace("papyrus","kaqaz").replace("aseman","sialan")
+#else
+#ifdef Q_OS_IOS
+#define SIALAN_KAQAZ_HOME_PATH QDir::homePath().replace("land.aseman","org.sialan").replace("papyrus","kaqaz").replace("aseman","sialan")
+#else
+#ifdef Q_OS_WIN
+#define SIALAN_KAQAZ_HOME_PATH QDir::homePath() + "/AppData/Local/sialan/kaqaz"
+#else
+#ifdef Q_OS_UBUNTUTOUCH
+#define SIALAN_KAQAZ_HOME_PATH QDir::homePath() + "/.config/org.sialan.kaqaz"
+#else
+#define SIALAN_KAQAZ_HOME_PATH QDir::homePath() + "/.config/sialan/kaqaz"
+#endif
+#endif
+#endif
+#endif
+
+#ifdef Q_OS_ANDROID
+#define SIALAN_KAQAZ_BACKUP_PATH "/sdcard/Sialan/Kaqaz/backups/"
+#else
+#ifdef Q_OS_IOS
+#define SIALAN_KAQAZ_BACKUP_PATH QDir::homePath() + "/backups/"
+#else
+#define SIALAN_KAQAZ_BACKUP_PATH SIALAN_KAQAZ_HOME_PATH + "/backups/"
+#endif
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +68,19 @@ int main(int argc, char *argv[])
     app.setOrganizationDomain("land.aseman");
     app.setOrganizationName("Aseman");
     app.setWindowIcon(QIcon(app.applicationDirPath()+"/qml/Papyrus/files/papyrus.png"));
+
+    // Kaqaz compability
+    const QString &homePath = AsemanApplication::homePath();
+    if(!QFileInfo::exists(homePath) && QFileInfo::exists(SIALAN_KAQAZ_HOME_PATH))
+        AsemanTools::copyDirectory(SIALAN_KAQAZ_HOME_PATH, homePath);
+#ifdef Q_OS_ANDROID
+    else
+    if(!QFileInfo::exists(homePath) && QFileInfo::exists(QString(SIALAN_KAQAZ_HOME_PATH).replace("sialan.kaqaz","sialan.kaqaz.free")) )
+        AsemanTools::copyDirectory(QString(SIALAN_KAQAZ_HOME_PATH).replace("sialan.kaqaz","sialan.kaqaz.free"), homePath);
+#endif
+    const QString &backupPath = AsemanApplication::backupsPath();
+    if(!QFileInfo::exists(backupPath) && QFileInfo::exists(SIALAN_KAQAZ_BACKUP_PATH))
+        AsemanTools::copyDirectory(SIALAN_KAQAZ_BACKUP_PATH, backupPath);
 
 #ifdef DESKTOP_DEVICE
     if( app.isRunning() )

@@ -27,7 +27,7 @@
 
 #define DATA_DB_CONNECTION "data_sqlite"
 
-#define PAPYRUS_VERSION "1.2.0"
+#define PAPYRUS_VERSION "1.0.0"
 
 #define DEMO_PAPERS_LIMIT 20
 

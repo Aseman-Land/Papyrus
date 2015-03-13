@@ -99,12 +99,12 @@ Rectangle {
     }
 
     Connections {
-        target: papyrus
+        target: AsemanApp
         onBackRequest: BackHandler.back()
     }
 
     Connections {
-        target: AsemanApp
+        target: papyrus
         onBackRequest: {
             var res = BackHandler.back()
             if( !res && !Devices.isDesktop )

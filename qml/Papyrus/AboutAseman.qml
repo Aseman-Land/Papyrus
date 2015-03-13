@@ -25,5 +25,7 @@ Item {
 
     AsemanAbout {
         anchors.fill: parent
+        anchors.topMargin: -View.statusBarHeight
+        anchors.bottomMargin: -View.navigationBarHeight
     }
 }

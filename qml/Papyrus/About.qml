@@ -98,7 +98,7 @@ Item {
         height: 42*Devices.density
         normalColor: "#4098bf"
         highlightColor: "#337fa2"
-        onClicked: Qt.openUrlExternally("http://papyrus.org/")
+        onClicked: Qt.openUrlExternally("http://aseman.co/papyrus")
     }
 
     Connections{

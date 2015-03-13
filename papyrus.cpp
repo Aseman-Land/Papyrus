@@ -431,7 +431,6 @@ QString Papyrus::version()
 {
     return PAPYRUS_VERSION
 #ifndef FREE_BUILD
-            " pro"
 #else
 #ifdef TRIAL_BUILD
             " trial"
@@ -695,13 +694,21 @@ QString Papyrus::resourcePath()
 
 QStringList Papyrus::findBackups()
 {
-    QString path = BACKUP_PATH;
+    QString papyrus_path = BACKUP_PATH;
 
-    QStringList files = QDir(path).entryList( QStringList() << "*.kqz", QDir::Files, QDir::Size );
+    QStringList result;
+    QStringList files = QDir(papyrus_path).entryList( QStringList() << "*.pprs", QDir::Files, QDir::Size );
     for( int i=0; i<files.count(); i++ )
-        files[i] = path + "/" + files[i];
+        result << papyrus_path + "/" + files[i];
 
-    return files;
+//#ifdef Q_OS_ANDROID
+//    QString kaqaz_path = "/sdcard/Sialan/Kaqaz/backups";
+//    files = QDir(kaqaz_path).entryList( QStringList() << "*.kqz", QDir::Files, QDir::Size );
+//    for( int i=0; i<files.count(); i++ )
+//        result << papyrus_path + "/" + files[i];
+//#endif
+
+    return result;
 }
 
 void Papyrus::disconnectAllResources()

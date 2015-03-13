@@ -6,7 +6,7 @@
     <message>
         <location filename="../qml/Papyrus/About.qml" line="110"/>
         <source>Papyrus</source>
-        <translation>کاغذ</translation>
+        <translation>پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/About.qml" line="112"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../qml/Papyrus/About.qml" line="114"/>
         <source>About</source>
-        <translation>درباره‌ی کاغذ</translation>
+        <translation>درباره‌ی پاپیروس</translation>
     </message>
 </context>
 <context>
@@ -38,13 +38,13 @@
     <message>
         <location filename="../desktop/aboutdialog.ui" line="26"/>
         <source>About</source>
-        <translation>درباره‌ی کاغذ</translation>
+        <translation>درباره‌ی پاپیروس</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="55"/>
         <location filename="../desktop/aboutdialog.ui" line="167"/>
         <source>Papyrus</source>
-        <translation>کاغذ</translation>
+        <translation>پاپیروس</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="177"/>
@@ -559,12 +559,12 @@
     <message>
         <location filename="../qml/Papyrus/DemoLimitedActiveTrial.qml" line="45"/>
         <source>ACTIVE PAPYRUS</source>
-        <translation>فعال سازی کاغذ</translation>
+        <translation>فعال سازی پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/DemoLimitedActiveTrial.qml" line="57"/>
         <source>Active Papyrus trial until next use.</source>
-        <translation>فعال سازی کاغذ تا اجرای بعدی.</translation>
+        <translation>فعال سازی پاپیروس تا اجرای بعدی.</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/DemoLimitedActiveTrial.qml" line="71"/>
@@ -577,12 +577,12 @@
     <message>
         <location filename="../qml/Papyrus/DemoLimitedBuyPro.qml" line="45"/>
         <source>BUY PAPYRUS</source>
-        <translation>خرید کاغذ</translation>
+        <translation>خرید پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/DemoLimitedBuyPro.qml" line="57"/>
         <source>Buy papyrus unlimited version</source>
-        <translation>خرید نسخه ی بدون محدودیت کاغذ</translation>
+        <translation>خرید نسخه ی بدون محدودیت پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/DemoLimitedBuyPro.qml" line="71"/>
@@ -668,12 +668,12 @@
     <message>
         <location filename="../desktop/editorviewmanager.cpp" line="56"/>
         <source>Main Paper</source>
-        <translation>کاغذ اصلی</translation>
+        <translation>پاپیروس اصلی</translation>
     </message>
     <message>
         <location filename="../desktop/editorviewmanager.cpp" line="104"/>
         <source>New Paper</source>
-        <translation>کاغذ جدید</translation>
+        <translation>پاپیروس جدید</translation>
     </message>
     <message>
         <location filename="../desktop/editorviewmanager.cpp" line="160"/>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../qml/Papyrus/GeneralSettings.qml" line="100"/>
         <source>All papers item</source>
-        <translation>نمایش کلید همه‌ی کاغذها</translation>
+        <translation>نمایش کلید همه‌ی پاپیروسها</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/GeneralSettings.qml" line="101"/>
@@ -734,7 +734,7 @@
     <message>
         <location filename="../qml/Papyrus/GeneralSettings.qml" line="109"/>
         <source>Groups count</source>
-        <translation>نمایش تعداد کاغذهای گروه‌ها</translation>
+        <translation>نمایش تعداد پاپیروسهای گروه‌ها</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/GeneralSettings.qml" line="110"/>
@@ -829,19 +829,19 @@
         <source>Put your finger here and
 swipe left to next paper.</source>
         <translation>انگشتتان را اینجا قرار دهید و با
-حرکت آن به چپ به کاغذ بعدی بروید .</translation>
+حرکت آن به چپ به پاپیروس بعدی بروید .</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Helper.qml" line="196"/>
         <source>Put your finger here and
 swipe right to previous paper.</source>
         <translation>انگشتتان را اینجا قرار دهید و با
-حرکت آن به راست به کاغذ قبلی بروید .</translation>
+حرکت آن به راست به پاپیروس قبلی بروید .</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Helper.qml" line="195"/>
         <source>Paper create date and time.</source>
-        <translation>تاریخ ساخته شدن کاغذ .</translation>
+        <translation>تاریخ ساخته شدن پاپیروس .</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Helper.qml" line="198"/>
@@ -1033,7 +1033,7 @@ and move them on screen</source>
         <location filename="../desktop/papyrusdesktop.cpp" line="152"/>
         <location filename="../desktop/papyrusdesktop.cpp" line="165"/>
         <source>Add Paper</source>
-        <translation>کاغذ جدید</translation>
+        <translation>پاپیروس جدید</translation>
     </message>
     <message>
         <location filename="../desktop/papyrusdesktop.cpp" line="153"/>
@@ -1058,12 +1058,12 @@ and move them on screen</source>
     <message>
         <location filename="../desktop/papyrusdesktop.cpp" line="157"/>
         <source>About</source>
-        <translation>درباره‌ی کاغذ</translation>
+        <translation>درباره‌ی پاپیروس</translation>
     </message>
     <message>
         <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
         <source>Papyrus security</source>
-        <translation>امنیت کاغذ</translation>
+        <translation>امنیت پاپیروس</translation>
     </message>
     <message>
         <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
@@ -1314,7 +1314,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/PaperDeleteButton.qml" line="41"/>
         <source>Delete Paper</source>
-        <translation>پاک کردن این کاغذ</translation>
+        <translation>پاک کردن این پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/PaperDeleteButton.qml" line="60"/>
@@ -1352,7 +1352,7 @@ and move them on screen</source>
     </message>
     <message>
         <source>Paper Type</source>
-        <translation>نوع کاغذ</translation>
+        <translation>نوع پاپیروس</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -1380,7 +1380,7 @@ and move them on screen</source>
     </message>
     <message>
         <source>Delete Paper</source>
-        <translation>پاک کردن این کاغذ</translation>
+        <translation>پاک کردن این پاپیروس</translation>
     </message>
 </context>
 <context>
@@ -1578,7 +1578,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/Preference.qml" line="113"/>
         <source>About Papyrus</source>
-        <translation>درباره‌ی کاغذ</translation>
+        <translation>درباره‌ی پاپیروس</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Preference.qml" line="104"/>
@@ -1996,7 +1996,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/SearchMorePanel.qml" line="300"/>
         <source>Paper Type</source>
-        <translation>نوع کاغذ</translation>
+        <translation>نوع پاپیروس</translation>
     </message>
 </context>
 <context>
@@ -2056,22 +2056,22 @@ and move them on screen</source>
     <message>
         <location filename="../desktop/searchpanel.cpp" line="99"/>
         <source>Paper Type</source>
-        <translation>نوع کاغذ</translation>
+        <translation>نوع پاپیروس</translation>
     </message>
     <message>
         <location filename="../desktop/searchpanel.cpp" line="102"/>
         <source>All Papers</source>
-        <translation>تمامی کاغذها</translation>
+        <translation>تمامی پاپیروسها</translation>
     </message>
     <message>
         <location filename="../desktop/searchpanel.cpp" line="103"/>
         <source>Normal Papers</source>
-        <translation>کاغذ معمولی</translation>
+        <translation>پاپیروس معمولی</translation>
     </message>
     <message>
         <location filename="../desktop/searchpanel.cpp" line="104"/>
         <source>To-Do Papers</source>
-        <translation>کاغذ لیستی</translation>
+        <translation>پاپیروس لیستی</translation>
     </message>
     <message>
         <location filename="../desktop/searchpanel.cpp" line="105"/>
@@ -2121,12 +2121,12 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/SearchPaperTypeDomain.qml" line="48"/>
         <source>Normal Papers</source>
-        <translation>کاغذ معمولی</translation>
+        <translation>پاپیروس معمولی</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/SearchPaperTypeDomain.qml" line="64"/>
         <source>To-Do Papers</source>
-        <translation>کاغذ لیستی</translation>
+        <translation>پاپیروس لیستی</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/SearchPaperTypeDomain.qml" line="80"/>
@@ -2167,7 +2167,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/Security.qml" line="217"/>
         <source>You can set password from here for Papyrus start up.</source>
-        <translation>شما می‌توانید از اینجا برای کاغذ کلمه‌ی عبور تایین کنید.</translation>
+        <translation>شما می‌توانید از اینجا برای پاپیروس کلمه‌ی عبور تایین کنید.</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Security.qml" line="218"/>
@@ -2304,12 +2304,12 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/SideBarList.qml" line="188"/>
         <source>Clean Papers</source>
-        <translation>کاغذ سفید</translation>
+        <translation>پاپیروس سفید</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/SideBarList.qml" line="190"/>
         <source>All Papers</source>
-        <translation>تمامی کاغذها</translation>
+        <translation>تمامی پاپیروسها</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/SideBarList.qml" line="191"/>
@@ -2363,7 +2363,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/StartSplash.qml" line="60"/>
         <source>It&apos;s easy to add notes to Papyrus!</source>
-        <translation>اضافه کردن یادداشت به کاغذ بسیار آسان است!</translation>
+        <translation>اضافه کردن یادداشت به پاپیروس بسیار آسان است!</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/StartSplash.qml" line="63"/>
@@ -2388,12 +2388,12 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/StartSplash.qml" line="78"/>
         <source>Manage and View your notes here</source>
-        <translation>کاغذهای خود را از اینجا مدیریت کنید</translation>
+        <translation>پاپیروسهای خود را از اینجا مدیریت کنید</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/StartSplash.qml" line="82"/>
         <source>Sync your notes between devices</source>
-        <translation>کاغذهای خود را بین دستگاه های خود همگام سازی کنید</translation>
+        <translation>پاپیروسهای خود را بین دستگاه های خود همگام سازی کنید</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/StartSplash.qml" line="199"/>
@@ -2411,7 +2411,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/StateDialog.qml" line="76"/>
         <source>You have %1 Papers</source>
-        <translation>شما %1 عدد کاغذ دارید</translation>
+        <translation>شما %1 عدد پاپیروس دارید</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/StateDialog.qml" line="77"/>
@@ -2554,10 +2554,10 @@ and move them on screen</source>
 Papyrus is coming soon for smart phones.
 
 Signup below to know when Papyrus is available for smart phones!</source>
-        <translation>این نسخه از کاغذ با موبایل‌ها سازگار نیست.
-کاغذ نسخه‌ی مخصوص موبایل به زودی منتشر میشه.
+        <translation>این نسخه از پاپیروس با موبایل‌ها سازگار نیست.
+پاپیروس نسخه‌ی مخصوص موبایل به زودی منتشر میشه.
 
-اگر دوست داری موقعی که نسخه‌ی مخصوص موبایل کاغذ منتشر شد مطلع بشی، به کمک فورم زیر ثبت‌نام کن!</translation>
+اگر دوست داری موقعی که نسخه‌ی مخصوص موبایل پاپیروس منتشر شد مطلع بشی، به کمک فورم زیر ثبت‌نام کن!</translation>
     </message>
     <message>
         <source>Enter Your Email Address:</source>

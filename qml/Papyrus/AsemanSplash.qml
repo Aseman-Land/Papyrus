@@ -30,7 +30,7 @@ Item {
 
         Image {
             width: 200*Devices.density
-            height: 142
+            height: 142*Devices.density
             sourceSize: Qt.size(width,height)
             source: "files/aseman.png"
             fillMode: Image.PreserveAspectFit

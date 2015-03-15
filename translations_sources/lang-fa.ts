@@ -11,7 +11,7 @@
     <message>
         <location filename="../qml/Papyrus/About.qml" line="112"/>
         <source>(C) 2014 Aseman</source>
-        <translation>گروه تحقیقاتی سیالان - ۱۳۹۳</translation>
+        <translation>گروه آسمان - ۱۳۹۳</translation>
     </message>
     <message>
         <source>Based on</source>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../desktop/aboutdialog.ui" line="197"/>
         <source>(C) 2014 Aseman</source>
-        <translation>گروه تحقیقاتی سیالان - ۱۳۹۳</translation>
+        <translation>گروه آسمان - ۱۳۹۳</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="220"/>
@@ -69,7 +69,7 @@
     <message>
         <location filename="../desktop/aboutdialog.ui" line="250"/>
         <source>Aseman</source>
-        <translation>سیالان</translation>
+        <translation>آسمان</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="381"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../qml/Papyrus/AboutAseman.qml" line="103"/>
         <source>Check Aseman website</source>
-        <translation>وب سایت سیالان</translation>
+        <translation>وب سایت آسمان</translation>
     </message>
 </context>
 <context>
@@ -1558,7 +1558,7 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/Preference.qml" line="114"/>
         <source>About Aseman</source>
-        <translation>درباره سیالان</translation>
+        <translation>درباره آسمان</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Preference.qml" line="117"/>

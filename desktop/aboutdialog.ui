@@ -48,7 +48,7 @@
      </property>
      <widget class="QWidget" name="kaqaz_wgt">
       <attribute name="icon">
-       <iconset resource="../resource.qrc">
+       <iconset>
         <normaloff>:/qml/Papyrus/files/kaqaz.png</normaloff>:/qml/Papyrus/files/kaqaz.png</iconset>
       </attribute>
       <attribute name="title">
@@ -134,7 +134,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/kaqaz.png</pixmap>
+              <pixmap>:/qml/Papyrus/files/kaqaz.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -194,7 +194,7 @@
          <item>
           <widget class="QLabel" name="copyright_lbl">
            <property name="text">
-            <string>(C) 2014 Sialan Labs</string>
+            <string>(C) 2015 Aseman</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -217,7 +217,7 @@
          <item>
           <widget class="QLabel" name="label_5">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://kaqaz.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;kaqaz.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co/papyrus&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co/papyrus&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="openExternalLinks">
             <bool>true</bool>
@@ -244,10 +244,10 @@
      <widget class="QWidget" name="sialan_wgt">
       <attribute name="icon">
        <iconset resource="../resource.qrc">
-        <normaloff>:/qml/Papyrus/files/sialan.png</normaloff>:/qml/Papyrus/files/sialan.png</iconset>
+        <normaloff>:/qml/Papyrus/files/aseman.png</normaloff>:/qml/Papyrus/files/aseman.png</iconset>
       </attribute>
       <attribute name="title">
-       <string>Sialan</string>
+       <string>Aseman</string>
       </attribute>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
@@ -327,13 +327,13 @@
             <widget class="QLabel" name="label_2">
              <property name="minimumSize">
               <size>
-               <width>128</width>
+               <width>180</width>
                <height>128</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
-               <width>128</width>
+               <width>180</width>
                <height>128</height>
               </size>
              </property>
@@ -341,7 +341,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/sialan.png</pixmap>
+              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/aseman.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -364,31 +364,9 @@
           </layout>
          </item>
          <item>
-          <widget class="QLabel" name="label_4">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>42</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <family>Droid Kaqaz Sans</family>
-             <pointsize>25</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>SIALAN LABS</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QLabel" name="label_7">
            <property name="text">
-            <string>Sialan Labs is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. </string>
+            <string>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. </string>
            </property>
            <property name="alignment">
             <set>Qt::AlignJustify|Qt::AlignVCenter</set>
@@ -414,7 +392,7 @@
          <item>
           <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://labs.sialan.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;labs.sialan.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="openExternalLinks">
             <bool>true</bool>
@@ -438,108 +416,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="donate_wgt">
-      <attribute name="icon">
-       <iconset resource="../resource.qrc">
-        <normaloff>:/qml/Papyrus/files/done.png</normaloff>:/qml/Papyrus/files/done.png</iconset>
-      </attribute>
-      <attribute name="title">
-       <string>Donate</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>87</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <property name="spacing">
-          <number>6</number>
-         </property>
-         <item>
-          <spacer name="verticalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="minimumSize">
-            <size>
-             <width>164</width>
-             <height>164</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>164</width>
-             <height>164</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="../resource.qrc">:/qml/Papyrus/files/buy-troll.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="donate_btn">
-           <property name="text">
-            <string>Donate Us</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="verticalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>87</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </item>
   </layout>
@@ -547,24 +423,7 @@
  <resources>
   <include location="../resource.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>donate_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>AboutDialog</receiver>
-   <slot>donateUs()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>299</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>donateUs()</slot>
  </slots>

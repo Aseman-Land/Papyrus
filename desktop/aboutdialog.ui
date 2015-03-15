@@ -44,12 +44,12 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="kaqaz_wgt">
       <attribute name="icon">
-       <iconset>
-        <normaloff>:/qml/Papyrus/files/kaqaz.png</normaloff>:/qml/Papyrus/files/kaqaz.png</iconset>
+       <iconset resource="../resource.qrc">
+        <normaloff>:/qml/Papyrus/files/papyrus.png</normaloff>:/qml/Papyrus/files/papyrus.png</iconset>
       </attribute>
       <attribute name="title">
        <string>Papyrus</string>
@@ -134,7 +134,7 @@
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/qml/Papyrus/files/kaqaz.png</pixmap>
+              <pixmap resource="../resource.qrc">:/qml/Papyrus/files/papyrus.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>

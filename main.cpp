@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     app.setApplicationDisplayName("Papyrus");
     app.setOrganizationDomain("land.aseman");
     app.setOrganizationName("Aseman");
-    app.setWindowIcon(QIcon(app.applicationDirPath()+"/qml/Papyrus/files/papyrus.png"));
+    app.setWindowIcon(QIcon(":/qml/Papyrus/files/papyrus.png"));
 
     // Kaqaz compability
     const QString &homePath = AsemanApplication::homePath();

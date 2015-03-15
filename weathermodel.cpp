@@ -238,12 +238,12 @@ void WeatherModel::start()
 
 void WeatherModel::stop()
 {
-    foreach( QNetworkReply *rply, d->replies )
-    {
-        rply->abort();
-        rply->close();
-        delete rply;
-    }
+//    foreach( QNetworkReply *rply, d->replies )
+//    {
+//        rply->abort();
+//        rply->close();
+//        delete rply;
+//    }
 
     d->replies.clear();
     if( d->nam )

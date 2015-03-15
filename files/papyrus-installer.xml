@@ -1,12 +1,12 @@
 <project>
-    <shortName>kaqaz</shortName>
-    <fullName>Kaqaz</fullName>
-    <version>1.2.0</version>
+    <shortName>papyrus</shortName>
+    <fullName>Papyrus</fullName>
+    <version>1.0.0</version>
     <licenseFile>../LICENSE</licenseFile>
     <htmlLicenseFile>../LICENSE.html</htmlLicenseFile>
     <leftImage>installer/logo.png</leftImage>
-    <logoImage>installer/kaqaz.png</logoImage>
-    <splashImage>icons/kaqaz.png</splashImage>
+    <logoImage>installer/papyrus.png</logoImage>
+    <splashImage>icons/papyrus.png</splashImage>
     <componentList>
         <component>
             <name>default</name>
@@ -16,32 +16,32 @@
             <show>1</show>
             <desktopShortcutList>
                 <shortcut>
-                    <comment>Kaqaz note manager</comment>
-                    <exec>${installdir}/kaqaz/run</exec>
-                    <icon>${installdir}/kaqaz/icons/kaqaz.png</icon>
-                    <name>Kaqaz</name>
-                    <path>${installdir}/kaqaz/</path>
+                    <comment>Papyrus note manager</comment>
+                    <exec>${installdir}/papyrus/run</exec>
+                    <icon>${installdir}/papyrus/icons/papyrus.png</icon>
+                    <name>Papyrus</name>
+                    <path>${installdir}/papyrus/</path>
                     <platforms>all</platforms>
                     <runAsAdmin>0</runAsAdmin>
                     <runInTerminal>0</runInTerminal>
-                    <windowsExec>${installdir}/Kaqaz/Kaqaz.exe</windowsExec>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
                     <windowsExecArgs></windowsExecArgs>
-                    <windowsIcon>${installdir}/Kaqaz/icons/kaqaz.ico</windowsIcon>
-                    <windowsPath>${installdir}/Kaqaz/</windowsPath>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
                 </shortcut>
                 <shortcut>
-                    <comment>Kaqaz Note Manager</comment>
-                    <exec>${installdir}/kaqaz/run --touch</exec>
-                    <icon>${installdir}/kaqaz/icons/kaqaz.png</icon>
-                    <name>Kaqaz Touch</name>
-                    <path>${installdir}/kaqaz/</path>
+                    <comment>Papyrus Note Manager</comment>
+                    <exec>${installdir}/papyrus/run --touch</exec>
+                    <icon>${installdir}/papyrus/icons/papyrus.png</icon>
+                    <name>Papyrus Touch</name>
+                    <path>${installdir}/papyrus/</path>
                     <platforms>all</platforms>
                     <runAsAdmin>0</runAsAdmin>
                     <runInTerminal>0</runInTerminal>
-                    <windowsExec>${installdir}/Kaqaz/Kaqaz.exe</windowsExec>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
                     <windowsExecArgs>--touch</windowsExecArgs>
-                    <windowsIcon>${installdir}/Kaqaz/icons/kaqaz.ico</windowsIcon>
-                    <windowsPath>${installdir}/Kaqaz/</windowsPath>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
                 </shortcut>
             </desktopShortcutList>
             <folderList>
@@ -74,7 +74,7 @@
                     <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../Releases/Kaqaz/Linux/32/kaqaz</origin>
+                            <origin>../../../../Releases/Papyrus/Linux/32/papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -85,7 +85,7 @@
                     <platforms>windows</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../Releases/Kaqaz/Windows/Kaqaz</origin>
+                            <origin>../../../../Releases/Papyrus/Windows/Papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -102,7 +102,7 @@
                     <platforms>linux-x64</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../Releases/Kaqaz/Linux/64/kaqaz</origin>
+                            <origin>../../../../Releases/Papyrus/Linux/64/papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -119,24 +119,24 @@
                     <windowsPath>${installdir}/</windowsPath>
                 </startMenuShortcut>
                 <startMenuShortcut>
-                    <comment>Kaqaz Note Manager</comment>
-                    <name>Kaqaz</name>
+                    <comment>Papyrus Note Manager</comment>
+                    <name>Papyrus</name>
                     <runAsAdmin>0</runAsAdmin>
                     <runInTerminal>0</runInTerminal>
-                    <windowsExec>${installdir}/Kaqaz/Kaqaz.exe</windowsExec>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
                     <windowsExecArgs></windowsExecArgs>
-                    <windowsIcon>${installdir}/Kaqaz/icons/kaqaz.ico</windowsIcon>
-                    <windowsPath>${installdir}/Kaqaz/</windowsPath>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
                 </startMenuShortcut>
                 <startMenuShortcut>
-                    <comment>Kaqaz Note Manager</comment>
-                    <name>Kaqaz Touch</name>
+                    <comment>Papyrus Note Manager</comment>
+                    <name>Papyrus Touch</name>
                     <runAsAdmin>0</runAsAdmin>
                     <runInTerminal>0</runInTerminal>
-                    <windowsExec>${installdir}/Kaqaz/Kaqaz.exe</windowsExec>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
                     <windowsExecArgs>--touch</windowsExecArgs>
-                    <windowsIcon>${installdir}/Kaqaz/icons/kaqaz.ico</windowsIcon>
-                    <windowsPath>${installdir}/Kaqaz/</windowsPath>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
                 </startMenuShortcut>
             </startMenuShortcutList>
         </component>
@@ -148,15 +148,15 @@
     <height>400</height>
     <licenseFileEncoding>utf-8</licenseFileEncoding>
     <saveRelativePaths>1</saveRelativePaths>
-    <vendor>Sialan Labs</vendor>
+    <vendor>Aseman Team</vendor>
     <width>600</width>
-    <windowsExecutableIcon>icons/kaqaz.ico</windowsExecutableIcon>
+    <windowsExecutableIcon>icons/papyrus.ico</windowsExecutableIcon>
     <parameterList>
         <directoryParameter>
             <name>installdir</name>
             <description>Installer.Parameter.installdir.description</description>
             <explanation>Installer.Parameter.installdir.explanation</explanation>
-            <value>${platform_install_prefix}/Sialan/${product_shortname}-${product_version}</value>
+            <value>${platform_install_prefix}/Aseman/${product_shortname}-${product_version}</value>
             <default>${platform_install_prefix}/${product_shortname}-${product_version}</default>
             <allowEmptyValue>0</allowEmptyValue>
             <cliOptionName>prefix</cliOptionName>

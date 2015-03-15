@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fa_IR">
+<TS version="2.1" language="fa_IR">
 <context>
     <name>About</name>
     <message>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Based on</source>
-        <translation>تحت</translation>
+        <translation type="vanished">تحت</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/About.qml" line="113"/>
@@ -31,6 +31,13 @@
         <location filename="../qml/Papyrus/About.qml" line="114"/>
         <source>About</source>
         <translation>درباره‌ی پاپیروس</translation>
+    </message>
+</context>
+<context>
+    <name>AboutAseman</name>
+    <message>
+        <source>Check Aseman website</source>
+        <translation type="vanished">وب سایت آسمان</translation>
     </message>
 </context>
 <context>
@@ -58,13 +65,21 @@
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="197"/>
-        <source>(C) 2014 Aseman</source>
-        <translation>گروه آسمان - ۱۳۹۳</translation>
+        <source>(C) 2015 Aseman</source>
+        <translation type="unfinished">گروه آسمان - ۱۳۹۳ {2015 ?}</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="220"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co/papyrus&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co/papyrus&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(C) 2014 Aseman</source>
+        <translation type="vanished">گروه آسمان - ۱۳۹۳</translation>
+    </message>
+    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://papyrus.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;papyrus.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://papyrus.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;papyrus.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://papyrus.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;papyrus.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="250"/>
@@ -72,37 +87,26 @@
         <translation>آسمان</translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="381"/>
         <source>ASEMAN</source>
-        <translation>ASEMAN</translation>
+        <translation type="vanished">ASEMAN</translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="391"/>
+        <location filename="../desktop/aboutdialog.ui" line="369"/>
         <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="417"/>
+        <location filename="../desktop/aboutdialog.ui" line="395"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="447"/>
         <source>Donate</source>
-        <translation>کمک</translation>
+        <translation type="vanished">کمک</translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="509"/>
         <source>Donate Us</source>
-        <translation>کمک کردن</translation>
-    </message>
-</context>
-<context>
-    <name>AboutAseman</name>
-    <message>
-        <location filename="../qml/Papyrus/AboutAseman.qml" line="103"/>
-        <source>Check Aseman website</source>
-        <translation>وب سایت آسمان</translation>
+        <translation type="vanished">کمک کردن</translation>
     </message>
 </context>
 <context>
@@ -126,6 +130,102 @@
         <location filename="../desktop/addgroupdialog.cpp" line="108"/>
         <source>Add Label</source>
         <translation>برچسب جدید</translation>
+    </message>
+</context>
+<context>
+    <name>AsemanAbout</name>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="48"/>
+        <source>Aseman is a non-profit organization, exists to support and lead the free, open source and cross-platform projects and researches.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="65"/>
+        <source>The Goal of the Aseman is to provide free and secure products to keep people’s freedom and their privacy.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="78"/>
+        <source>Home Page</source>
+        <translation type="unfinished">صفحه‌ی خانگی</translation>
+    </message>
+</context>
+<context>
+    <name>AsemanCalendarConverter</name>
+    <message>
+        <source>Gregorian</source>
+        <translation type="vanished">میلادی</translation>
+    </message>
+    <message>
+        <source>Jalali</source>
+        <translation type="vanished">جلالی</translation>
+    </message>
+    <message>
+        <source>Hijri</source>
+        <translation type="vanished">هجری قمری</translation>
+    </message>
+</context>
+<context>
+    <name>AsemanTools</name>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="57"/>
+        <source>0</source>
+        <translation>۰</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="58"/>
+        <source>1</source>
+        <translation>۱</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="59"/>
+        <source>2</source>
+        <translation>۲</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="60"/>
+        <source>3</source>
+        <translation>۳</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="61"/>
+        <source>4</source>
+        <translation>۴</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="62"/>
+        <source>5</source>
+        <translation>۵</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="63"/>
+        <source>6</source>
+        <translation>۶</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="64"/>
+        <source>7</source>
+        <translation>۷</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="65"/>
+        <source>8</source>
+        <translation>۸</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="66"/>
+        <source>9</source>
+        <translation>۹</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="124"/>
+        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
+        <translation>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="125"/>
+        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
+        <translation>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</translation>
     </message>
 </context>
 <context>
@@ -242,12 +342,12 @@
 <context>
     <name>CheckBox</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="101"/>
+        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="108"/>
         <source>On</source>
         <translation>فعال</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="102"/>
+        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="109"/>
         <source>Off</source>
         <translation>خاموش</translation>
     </message>
@@ -454,22 +554,22 @@
 <context>
     <name>CursorPicker</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="353"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="361"/>
         <source>Copy</source>
         <translation>کپی متن</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="354"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="362"/>
         <source>Cut</source>
         <translation>برش متن</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="355"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="363"/>
         <source>Paste</source>
         <translation>پیست</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="356"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="364"/>
         <source>Delete</source>
         <translation>پاک کردن</translation>
     </message>
@@ -503,22 +603,22 @@
 <context>
     <name>DateTimeChooser</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="177"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="178"/>
         <source>AM</source>
         <translation>AM</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="177"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="178"/>
         <source>PM</source>
         <translation>PM</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="218"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="219"/>
         <source>Date</source>
         <translation>تاریخ</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="229"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="230"/>
         <source>Time</source>
         <translation>زمان</translation>
     </message>
@@ -750,27 +850,27 @@
 <context>
     <name>GetPassDialog</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="171"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="172"/>
         <source>Paste</source>
         <translation>پیست</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="259"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="260"/>
         <source>Please enter the password</source>
         <translation>کلمه‌ی عبور را وارد کنید</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="260"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="261"/>
         <source>password</source>
         <translation>کلمه‌ی عبور</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="261"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="262"/>
         <source>Done</source>
         <translation>تایید</translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="262"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="263"/>
         <source>Incorrect!</source>
         <translation>اشتباه است!</translation>
     </message>
@@ -817,7 +917,7 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/Header.qml" line="91"/>
+        <location filename="../asemantools/qml/AsemanTools/Header.qml" line="93"/>
         <source>Back</source>
         <translation>برگرد</translation>
     </message>
@@ -913,175 +1013,6 @@ left to select categories.</source>
     </message>
 </context>
 <context>
-    <name>Papyrus</name>
-    <message>
-        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
-        <translation>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</translation>
-    </message>
-    <message>
-        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
-        <translation>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>۰</translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation>۱</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation>۲</translation>
-    </message>
-    <message>
-        <source>3</source>
-        <translation>۳</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation>۴</translation>
-    </message>
-    <message>
-        <source>5</source>
-        <translation>۵</translation>
-    </message>
-    <message>
-        <source>6</source>
-        <translation>۶</translation>
-    </message>
-    <message>
-        <source>7</source>
-        <translation>۷</translation>
-    </message>
-    <message>
-        <source>8</source>
-        <translation>۸</translation>
-    </message>
-    <message>
-        <source>9</source>
-        <translation>۹</translation>
-    </message>
-    <message>
-        <source>Gregorian</source>
-        <translation>میلادی</translation>
-    </message>
-    <message>
-        <source>Jalali</source>
-        <translation>جلالی</translation>
-    </message>
-    <message>
-        <source>Hijri</source>
-        <translation>هجری قمری</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvas</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvas.qml" line="214"/>
-        <source>Done</source>
-        <translation>تایید</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasMagnifierHelper</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierHelper.qml" line="39"/>
-        <source>Put your fingers on screen
-and move them on screen</source>
-        <translation>انگشتانتان را روی صفحه بگذارید
-و روی صفحه حرکتشان بدهید</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasMagnifierLevel</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierLevel.qml" line="42"/>
-        <source>Zoom</source>
-        <translation>زوم</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasPenMode</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="67"/>
-        <source>Normal Pen</source>
-        <translation>قلم معمولی</translation>
-    </message>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="68"/>
-        <source>Star Pen</source>
-        <translation>قلم ستاره‌ای</translation>
-    </message>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="69"/>
-        <source>Eraser</source>
-        <translation>پاک‌کن</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasPenWidth</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenWidth.qml" line="58"/>
-        <source>Pixel</source>
-        <translation>پیکسل</translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusDesktop</name>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="152"/>
-        <location filename="../desktop/papyrusdesktop.cpp" line="165"/>
-        <source>Add Paper</source>
-        <translation>پاپیروس جدید</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="153"/>
-        <source>Add To-Do</source>
-        <translation>اضافه کردن To-Do</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="154"/>
-        <source>Add Label</source>
-        <translation>برچسب جدید</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="155"/>
-        <source>Sync</source>
-        <translation>همگام سازی</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="156"/>
-        <source>Configure</source>
-        <translation>تنظیمات</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="157"/>
-        <source>About</source>
-        <translation>درباره‌ی پاپیروس</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
-        <source>Papyrus security</source>
-        <translation>امنیت پاپیروس</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
-        <source>Please enter password:</source>
-        <translation>لطفا کلمه‌ی عبور را وارد کنید:</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
-        <source>Incorrect</source>
-        <translation>اشتباه است</translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
-        <source>Password is incorrect!</source>
-        <translation>کلمه‌ی عبور اشتباه است!</translation>
-    </message>
-</context>
-<context>
     <name>LanguageSelector</name>
     <message>
         <location filename="../qml/Papyrus/LanguageSelector.qml" line="82"/>
@@ -1102,12 +1033,12 @@ and move them on screen</source>
 <context>
     <name>MainItem</name>
     <message>
-        <location filename="../qml/Papyrus/MainItem.qml" line="139"/>
+        <location filename="../qml/Papyrus/MainItem.qml" line="134"/>
         <source>Press again to exit</source>
         <translation>برای خروج دوباره کلید را فشار دهید</translation>
     </message>
     <message>
-        <location filename="../qml/Papyrus/MainItem.qml" line="564"/>
+        <location filename="../qml/Papyrus/MainItem.qml" line="559"/>
         <source>List is empty</source>
         <translation>لیست خالی است</translation>
     </message>
@@ -1139,19 +1070,19 @@ and move them on screen</source>
     <name>MapView</name>
     <message>
         <source>Unknown point</source>
-        <translation>نقطه‌ی ناشناخته</translation>
+        <translation type="vanished">نقطه‌ی ناشناخته</translation>
     </message>
     <message>
         <source>Loading Map...</source>
-        <translation>در حال بارگذاری نقشه...</translation>
+        <translation type="vanished">در حال بارگذاری نقشه...</translation>
     </message>
     <message>
         <source>Unpin</source>
-        <translation>حذف نقشه</translation>
+        <translation type="vanished">حذف نقشه</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>باز کردن</translation>
+        <translation type="vanished">باز کردن</translation>
     </message>
 </context>
 <context>
@@ -1184,7 +1115,7 @@ and move them on screen</source>
     <name>OpenSourceProjects</name>
     <message>
         <source>Open source projects</source>
-        <translation>پروزه‌های منبع باز</translation>
+        <translation type="vanished">پروزه‌های منبع باز</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/OpenSourceProjects.qml" line="138"/>
@@ -1344,43 +1275,43 @@ and move them on screen</source>
     </message>
     <message>
         <source>Share Paper</source>
-        <translation>اشتراک گذاری</translation>
+        <translation type="vanished">اشتراک گذاری</translation>
     </message>
     <message>
         <source>Force sync</source>
-        <translation>همگام سازی</translation>
+        <translation type="vanished">همگام سازی</translation>
     </message>
     <message>
         <source>Paper Type</source>
-        <translation>نوع پاپیروس</translation>
+        <translation type="vanished">نوع پاپیروس</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation>معمولی</translation>
+        <translation type="vanished">معمولی</translation>
     </message>
     <message>
         <source>To-Do</source>
-        <translation>لیست</translation>
+        <translation type="vanished">لیست</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation>تایید</translation>
+        <translation type="vanished">تایید</translation>
     </message>
     <message>
         <source>Update Date</source>
-        <translation>به روزرسانی تاریخ</translation>
+        <translation type="vanished">به روزرسانی تاریخ</translation>
     </message>
     <message>
         <source>Update Location</source>
-        <translation>به روزرسانی مکان</translation>
+        <translation type="vanished">به روزرسانی مکان</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation>آیا مطمئنی؟</translation>
+        <translation type="vanished">آیا مطمئنی؟</translation>
     </message>
     <message>
         <source>Delete Paper</source>
-        <translation>پاک کردن این پاپیروس</translation>
+        <translation type="vanished">پاک کردن این پاپیروس</translation>
     </message>
 </context>
 <context>
@@ -1522,9 +1453,178 @@ and move them on screen</source>
     </message>
 </context>
 <context>
+    <name>Papyrus</name>
+    <message>
+        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
+        <translation type="vanished">Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</translation>
+    </message>
+    <message>
+        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
+        <translation type="vanished">By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="vanished">۰</translation>
+    </message>
+    <message>
+        <source>1</source>
+        <translation type="vanished">۱</translation>
+    </message>
+    <message>
+        <source>2</source>
+        <translation type="vanished">۲</translation>
+    </message>
+    <message>
+        <source>3</source>
+        <translation type="vanished">۳</translation>
+    </message>
+    <message>
+        <source>4</source>
+        <translation type="vanished">۴</translation>
+    </message>
+    <message>
+        <source>5</source>
+        <translation type="vanished">۵</translation>
+    </message>
+    <message>
+        <source>6</source>
+        <translation type="vanished">۶</translation>
+    </message>
+    <message>
+        <source>7</source>
+        <translation type="vanished">۷</translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation type="vanished">۸</translation>
+    </message>
+    <message>
+        <source>9</source>
+        <translation type="vanished">۹</translation>
+    </message>
+    <message>
+        <source>Gregorian</source>
+        <translation type="vanished">میلادی</translation>
+    </message>
+    <message>
+        <source>Jalali</source>
+        <translation type="vanished">جلالی</translation>
+    </message>
+    <message>
+        <source>Hijri</source>
+        <translation type="vanished">هجری قمری</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvas</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvas.qml" line="214"/>
+        <source>Done</source>
+        <translation>تایید</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasMagnifierHelper</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierHelper.qml" line="39"/>
+        <source>Put your fingers on screen
+and move them on screen</source>
+        <translation>انگشتانتان را روی صفحه بگذارید
+و روی صفحه حرکتشان بدهید</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasMagnifierLevel</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierLevel.qml" line="42"/>
+        <source>Zoom</source>
+        <translation>زوم</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasPenMode</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="67"/>
+        <source>Normal Pen</source>
+        <translation>قلم معمولی</translation>
+    </message>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="68"/>
+        <source>Star Pen</source>
+        <translation>قلم ستاره‌ای</translation>
+    </message>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="69"/>
+        <source>Eraser</source>
+        <translation>پاک‌کن</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasPenWidth</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenWidth.qml" line="58"/>
+        <source>Pixel</source>
+        <translation>پیکسل</translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusDesktop</name>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="152"/>
+        <location filename="../desktop/papyrusdesktop.cpp" line="165"/>
+        <source>Add Paper</source>
+        <translation>پاپیروس جدید</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="153"/>
+        <source>Add To-Do</source>
+        <translation>اضافه کردن To-Do</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="154"/>
+        <source>Add Label</source>
+        <translation>برچسب جدید</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="155"/>
+        <source>Sync</source>
+        <translation>همگام سازی</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="156"/>
+        <source>Configure</source>
+        <translation>تنظیمات</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="157"/>
+        <source>About</source>
+        <translation>درباره‌ی پاپیروس</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
+        <source>Papyrus security</source>
+        <translation>امنیت پاپیروس</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
+        <source>Please enter password:</source>
+        <translation>لطفا کلمه‌ی عبور را وارد کنید:</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
+        <source>Incorrect</source>
+        <translation>اشتباه است</translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
+        <source>Password is incorrect!</source>
+        <translation>کلمه‌ی عبور اشتباه است!</translation>
+    </message>
+</context>
+<context>
     <name>PasteButton</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/PasteButton.qml" line="45"/>
+        <location filename="../asemantools/qml/AsemanTools/PasteButton.qml" line="46"/>
         <source>Paste</source>
         <translation>پیست</translation>
     </message>
@@ -1553,7 +1653,7 @@ and move them on screen</source>
     </message>
     <message>
         <source>Open source projects</source>
-        <translation>پروزه‌های منبع باز</translation>
+        <translation type="vanished">پروزه‌های منبع باز</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/Preference.qml" line="114"/>
@@ -1622,261 +1722,204 @@ and move them on screen</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="215"/>
         <source>January</source>
-        <translation>ژانویه</translation>
+        <translation type="vanished">ژانویه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="218"/>
         <source>February</source>
-        <translation>فوریه</translation>
+        <translation type="vanished">فوریه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="221"/>
         <source>March</source>
-        <translation>مارس</translation>
+        <translation type="vanished">مارس</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="224"/>
         <source>April</source>
-        <translation>آوریل</translation>
+        <translation type="vanished">آوریل</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="227"/>
         <source>May</source>
-        <translation>مه</translation>
+        <translation type="vanished">مه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="230"/>
         <source>June</source>
-        <translation>ژوئن</translation>
+        <translation type="vanished">ژوئن</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="233"/>
         <source>July</source>
-        <translation>ژوئیه</translation>
+        <translation type="vanished">ژوئیه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="236"/>
         <source>August</source>
-        <translation>اوت</translation>
+        <translation type="vanished">اوت</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="239"/>
         <source>September</source>
-        <translation>سپتامبر</translation>
+        <translation type="vanished">سپتامبر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="242"/>
         <source>October</source>
-        <translation>اکتبر</translation>
+        <translation type="vanished">اکتبر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="245"/>
         <source>November</source>
-        <translation>نوامبر</translation>
+        <translation type="vanished">نوامبر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="248"/>
         <source>December</source>
-        <translation>دسامبر</translation>
+        <translation type="vanished">دسامبر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="260"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="622"/>
         <source>Sunday</source>
-        <translation>یکشنبه</translation>
+        <translation type="vanished">یکشنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="263"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="625"/>
         <source>Monday</source>
-        <translation>دوشنبه</translation>
+        <translation type="vanished">دوشنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="266"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="628"/>
         <source>Tuesday</source>
-        <translation>سه‌شنبه</translation>
+        <translation type="vanished">سه‌شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="269"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="631"/>
         <source>Wednesday</source>
-        <translation>چهارشنبه</translation>
+        <translation type="vanished">چهارشنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="272"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="634"/>
         <source>Thuresday</source>
-        <translation>پنج‌شنبه</translation>
+        <translation type="vanished">پنج‌شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="275"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="637"/>
         <source>Friday</source>
-        <translation>جمعه</translation>
+        <translation type="vanished">جمعه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="278"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="619"/>
         <source>Saturday</source>
-        <translation>شنبه</translation>
+        <translation type="vanished">شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="392"/>
         <source>Farvardin</source>
-        <translation>فروردین</translation>
+        <translation type="vanished">فروردین</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="395"/>
         <source>Ordibehesht</source>
-        <translation>اردیبهشت</translation>
+        <translation type="vanished">اردیبهشت</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="398"/>
         <source>Khordad</source>
-        <translation>خرداد</translation>
+        <translation type="vanished">خرداد</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="401"/>
         <source>Tir</source>
-        <translation>تیر</translation>
+        <translation type="vanished">تیر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="404"/>
         <source>Mordad</source>
-        <translation>مرداد</translation>
+        <translation type="vanished">مرداد</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="407"/>
         <source>Shahrivar</source>
-        <translation>شهریور</translation>
+        <translation type="vanished">شهریور</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="410"/>
         <source>Mehr</source>
-        <translation>مهر</translation>
+        <translation type="vanished">مهر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="413"/>
         <source>Abaan</source>
-        <translation>آبان</translation>
+        <translation type="vanished">آبان</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="416"/>
         <source>Aazar</source>
-        <translation>آذر</translation>
+        <translation type="vanished">آذر</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="419"/>
         <source>Dey</source>
-        <translation>دی</translation>
+        <translation type="vanished">دی</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="422"/>
         <source>Bahman</source>
-        <translation>بهمن</translation>
+        <translation type="vanished">بهمن</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="425"/>
         <source>Esfand</source>
-        <translation>اسفند</translation>
+        <translation type="vanished">اسفند</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="437"/>
         <source>Shanbe</source>
-        <translation>شنبه</translation>
+        <translation type="vanished">شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="440"/>
         <source>1Shanbe</source>
-        <translation>یک‌شنبه</translation>
+        <translation type="vanished">یک‌شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="443"/>
         <source>2Shanbe</source>
-        <translation>دوشنبه</translation>
+        <translation type="vanished">دوشنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="446"/>
         <source>3Shanbe</source>
-        <translation>سه‌شنبه</translation>
+        <translation type="vanished">سه‌شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="449"/>
         <source>4Shanbe</source>
-        <translation>چهارشنبه</translation>
+        <translation type="vanished">چهارشنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="452"/>
         <source>5Shanbe</source>
-        <translation>پنج‌شنبه</translation>
+        <translation type="vanished">پنج‌شنبه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="455"/>
         <source>Jome</source>
-        <translation>جمعه</translation>
+        <translation type="vanished">جمعه</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="574"/>
         <source>Moharram</source>
-        <translation>محرم</translation>
+        <translation type="vanished">محرم</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="577"/>
         <source>Safar</source>
-        <translation>wtv</translation>
+        <translation type="vanished">wtv</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="580"/>
         <source>Rabiol Avval</source>
-        <translation>ربیع‌الاول</translation>
+        <translation type="vanished">ربیع‌الاول</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="583"/>
         <source>Rabio Sani</source>
-        <translation>ربیع‌الثانی</translation>
+        <translation type="vanished">ربیع‌الثانی</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="586"/>
         <source>Jamadiol Aval</source>
-        <translation>جمادی‌الاول</translation>
+        <translation type="vanished">جمادی‌الاول</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="589"/>
         <source>Jamadio Sani</source>
-        <translation>جمادی‌الثانی</translation>
+        <translation type="vanished">جمادی‌الثانی</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="592"/>
         <source>Rajab</source>
-        <translation>رجب</translation>
+        <translation type="vanished">رجب</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="595"/>
         <source>Shaban</source>
-        <translation>شعبان</translation>
+        <translation type="vanished">شعبان</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="598"/>
         <source>Ramadan</source>
-        <translation>رمضان</translation>
+        <translation type="vanished">رمضان</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="601"/>
         <source>Shaval</source>
-        <translation>شوال</translation>
+        <translation type="vanished">شوال</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="604"/>
         <source>Zighade</source>
-        <translation>ذی‌القعده</translation>
+        <translation type="vanished">ذی‌القعده</translation>
     </message>
     <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="607"/>
         <source>Zihaje</source>
-        <translation>ذی‌الحجه</translation>
+        <translation type="vanished">ذی‌الحجه</translation>
     </message>
 </context>
 <context>
@@ -1937,15 +1980,15 @@ and move them on screen</source>
     <name>SearchGeoDomain</name>
     <message>
         <source>No Location</source>
-        <translation>غیرفعال</translation>
+        <translation type="vanished">غیرفعال</translation>
     </message>
     <message>
         <source>Current Location</source>
-        <translation>مکان جغرافیایی فعلی</translation>
+        <translation type="vanished">مکان جغرافیایی فعلی</translation>
     </message>
     <message>
         <source>Select on Map (Soon)</source>
-        <translation>انتخاب بر روی نقشه (به زودی)</translation>
+        <translation type="vanished">انتخاب بر روی نقشه (به زودی)</translation>
     </message>
 </context>
 <context>
@@ -2204,87 +2247,6 @@ and move them on screen</source>
     </message>
 </context>
 <context>
-    <name>AsemanCalendarConverter</name>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="61"/>
-        <source>Gregorian</source>
-        <translation>میلادی</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="64"/>
-        <source>Jalali</source>
-        <translation>جلالی</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="67"/>
-        <source>Hijri</source>
-        <translation>هجری قمری</translation>
-    </message>
-</context>
-<context>
-    <name>AsemanTools</name>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="52"/>
-        <source>0</source>
-        <translation>۰</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="53"/>
-        <source>1</source>
-        <translation>۱</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="54"/>
-        <source>2</source>
-        <translation>۲</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="55"/>
-        <source>3</source>
-        <translation>۳</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="56"/>
-        <source>4</source>
-        <translation>۴</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="57"/>
-        <source>5</source>
-        <translation>۵</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="58"/>
-        <source>6</source>
-        <translation>۶</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="59"/>
-        <source>7</source>
-        <translation>۷</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="60"/>
-        <source>8</source>
-        <translation>۸</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="61"/>
-        <source>9</source>
-        <translation>۹</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="96"/>
-        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
-        <translation>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="97"/>
-        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
-        <translation>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</translation>
-    </message>
-</context>
-<context>
     <name>SideBarList</name>
     <message>
         <location filename="../qml/Papyrus/SideBarList.qml" line="84"/>
@@ -2459,11 +2421,11 @@ and move them on screen</source>
     <name>TranslationEditor</name>
     <message>
         <source>Just Save</source>
-        <translation>فقط ذخیره کن</translation>
+        <translation type="vanished">فقط ذخیره کن</translation>
     </message>
     <message>
         <source>Finish and Send</source>
-        <translation>پایان و ارسال</translation>
+        <translation type="vanished">پایان و ارسال</translation>
     </message>
     <message>
         <location filename="../qml/Papyrus/TranslationEditor.qml" line="177"/>
@@ -2554,18 +2516,18 @@ and move them on screen</source>
 Papyrus is coming soon for smart phones.
 
 Signup below to know when Papyrus is available for smart phones!</source>
-        <translation>این نسخه از پاپیروس با موبایل‌ها سازگار نیست.
+        <translation type="vanished">این نسخه از پاپیروس با موبایل‌ها سازگار نیست.
 پاپیروس نسخه‌ی مخصوص موبایل به زودی منتشر میشه.
 
 اگر دوست داری موقعی که نسخه‌ی مخصوص موبایل پاپیروس منتشر شد مطلع بشی، به کمک فورم زیر ثبت‌نام کن!</translation>
     </message>
     <message>
         <source>Enter Your Email Address:</source>
-        <translation>ایمیل:</translation>
+        <translation type="vanished">ایمیل:</translation>
     </message>
     <message>
         <source>Keep me posted!</source>
-        <translation>منو خبر کن!</translation>
+        <translation type="vanished">منو خبر کن!</translation>
     </message>
 </context>
 </TS>

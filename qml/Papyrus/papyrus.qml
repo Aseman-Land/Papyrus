@@ -255,6 +255,11 @@ AsemanMain {
         mainItem.incomingImage(path)
     }
 
+    function showFavoriteMessage() {
+        var component = Qt.createComponent("FavoriteMessage.qml")
+        messageDialog.show(component)
+    }
+
     Component {
         id: get_pass_cmpnt
         GetPassDialog {
@@ -296,6 +301,10 @@ AsemanMain {
         else
         if( !papyrus.demoHasTrial() )
             showSubMessage(Qt.createComponent("DemoLimited.qml"))
+
+//        papyrus.runCount++
+//        if( papyrus.runCount == 2 )
+//            showFavoriteMessage()
 
         main_init_timer.restart()
     }

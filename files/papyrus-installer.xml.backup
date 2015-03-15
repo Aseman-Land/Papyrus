@@ -1,0 +1,169 @@
+<project>
+    <shortName>papyrus</shortName>
+    <fullName>Papyrus</fullName>
+    <version>1.2.0</version>
+    <licenseFile>../LICENSE</licenseFile>
+    <htmlLicenseFile>../LICENSE.html</htmlLicenseFile>
+    <leftImage>installer/logo.png</leftImage>
+    <logoImage>installer/papyrus.png</logoImage>
+    <splashImage>icons/papyrus.png</splashImage>
+    <componentList>
+        <component>
+            <name>default</name>
+            <description>Default Component</description>
+            <canBeEdited>1</canBeEdited>
+            <selected>1</selected>
+            <show>1</show>
+            <desktopShortcutList>
+                <shortcut>
+                    <comment>Papyrus note manager</comment>
+                    <exec>${installdir}/papyrus/run</exec>
+                    <icon>${installdir}/papyrus/icons/papyrus.png</icon>
+                    <name>Papyrus</name>
+                    <path>${installdir}/papyrus/</path>
+                    <platforms>all</platforms>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
+                </shortcut>
+                <shortcut>
+                    <comment>Papyrus Note Manager</comment>
+                    <exec>${installdir}/papyrus/run --touch</exec>
+                    <icon>${installdir}/papyrus/icons/papyrus.png</icon>
+                    <name>Papyrus Touch</name>
+                    <path>${installdir}/papyrus/</path>
+                    <platforms>all</platforms>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
+                    <windowsExecArgs>--touch</windowsExecArgs>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
+                </shortcut>
+            </desktopShortcutList>
+            <folderList>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfiles</name>
+                    <platforms>all</platforms>
+                    <shortcutList>
+                        <shortcut>
+                            <comment>Uninstall</comment>
+                            <exec>${installdir}/${uninstallerName}</exec>
+                            <icon></icon>
+                            <name>Uninstall ${product_fullname}</name>
+                            <path>${installdir}</path>
+                            <platforms>all</platforms>
+                            <runAsAdmin>0</runAsAdmin>
+                            <runInTerminal>0</runInTerminal>
+                            <windowsExec>${installdir}/${uninstallerName}.exe</windowsExec>
+                            <windowsExecArgs></windowsExecArgs>
+                            <windowsIcon></windowsIcon>
+                            <windowsPath>${installdir}</windowsPath>
+                        </shortcut>
+                    </shortcutList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfileslinux</name>
+                    <platforms>linux</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>../../Releases/Papyrus/Linux/32/papyrus</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfileswindows</name>
+                    <platforms>windows</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>../../Releases/Papyrus/Windows/Papyrus</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfilesosx</name>
+                    <platforms>osx</platforms>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}/</destination>
+                    <name>programfileslinux64</name>
+                    <platforms>linux-x64</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>../../Releases/Papyrus/Linux/64/papyrus</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+            </folderList>
+            <startMenuShortcutList>
+                <startMenuShortcut>
+                    <comment>Uninstall ${product_fullname}</comment>
+                    <name>Uninstall ${product_fullname}</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/${uninstallerName}.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon></windowsIcon>
+                    <windowsPath>${installdir}/</windowsPath>
+                </startMenuShortcut>
+                <startMenuShortcut>
+                    <comment>Papyrus Note Manager</comment>
+                    <name>Papyrus</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
+                    <windowsExecArgs></windowsExecArgs>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
+                </startMenuShortcut>
+                <startMenuShortcut>
+                    <comment>Papyrus Note Manager</comment>
+                    <name>Papyrus Touch</name>
+                    <runAsAdmin>0</runAsAdmin>
+                    <runInTerminal>0</runInTerminal>
+                    <windowsExec>${installdir}/Papyrus/Papyrus.exe</windowsExec>
+                    <windowsExecArgs>--touch</windowsExecArgs>
+                    <windowsIcon>${installdir}/Papyrus/icons/papyrus.ico</windowsIcon>
+                    <windowsPath>${installdir}/Papyrus/</windowsPath>
+                </startMenuShortcut>
+            </startMenuShortcutList>
+        </component>
+    </componentList>
+    <compressionAlgorithm>lzma-ultra</compressionAlgorithm>
+    <disableSplashScreen>1</disableSplashScreen>
+    <enableRollback>1</enableRollback>
+    <enableTimestamp>1</enableTimestamp>
+    <height>400</height>
+    <licenseFileEncoding>utf-8</licenseFileEncoding>
+    <saveRelativePaths>1</saveRelativePaths>
+    <vendor>Aseman Team</vendor>
+    <width>600</width>
+    <windowsExecutableIcon>icons/papyrus.ico</windowsExecutableIcon>
+    <parameterList>
+        <directoryParameter>
+            <name>installdir</name>
+            <description>Installer.Parameter.installdir.description</description>
+            <explanation>Installer.Parameter.installdir.explanation</explanation>
+            <value>${platform_install_prefix}/Aseman/${product_shortname}-${product_version}</value>
+            <default>${platform_install_prefix}/${product_shortname}-${product_version}</default>
+            <allowEmptyValue>0</allowEmptyValue>
+            <cliOptionName>prefix</cliOptionName>
+            <mustBeWritable>1</mustBeWritable>
+            <mustExist>0</mustExist>
+            <width>30</width>
+        </directoryParameter>
+    </parameterList>
+</project>
+

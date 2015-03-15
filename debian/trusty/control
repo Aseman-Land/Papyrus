@@ -1,7 +1,7 @@
 Source: papyrus
 Section: text
 Priority: optional
-Maintainer: Aseman <contact@aseman.org>
+Maintainer: Aseman <contact@aseman.co>
 Build-Depends:
  debhelper (>= 8.0.0),
  g++ (>= 4:4.7),
@@ -24,9 +24,9 @@ Build-Depends:
  qtpositioning5-dev (>= 5.2.0),
  qtmultimedia5-dev (>= 5.2.0)
 Standards-Version: 3.9.5
-Homepage: http://aseman.co
-Vcs-Git: git://git@github.com:aseman-labs/papyrus.git
-Vcs-Browser: https://github.com/aseman-labs/papyrus/
+Homepage: http://aseman.co/papyrus
+Vcs-Git: git://git@github.com:Aseman-Land/papyrus.git
+Vcs-Browser: https://github.com/Aseman-Land/papyrus/
 
 Package: papyrus
 Architecture: i386 amd64 armhf

@@ -225,5 +225,6 @@
         <file>qml/Papyrus/PaperTemperatureButton.qml</file>
         <file>qml/Papyrus/PapyrusShareDialog.qml</file>
         <file>qml/Papyrus/SearchPaperWeather.qml</file>
+        <file>qml/Papyrus/FavoriteMessage.qml</file>
     </qresource>
 </RCC>

@@ -39,6 +39,7 @@ class Papyrus : public QObject
     Q_PROPERTY( bool    allPaper              READ allPaper              WRITE setAllPaper              NOTIFY allPaperChanged)
     Q_PROPERTY( bool    canvasHelperFirstTime READ canvasHelperFirstTime WRITE setCanvasHelperFirstTime NOTIFY canvasHelperFirstTimeChanged)
     Q_PROPERTY( bool    keyboardPredicative   READ keyboardPredicative   WRITE setKeyboardPredicative   NOTIFY keyboardPredicativeChanged)
+    Q_PROPERTY( int     runCount              READ runCount              WRITE setRunCount              NOTIFY runCountChanged)
     Q_PROPERTY( bool    desktopTouchMode      READ desktopTouchMode      WRITE setDesktopTouchMode      NOTIFY desktopTouchModeChanged)
     Q_PROPERTY( bool    positioning           READ positioning           WRITE setPositioning           NOTIFY positioningChanged)
     Q_PROPERTY( bool    weatherActive         READ weatherActive         WRITE setWeatherActive         NOTIFY weatherActiveChanged)
@@ -155,6 +156,9 @@ public:
     void setFullscreen( bool stt );
     bool fullscreen() const;
 
+    int runCount() const;
+    void setRunCount( int cnt );
+
     Q_INVOKABLE static QStringList dirEntryFiles(const QString & path , const QStringList &filters);
     Q_INVOKABLE static QStringList findEntryFiles(const QString & path , const QStringList &filters);
     Q_INVOKABLE static QStringList dirEntryDirs(const QString & path);
@@ -185,6 +189,7 @@ signals:
     void desktopTouchModeChanged();
     void fullscreenChanged();
     void mapModeChanged();
+    void runCountChanged();
 
     void titleFontChanged();
     void bodyFontChanged();

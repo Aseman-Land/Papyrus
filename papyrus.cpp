@@ -933,6 +933,20 @@ bool Papyrus::fullscreen() const
     return p->fullscreen;
 }
 
+int Papyrus::runCount() const
+{
+    return settings()->value("General/runCount",0).toInt();
+}
+
+void Papyrus::setRunCount(int cnt)
+{
+    if( runCount() == cnt )
+        return;
+
+    settings()->setValue("General/runCount", cnt);
+    emit runCountChanged();
+}
+
 QStringList Papyrus::dirEntryFiles(const QString &path, const QStringList & filters)
 {
     QStringList res = QDir(path).entryList( filters, QDir::Files, QDir::Time );

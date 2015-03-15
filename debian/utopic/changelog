@@ -1,21 +1,5 @@
-papyrus (1.2.0utopic1) utopic; urgency=medium
+papyrus (1.0.0aseman1-utopic) utopic; urgency=medium
 
-  * Optimized for larg tablets (landscape mode)
-  * Attach weather and temperature to notes automatically. (pro version)
-  * Search notes on Map, note wrote there.
-  * Move location search to free version.
-  * Move password and security features to free version.
-  * Move attach documents and audios features to free version.
-  * Add easy translators feature to translate papyrus to another languages.
-  * Search notes with weather and temperature, note wrote. (pro version)
-  * Canvas to painting and also paint on attached images. (pro version)
-  * Improve on startup loading speed (2x)
-  * Moving datas to sd-card on old phones (pro version)
-  * Add normal password type alongside numeric password type.
-  * Add paste button on password dialog.
-  * Many improvments on Search system.
-  * New paper properties dialog design.
-  * Keyboard size bugfix
-  * Many other improvments, bugfixes and crash fixes.
+  * Just release
 
- -- Aseman <contact@aseman.org>  Tue, 04 Nov 2014 14:08:14 +0330
+ -- Aseman Team <contact@aseman.co>  Tue, 15 March 2015 14:08:14 +0330

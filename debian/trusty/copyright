@@ -3,11 +3,11 @@ Upstream-Name: papyrus
 Source: aseman.co/projects/papyrus
 
 Files: *
-Copyright: 2014 Aseman
+Copyright: 2015 Aseman Team
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2014 Aseman <contact@aseman.org>
+Copyright: 2015 Aseman Team <contact@aseman.co>
 License: GPL-3.0+
 
 License: GPL-3.0+

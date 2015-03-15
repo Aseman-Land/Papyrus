@@ -114,7 +114,7 @@ void BackuperCore::makeBackup(const QString &repository_path, const QString &db_
     QString path = BACKUP_PATH;
     QDir().mkpath(path);
 
-    QString dest = path + "/papyrus_backup_" + QDateTime::currentDateTime().toString("ddd - MMM dd yyyy - hh_mm") + ".kqz";
+    QString dest = path + "/papyrus_backup_" + QDateTime::currentDateTime().toString("ddd - MMM dd yyyy - hh_mm") + ".pprs";
     QStringList reps_files = QDir(repository_path).entryList(QDir::Files);
 
     emit progress(0);

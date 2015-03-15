@@ -1,7 +1,7 @@
 <project>
     <shortName>papyrus</shortName>
     <fullName>Papyrus</fullName>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
     <licenseFile>../LICENSE</licenseFile>
     <htmlLicenseFile>../LICENSE.html</htmlLicenseFile>
     <leftImage>installer/logo.png</leftImage>
@@ -74,7 +74,7 @@
                     <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../../../Releases/Papyrus/Linux/32/papyrus</origin>
+                            <origin>../../Releases/Papyrus/Linux/32/papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -85,7 +85,7 @@
                     <platforms>windows</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../../../Releases/Papyrus/Windows/Papyrus</origin>
+                            <origin>../../Releases/Papyrus/Windows/Papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -102,7 +102,7 @@
                     <platforms>linux-x64</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>../../../../Releases/Papyrus/Linux/64/papyrus</origin>
+                            <origin>../../Releases/Papyrus/Linux/64/papyrus</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>

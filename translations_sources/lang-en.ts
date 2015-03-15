@@ -54,12 +54,12 @@
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="197"/>
-        <source>(C) 2014 Aseman</source>
+        <source>(C) 2015 Aseman</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../desktop/aboutdialog.ui" line="220"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://papyrus.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;papyrus.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co/papyrus&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co/papyrus&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -68,36 +68,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="381"/>
-        <source>ASEMAN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/aboutdialog.ui" line="391"/>
+        <location filename="../desktop/aboutdialog.ui" line="369"/>
         <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../desktop/aboutdialog.ui" line="417"/>
+        <location filename="../desktop/aboutdialog.ui" line="395"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;http://aseman.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;aseman.co&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/aboutdialog.ui" line="447"/>
-        <source>Donate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/aboutdialog.ui" line="509"/>
-        <source>Donate Us</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AboutAseman</name>
-    <message>
-        <location filename="../qml/Papyrus/AboutAseman.qml" line="103"/>
-        <source>Check Aseman website</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -121,6 +98,87 @@
     <message>
         <location filename="../desktop/addgroupdialog.cpp" line="108"/>
         <source>Add Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AsemanAbout</name>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="48"/>
+        <source>Aseman is a non-profit organization, exists to support and lead the free, open source and cross-platform projects and researches.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="65"/>
+        <source>The Goal of the Aseman is to provide free and secure products to keep people’s freedom and their privacy.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/qml/AsemanTools/AsemanAbout.qml" line="78"/>
+        <source>Home Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AsemanTools</name>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="57"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="58"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="59"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="60"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="61"/>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="62"/>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="63"/>
+        <source>6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="64"/>
+        <source>7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="65"/>
+        <source>8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="66"/>
+        <source>9</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="124"/>
+        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../asemantools/asemantools.cpp" line="125"/>
+        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -238,12 +296,12 @@
 <context>
     <name>CheckBox</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="101"/>
+        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="108"/>
         <source>On</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="102"/>
+        <location filename="../asemantools/qml/AsemanTools/CheckBox.qml" line="109"/>
         <source>Off</source>
         <translation type="unfinished"></translation>
     </message>
@@ -450,22 +508,22 @@
 <context>
     <name>CursorPicker</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="353"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="361"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="354"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="362"/>
         <source>Cut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="355"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="363"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="356"/>
+        <location filename="../asemantools/qml/AsemanTools/CursorPicker.qml" line="364"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -499,22 +557,22 @@
 <context>
     <name>DateTimeChooser</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="177"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="178"/>
         <source>AM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="177"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="178"/>
         <source>PM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="218"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="219"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="229"/>
+        <location filename="../asemantools/qml/AsemanTools/DateTimeChooser.qml" line="230"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -746,27 +804,27 @@
 <context>
     <name>GetPassDialog</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="171"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="172"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="259"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="260"/>
         <source>Please enter the password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="260"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="261"/>
         <source>password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="261"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="262"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="262"/>
+        <location filename="../asemantools/qml/AsemanTools/GetPassDialog.qml" line="263"/>
         <source>Incorrect!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -813,7 +871,7 @@
 <context>
     <name>Header</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/Header.qml" line="91"/>
+        <location filename="../asemantools/qml/AsemanTools/Header.qml" line="93"/>
         <source>Back</source>
         <translation type="unfinished"></translation>
     </message>
@@ -906,111 +964,6 @@ left to select categories.</source>
     </message>
 </context>
 <context>
-    <name>PapyrusCanvas</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvas.qml" line="214"/>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasMagnifierHelper</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierHelper.qml" line="39"/>
-        <source>Put your fingers on screen
-and move them on screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasMagnifierLevel</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierLevel.qml" line="42"/>
-        <source>Zoom</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasPenMode</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="67"/>
-        <source>Normal Pen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="68"/>
-        <source>Star Pen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="69"/>
-        <source>Eraser</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusCanvasPenWidth</name>
-    <message>
-        <location filename="../qml/Papyrus/PapyrusCanvasPenWidth.qml" line="58"/>
-        <source>Pixel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PapyrusDesktop</name>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="152"/>
-        <location filename="../desktop/papyrusdesktop.cpp" line="165"/>
-        <source>Add Paper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="153"/>
-        <source>Add To-Do</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="154"/>
-        <source>Add Label</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="155"/>
-        <source>Sync</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="156"/>
-        <source>Configure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="157"/>
-        <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
-        <source>Papyrus security</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
-        <source>Please enter password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
-        <source>Incorrect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
-        <source>Password is incorrect!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>LanguageSelector</name>
     <message>
         <location filename="../qml/Papyrus/LanguageSelector.qml" line="82"/>
@@ -1031,12 +984,12 @@ and move them on screen</source>
 <context>
     <name>MainItem</name>
     <message>
-        <location filename="../qml/Papyrus/MainItem.qml" line="139"/>
+        <location filename="../qml/Papyrus/MainItem.qml" line="134"/>
         <source>Press again to exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/Papyrus/MainItem.qml" line="564"/>
+        <location filename="../qml/Papyrus/MainItem.qml" line="559"/>
         <source>List is empty</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1388,9 +1341,114 @@ and move them on screen</source>
     </message>
 </context>
 <context>
+    <name>PapyrusCanvas</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvas.qml" line="214"/>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasMagnifierHelper</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierHelper.qml" line="39"/>
+        <source>Put your fingers on screen
+and move them on screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasMagnifierLevel</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasMagnifierLevel.qml" line="42"/>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasPenMode</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="67"/>
+        <source>Normal Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="68"/>
+        <source>Star Pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenMode.qml" line="69"/>
+        <source>Eraser</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusCanvasPenWidth</name>
+    <message>
+        <location filename="../qml/Papyrus/PapyrusCanvasPenWidth.qml" line="58"/>
+        <source>Pixel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PapyrusDesktop</name>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="152"/>
+        <location filename="../desktop/papyrusdesktop.cpp" line="165"/>
+        <source>Add Paper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="153"/>
+        <source>Add To-Do</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="154"/>
+        <source>Add Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="155"/>
+        <source>Sync</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="156"/>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="157"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
+        <source>Papyrus security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="278"/>
+        <source>Please enter password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
+        <source>Incorrect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../desktop/papyrusdesktop.cpp" line="282"/>
+        <source>Password is incorrect!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PasteButton</name>
     <message>
-        <location filename="../asemantools/qml/AsemanTools/PasteButton.qml" line="45"/>
+        <location filename="../asemantools/qml/AsemanTools/PasteButton.qml" line="46"/>
         <source>Paste</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1478,266 +1536,6 @@ and move them on screen</source>
     <message>
         <location filename="../qml/Papyrus/ProfileSettings.qml" line="113"/>
         <source>Data Location</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="215"/>
-        <source>January</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="218"/>
-        <source>February</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="221"/>
-        <source>March</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="224"/>
-        <source>April</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="227"/>
-        <source>May</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="230"/>
-        <source>June</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="233"/>
-        <source>July</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="236"/>
-        <source>August</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="239"/>
-        <source>September</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="242"/>
-        <source>October</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="245"/>
-        <source>November</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="248"/>
-        <source>December</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="260"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="622"/>
-        <source>Sunday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="263"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="625"/>
-        <source>Monday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="266"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="628"/>
-        <source>Tuesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="269"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="631"/>
-        <source>Wednesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="272"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="634"/>
-        <source>Thuresday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="275"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="637"/>
-        <source>Friday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="278"/>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="619"/>
-        <source>Saturday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="392"/>
-        <source>Farvardin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="395"/>
-        <source>Ordibehesht</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="398"/>
-        <source>Khordad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="401"/>
-        <source>Tir</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="404"/>
-        <source>Mordad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="407"/>
-        <source>Shahrivar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="410"/>
-        <source>Mehr</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="413"/>
-        <source>Abaan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="416"/>
-        <source>Aazar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="419"/>
-        <source>Dey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="422"/>
-        <source>Bahman</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="425"/>
-        <source>Esfand</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="437"/>
-        <source>Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="440"/>
-        <source>1Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="443"/>
-        <source>2Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="446"/>
-        <source>3Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="449"/>
-        <source>4Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="452"/>
-        <source>5Shanbe</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="455"/>
-        <source>Jome</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="574"/>
-        <source>Moharram</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="577"/>
-        <source>Safar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="580"/>
-        <source>Rabiol Avval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="583"/>
-        <source>Rabio Sani</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="586"/>
-        <source>Jamadiol Aval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="589"/>
-        <source>Jamadio Sani</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="592"/>
-        <source>Rajab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="595"/>
-        <source>Shaban</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="598"/>
-        <source>Ramadan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="601"/>
-        <source>Shaval</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="604"/>
-        <source>Zighade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconvertercore.cpp" line="607"/>
-        <source>Zihaje</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2047,87 +1845,6 @@ and move them on screen</source>
     <message>
         <location filename="../asemantools/qml/AsemanTools/ShareDialog.qml" line="55"/>
         <source>Select Application</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AsemanCalendarConverter</name>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="61"/>
-        <source>Gregorian</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="64"/>
-        <source>Jalali</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemancalendarconverter.cpp" line="67"/>
-        <source>Hijri</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AsemanTools</name>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="52"/>
-        <source>0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="53"/>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="54"/>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="55"/>
-        <source>3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="56"/>
-        <source>4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="57"/>
-        <source>5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="58"/>
-        <source>6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="59"/>
-        <source>7</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="60"/>
-        <source>8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="61"/>
-        <source>9</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="96"/>
-        <source>Aseman is a not-for-profit research and software development team launched in February 2014 focusing on development of products, technologies and solutions in order to publish them as open-source projects accessible to all people in the universe. Currently, we are focusing on design and development of software applications and tools which have direct connection with end users.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../asemantools/asemantools.cpp" line="97"/>
-        <source>By enabling innovative projects and distributing software to millions of users globally, the lab is working to accelerate the growth of high-impact open source software projects and promote an open source culture of accessibility and increased productivity around the world. The lab partners with industry leaders and policy makers to bring open source technologies to new sectors, including education, health and government.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

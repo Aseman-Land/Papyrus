@@ -18,6 +18,7 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     id: group_selector
@@ -37,56 +38,81 @@ Item {
         clip: true
         maximumFlickVelocity: View.flickVelocity
 
-        model: ListModel {}
-        delegate: Rectangle {
+        model: LabelsModel {}
+
+        footer: Rectangle {
             id: item
             width: groups_list.width
             height: group_selector.itemsHeight
-            color: press? "#3B97EC" : "#00000000"
-
-            property string text: name
-            property int groupId: gid
-            property bool press: false
-
-            onPressChanged: hideRollerDialog()
-
-            Connections{
-                target: groups_list
-                onMovementStarted: press = false
-                onFlickStarted: press = false
-            }
+            color: marea.pressed? "#3B97EC" : "#00000000"
 
             Rectangle{
-                id: clr_item
-                width: item.groupId == -1? item.width : 15*Devices.density
+                width: item.width
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.margins: 2*Devices.density
-                anchors.leftMargin: item.groupId == -1? 0 : 10*Devices.density
-                color: item.groupId == -1? "#00CD3A" : database.groupColor(item.groupId)
+                anchors.leftMargin: 0
+                color: "#00CD3A"
             }
 
             Text{
-                id: txt
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: 30*Devices.density
                 anchors.leftMargin: 44*Devices.density
                 y: parent.height/2 - height/2
-                text: parent.text
+                text: qsTr("Add Label")
                 font.pixelSize: 10*Devices.fontDensity
                 font.family: AsemanApp.globalFont.family
-                color: item.groupId==-1? "#ffffff" : "#333333"
+                color: "#ffffff"
                 horizontalAlignment: Text.AlignLeft
             }
 
             MouseArea{
+                id: marea
                 anchors.fill: parent
-                onPressed: item.press = true
-                onReleased: item.press = false
                 onClicked: {
-                    group_selector.selected(groupId)
+                    group_selector.selected(-1)
+                    hideRollerDialog()
+                }
+            }
+        }
+
+        delegate: Rectangle {
+            width: groups_list.width
+            height: group_selector.itemsHeight
+            color: dmarea.pressed? "#3B97EC" : "#00000000"
+
+            Rectangle{
+                width: 15*Devices.density
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.margins: 2*Devices.density
+                anchors.leftMargin: 10*Devices.density
+                color: model.color
+            }
+
+            Text{
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: 30*Devices.density
+                anchors.leftMargin: 44*Devices.density
+                y: parent.height/2 - height/2
+                text: model.name
+                font.pixelSize: 10*Devices.fontDensity
+                font.family: AsemanApp.globalFont.family
+                color: "#333333"
+                horizontalAlignment: Text.AlignLeft
+            }
+
+            MouseArea{
+                id: dmarea
+                anchors.fill: parent
+                onClicked: {
+                    group_selector.selected(model.id)
+                    hideRollerDialog()
                 }
             }
         }
@@ -99,27 +125,6 @@ Item {
             if( !currentItem )
                 return
         }
-
-        Component.onCompleted: {
-            refresh()
-        }
-
-        function refresh(){
-            model.clear()
-
-            var list = database.groups()
-            for( var i=0; i<list.length; i++ ) {
-                var gid = list[i]
-                var name = database.groupName(gid)
-                if( database.groupIsDeleted(gid) )
-                    continue
-
-                model.append({"name": name, "gid": gid})
-            }
-
-            model.append({"name": qsTr("Add Label"), "gid": -1})
-            main.focus = true
-        }
     }
 
     ScrollBar {
@@ -128,6 +133,6 @@ Item {
     }
 
     function realHeight(){
-        return groups_list.count*itemsHeight
+        return (groups_list.count+1)*itemsHeight
     }
 }

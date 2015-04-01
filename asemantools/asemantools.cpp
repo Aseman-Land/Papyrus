@@ -21,6 +21,7 @@
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QCryptographicHash>
+#include <QCoreApplication>
 #include <QColor>
 #include <QTimer>
 #include <QFile>
@@ -163,10 +164,19 @@ QVariantMap AsemanTools::colorHsl(const QColor &clr)
 bool AsemanTools::createVideoThumbnail(const QString &video, const QString &output, QString ffmpegPath)
 {
     if(ffmpegPath.isEmpty())
-#ifndef Q_OS_WIN
-        ffmpegPath = "ffmpeg";
+#ifdef Q_OS_WIN
+        ffmpegPath = QCoreApplication::applicationDirPath() + "/ffmpeg.exe";
 #else
-        ffmpegPath = "ffmpeg.exe";
+#ifdef Q_OS_MAC
+        ffmpegPath = QCoreApplication::applicationDirPath() + "/ffmpeg";
+#else
+    {
+        if(QFileInfo::exists("/usr/bin/avconv"))
+            ffmpegPath = "/usr/bin/avconv";
+        else
+            ffmpegPath = "ffmpeg";
+    }
+#endif
 #endif
 
     QStringList args;

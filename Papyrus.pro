@@ -135,7 +135,8 @@ SOURCES += main.cpp \
     searchhighlighter.cpp \
     databasedatatypes.cpp \
     translationmodel.cpp \
-    weathermodel.cpp
+    weathermodel.cpp \
+    papyruslabelsmodel.cpp
 
 HEADERS += \
     papyrus.h \
@@ -153,7 +154,8 @@ HEADERS += \
     smartiodboxsingle.h \
     searchhighlighter.h \
     translationmodel.h \
-    weathermodel.h
+    weathermodel.h \
+    papyruslabelsmodel.h
 
 TRANSLATIONS += \
     files/translations/lang-en.qm \

@@ -64,10 +64,7 @@ Item {
     }
 
     function selectGroup(){
-        var component = Qt.createComponent("GroupSelector.qml");
-        var paper = component.createObject(papyrus_root);
-        paper.selected.connect(group_chooser.finished)
-
+        var paper = group_selector_component.createObject(papyrus_root);
         var point = mapToItem(papyrus_root,width/2,height)
         var h = paper.realHeight()+40*Devices.density
         if( h > 5*papyrus_root.height/9 )
@@ -90,11 +87,7 @@ Item {
     }
 
     function addNewGroup(){
-        var component = Qt.createComponent("AddGroupDialog.qml");
-        var add_group = component.createObject(main);
-        add_group.groupChooserItem = group_chooser
-        add_group.accepted.connect(group_chooser.finished)
-        add_group.accepted.connect(main.closeDialog)
+        var add_group = add_group_component.createObject(main);
         main.showDialog(add_group)
     }
 
@@ -103,6 +96,24 @@ Item {
         onLanguageChanged: {
             if( group )
                 txt.text = database.groupName(group)
+        }
+    }
+
+    Component {
+        id: group_selector_component
+        GroupSelector{
+            onSelected: group_chooser.finished(guid)
+        }
+    }
+
+    Component {
+        id: add_group_component
+        AddGroupDialog {
+            groupChooserItem: group_chooser
+            onAccepted: {
+                group_chooser.finished(guid)
+                main.closeDialog()
+            }
         }
     }
 }

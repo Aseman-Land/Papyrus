@@ -33,6 +33,7 @@
 #include "asemantools/asemantools.h"
 #include "resourcemanager.h"
 #include "weathermodel.h"
+#include "papyruslabelsmodel.h"
 #include "simpleqtcryptor/simpleqtcryptor.h"
 #include "asemantools/asemandevices.h"
 #include "asemantools/asemanquickview.h"
@@ -210,6 +211,7 @@ Papyrus::Papyrus(QObject *parent) :
     qmlRegisterType<Backuper>("Papyrus", 1,0, "Backuper");
     qmlRegisterType<WeatherData>("Papyrus", 1, 0, "WeatherData");
     qmlRegisterType<WeatherModel>("Papyrus", 1, 0, "WeatherModel");
+    qmlRegisterType<PapyrusLabelsModel>("Papyrus", 1, 0, "LabelsModel");
     qmlRegisterUncreatableType<Papyrus>("Papyrus", 1,0, "Papyrus","");
     qmlRegisterUncreatableType<Database>("Papyrus", 1,0, "Database","");
 

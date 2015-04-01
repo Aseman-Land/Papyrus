@@ -331,7 +331,7 @@ AnimationItem {
         }
     }
 
-    GroupChooser{
+    GroupChooser {
         id: group_chooser
         anchors.top: paper.top
         anchors.left: paper.left

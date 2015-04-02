@@ -33,13 +33,20 @@ public:
 
 public slots:
     void refresh();
+    int indexOf(int id);
 
 signals:
     void countChanged();
     void groupsChanged();
 
+private slots:
+    void groupNameChanged(int id);
+    void groupColorChanged(int id);
+    void groupPapersCountChanged(int id);
+
 private:
-    void changed(const QList<int> &list);
+    void roleDataChanged(int id, int role);
+    void changed(QList<int> list);
 
 private:
     PapyrusLabelsModelPrivate *p;

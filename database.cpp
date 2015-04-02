@@ -702,9 +702,13 @@ void Database::setPaperGroup(int id, int group)
     if( paper.group == group )
         return;
 
+    int old_group = paper.group;
     paper.group = group;
     savePaper(paper);
+
     emit paperGroupChanged(id);
+    emit groupPapersCountChanged(old_group);
+    emit groupPapersCountChanged(paper.group);
 }
 
 QDateTime Database::paperCreatedDate(int id)
@@ -966,6 +970,9 @@ void Database::setGroup(const QString &uuid, const QString &name, const QString 
     gr.uuid = uuid;
 
     saveGroup(gr);
+
+    emit groupNameChanged(id);
+    emit groupColorChanged(id);
 }
 
 QString Database::groupName(int id)
@@ -982,6 +989,7 @@ void Database::setGroupName(int id, const QString &name)
 
     p->groups[id].name = name.trimmed();
     saveGroup(p->groups[id]);
+    emit groupNameChanged(id);
 }
 
 QColor Database::groupColor(int id)
@@ -998,6 +1006,7 @@ void Database::setGroupColor(int id, const QColor & color)
 
     p->groups[id].color = color;
     saveGroup(p->groups[id]);
+    emit groupColorChanged(id);
 }
 
 QString Database::groupUuid(int id)

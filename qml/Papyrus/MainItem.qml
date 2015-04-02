@@ -530,10 +530,7 @@ Rectangle {
     }
 
     function showSearch(){
-        var component = Qt.createComponent("SearchPanel.qml")
-        var item = component.createObject(panel_frame);
-        item.keywordChanged.connect(main.search)
-        item.advanceSearchRequest.connect(main.advanceSearch)
+        var item = search_panel_component.createObject(panel_frame);
         showPanel(item)
     }
 
@@ -542,14 +539,12 @@ Rectangle {
     }
 
     function showPrefrences(){
-        var component = Qt.createComponent("Preference.qml")
-        var item = component.createObject(main);
+        var item = preference_component.createObject(main);
         main.pushPreference(item)
     }
 
     function showHistory(){
-        var component = Qt.createComponent("History.qml")
-        var item = component.createObject(main);
+        var item = history_component.createObject(main);
         main.pushPreference(item)
     }
 
@@ -560,10 +555,7 @@ Rectangle {
             return
         }
 
-        var component = Qt.createComponent("PaperList.qml")
-        var item = component.createObject(main);
-        item.list = list
-        item.positionViewAtIndex(main.stackSwitcher.currentFrame.item.currentIndex)
+        var item = paperlist_component.createObject(main);
         main.pushPreference(item)
     }
 
@@ -581,5 +573,41 @@ Rectangle {
 
     function initPapers() {
         stack_switcher.init()
+    }
+
+    Component {
+        id: history_component
+        History {}
+    }
+
+    Component {
+        id: preference_component
+        Preference {}
+    }
+
+    Component {
+        id: paperlist_component
+        PaperList {
+            list: {
+                var list = stack_switcher.currentFrame.item.papers
+                if( !list || list.length == 0 ) {
+                    showTooltip(qsTr("List is empty"))
+                    return new Array
+                } else {
+                    return list
+                }
+            }
+            Component.onCompleted: {
+                positionViewAtIndex(main.stackSwitcher.currentFrame.item.currentIndex)
+            }
+        }
+    }
+
+    Component {
+        id: search_panel_component
+        SearchPanel {
+            onKeywordChanged: main.search(text)
+            onAdvanceSearchRequest: main.advanceSearch(keyword, startDate, endDate, startTime, endTime, group, domain, geo, weather)
+        }
     }
 }

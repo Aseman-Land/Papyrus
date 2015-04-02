@@ -166,6 +166,10 @@ signals:
     void paperGroupChanged( int id );
     void fileDeleted( const QString & file );
 
+    void groupNameChanged(int id);
+    void groupColorChanged(int id);
+    void groupPapersCountChanged(int id);
+
 private:
     void reinit_buffer();
     void update_database();

@@ -27,18 +27,11 @@ Rectangle {
     color: "#00000000"
 
     signal itemSelected( int id, int type )
-    signal commandSelected( string cmd )
+    signal commandSelected()
 
     property color fontColor: "#333333"
 
     property variant cacheDate
-
-    Connections{
-        target: database
-        onGroupsListChanged: refresh()
-        onDatesListChanged: refresh()
-        onPaperGroupChanged: refresh()
-    }
 
     ListView {
         id: list_view
@@ -49,55 +42,44 @@ Rectangle {
         clip: true
         maximumFlickVelocity: View.flickVelocity
 
-        model: ListModel {}
+        model: SideBarModel {
+            id: sidebar_model
+            Component.onCompleted: refreshActions()
+
+            function refreshActions() {
+                clearActions()
+                addAction(SideBarModel.SectionAction, qsTr("Clean Papers"), "files/clean-papers.png", main.clean)
+                if( papyrus.allPaper )
+                    addAction(SideBarModel.SectionAction, qsTr("All Papers"), "files/all-papers.png", showAll)
+
+                addAction(SideBarModel.SectionAction, qsTr("Search"), "files/search.png", main.showSearch)
+                if( Devices.isDesktop ) {
+                    if( database.password().length != 0 )
+                        addAction(SideBarModel.SectionAction, qsTr("Lock"), "files/lock.png", lock)
+
+                    addAction(SideBarModel.SectionAction, qsTr("Fullscreen"), "files/fullscreen.png", fullscreen)
+                }
+                if( sync.tokenAvailable )
+                    addAction(SideBarModel.SectionAction, qsTr("Force Sync"), "files/sync.png", forceSync)
+
+                addAction(SideBarModel.SectionAction, qsTr("Preferences"), "files/preferences.png", main.showPrefrences)
+                addAction(SideBarModel.SectionHistory, qsTr("History"), "files/history.png", main.showHistory)
+            }
+        }
+
+        section.property: "section"
+        section.criteria: ViewSection.FullString
+        section.delegate: Item {
+            width: list_view.width
+            height: section != SideBarModel.SectionAction? 32*Devices.density : 0
+        }
+
         delegate: Rectangle {
             id: item
             width: list_view.width
             height: 32*Devices.density
-            color: (press && type != -1)? "#3B97EC" : "#00000000"
+            color: marea.pressed?"#3B97EC" : "#00000000"
             radius: 3*Devices.density
-
-            property string text: textValue
-            property int iid: guidValue
-            property int type: typeValue
-            property string command: cmdValue
-            property string icon: iconValue
-
-            property bool press: false
-
-            Component.onCompleted:  {
-                if( iid == -1 )
-                    return
-                if( type == 1 ){
-                    var append_text = " "
-                    var groupCount = database.groupPapersCount(iid)
-                    if( papyrus.groupsCount && groupCount != 0 )
-                        append_text += "(" + CalendarConv.translateInt(groupCount) + ")"
-
-                    color_rect.color = database.groupColor(iid)
-                    text = database.groupName(iid) + append_text
-                }
-                else
-                if( type == 0 ){
-                    var days = iid
-                    if( days === CalendarConv.currentDays )
-                        text = qsTr("Today")
-                    else
-                    if( days === CalendarConv.currentDays-1 )
-                        text = qsTr("Yesterday")
-                    else
-                    if( days === CalendarConv.currentDays-2 )
-                        text = qsTr("Two days ago")
-                    else
-                        text = CalendarConv.convertIntToStringDate(days,"yyyy MMM dd - dddd")
-                }
-            }
-
-            Connections{
-                target: list_view
-                onMovementStarted: press = false
-                onFlickStarted: press = false
-            }
 
             Rectangle {
                 id: color_rect
@@ -106,7 +88,8 @@ Rectangle {
                 anchors.margins: 1*Devices.density
                 anchors.left: icon_img.left
                 width: 7*Devices.density
-                color: "#00000000"
+                color: model.color
+                visible: model.type == SideBarModel.TypeGroup
             }
 
             Image {
@@ -117,8 +100,9 @@ Rectangle {
                 anchors.left: item.left
                 anchors.leftMargin: 6*Devices.density
                 anchors.verticalCenter: item.verticalCenter
-                source: item.icon
+                source: model.type == SideBarModel.TypeHistory? "files/history.png" : model.icon
                 smooth: true
+                visible: model.type != SideBarModel.TypeGroup
             }
 
             Text{
@@ -128,97 +112,38 @@ Rectangle {
                 anchors.margins: 30*Devices.density
                 anchors.leftMargin: 6*Devices.density
                 y: parent.height/2 - height/2
-                text: parent.text
+                text: model.type != SideBarModel.TypeAction? model.name + " (" + model.papersCount + ")" : model.name
                 font.pixelSize: 9*Devices.fontDensity
                 font.family: AsemanApp.globalFont.family
                 horizontalAlignment: Qt.AlignLeft
-                color: item.press? "#ffffff" : fontColor
+                color: marea.pressed? "#ffffff" : fontColor
             }
 
             MouseArea{
+                id: marea
                 anchors.fill: parent
-                onPressed: item.press = true
-                onReleased: item.press = false
                 onClicked: {
-                    if( item.command === "clean" )
-                        main.clean()
-                    else
-                    if( item.command === "all" ) {
-                        main.setCurrentGroup(0, PaperManager.All)
-                        show_list_timer.restart()
-                    } else
-                    if( item.command === "search" )
-                        main.showSearch()
-                    else
-                    if( item.command === "lock" )
-                        lock()
-                    else
-                    if( item.command === "sync" ){
-                        if( sync.tokenAvailable ) {
-                            sync.refreshForce()
-                            syncProgressBar.visible = true
-                        }
-                    }
-                    else
-                    if( item.command === "fullscreen" )
-                        papyrus.fullscreen = !papyrus.fullscreen
-                    else
-                    if( item.command === "preferences" )
-                        main.showPrefrences()
-                    else
-                    if( item.command === "history" )
-                        main.showHistory()
+                    switch(model.type)
+                    {
+                    case SideBarModel.TypeAction:
+                        model.command()
+                        sidebar_list.commandSelected( model.command )
+                        break;
 
-                    if( item.command !== "" )
-                        sidebar_list.commandSelected( item.command )
-                    else
-                    if( item.type != -1 )
-                        sidebar_list.itemSelected( item.iid, (item.type==0)? PaperManager.Date : PaperManager.Group )
+                    case SideBarModel.TypeGroup:
+                        sidebar_list.itemSelected(model.groupId, PaperManager.Group)
+                        break;
+
+                    case SideBarModel.TypeHistory:
+                        sidebar_list.itemSelected(model.date, PaperManager.Date)
+                        break;
+                    }
                 }
             }
         }
 
         focus: true
         currentIndex: -1
-
-        Component.onCompleted: refresh()
-        function refresh(){
-            model.clear()
-
-            model.append({"textValue": qsTr("Clean Papers"), "cmdValue": "clean", "typeValue": 0, "guidValue": -1, "iconValue": "files/clean-papers.png"})
-            if( papyrus.allPaper )
-                model.append({"textValue": qsTr("All Papers"), "cmdValue": "all", "typeValue": 0, "guidValue": -1, "iconValue": "files/all-papers.png"})
-            model.append({"textValue": qsTr("Search"), "cmdValue": "search", "typeValue": 0, "guidValue": -1, "iconValue": "files/search.png"})
-            if( Devices.isDesktop ) {
-                if( database.password().length != 0 )
-                    model.append({"textValue": qsTr("Lock"), "cmdValue": "lock", "typeValue": 0, "guidValue": -1, "iconValue": "files/lock.png"})
-
-                model.append({"textValue": qsTr("Fullscreen"), "cmdValue": "fullscreen", "typeValue": 0, "guidValue": -1, "iconValue": "files/fullscreen.png"})
-            }
-            if( sync.tokenAvailable )
-                model.append({"textValue": qsTr("Force Sync"), "cmdValue": "sync", "typeValue": 0, "guidValue": -1, "iconValue": "files/sync.png"})
-
-            model.append({"textValue": qsTr("Preferences"), "cmdValue": "preferences", "typeValue": 0, "guidValue": -1, "iconValue": "files/preferences.png"})
-
-            model.append({"textValue": "", "cmdValue": "", "typeValue": -1, "guidValue": -1, "iconValue": ""})
-
-            model.append({"textValue": qsTr("History"), "cmdValue": "history", "typeValue": 0, "guidValue": -1, "iconValue": "files/history.png"})
-            var list = database.lastThreeDays()
-            for( var i=0; i<list.length; i++ )
-                model.append({"textValue": "", "cmdValue": "", "typeValue": 0, "guidValue": list[i], "iconValue": "files/history.png"})
-
-            model.append({"textValue": "", "cmdValue": "", "typeValue": -1, "guidValue": -1, "iconValue": ""})
-
-            list = database.groups()
-            for( var i=0; i<list.length; i++ ) {
-                var gid = list[i]
-                var name = database.groupName(gid)
-                if( database.groupIsDeleted(gid) )
-                    continue
-
-                model.append({"textValue": "", "cmdValue": "", "typeValue": 1, "guidValue": gid, "iconValue": ""})
-            }
-        }
     }
 
     ScrollBar {
@@ -240,6 +165,22 @@ Rectangle {
     }
 
     function refresh(){
-        list_view.refresh()
+        sidebar_model.refreshActions()
+    }
+
+    function showAll() {
+        main.setCurrentGroup(0, PaperManager.All)
+        show_list_timer.restart()
+    }
+
+    function fullscreen() {
+        papyrus.fullscreen = !papyrus.fullscreen
+    }
+
+    function forceSync() {
+        if( sync.tokenAvailable ) {
+            sync.refreshForce()
+            syncProgressBar.visible = true
+        }
     }
 }

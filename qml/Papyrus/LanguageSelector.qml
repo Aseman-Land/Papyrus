@@ -74,8 +74,7 @@ Item {
                 onReleased: item.press = false
                 onClicked: {
                     if( addButton ) {
-                        var component = Qt.createComponent("TranslationEditor.qml")
-                        var citem = component.createObject(main)
+                        var citem = trans_editor_component.createObject(main)
                         pushPreference(citem)
                     } else {
                         papyrus.setCurrentLanguage(item.text)
@@ -102,7 +101,7 @@ Item {
             for( var i=0; i<langs.length; i++ )
                 model.append({"name": langs[i], "addButton": false})
 
-            model.append({"name": qsTr("Add your Language"), "addButton": true})
+//            model.append({"name": qsTr("Add your Language"), "addButton": true})
             focus = true
         }
     }
@@ -123,5 +122,10 @@ Item {
 
     Component.onCompleted: {
         initTranslations()
+    }
+
+    Component {
+        id: trans_editor_component
+        TranslationEditor{}
     }
 }

@@ -17,6 +17,10 @@ PapyrusLabelsModel::PapyrusLabelsModel(QObject *parent) :
 
     connect(p->db, SIGNAL(groupsListChanged()), SLOT(refresh()) );
 
+    connect(p->db, SIGNAL(groupNameChanged(int)), SLOT(groupNameChanged(int)));
+    connect(p->db, SIGNAL(groupColorChanged(int)), SLOT(groupColorChanged(int)));
+    connect(p->db, SIGNAL(groupPapersCountChanged(int)), SLOT(groupPapersCountChanged(int)));
+
     refresh();
 }
 
@@ -24,6 +28,11 @@ int PapyrusLabelsModel::id(const QModelIndex &index) const
 {
     const int row = index.row();
     return p->list.at(row);
+}
+
+int PapyrusLabelsModel::indexOf(int id)
+{
+    return p->list.indexOf(id);
 }
 
 int PapyrusLabelsModel::rowCount(const QModelIndex &parent) const
@@ -88,8 +97,39 @@ void PapyrusLabelsModel::refresh()
     changed(p->db->groups());
 }
 
-void PapyrusLabelsModel::changed(const QList<int> &list)
+void PapyrusLabelsModel::groupNameChanged(int id)
 {
+    roleDataChanged(id, GroupName);
+}
+
+void PapyrusLabelsModel::groupColorChanged(int id)
+{
+    roleDataChanged(id, GroupColor);
+}
+
+void PapyrusLabelsModel::groupPapersCountChanged(int id)
+{
+    roleDataChanged(id, GroupPapersCount);
+}
+
+void PapyrusLabelsModel::roleDataChanged(int id, int role)
+{
+    const int idx = indexOf(id);
+    if(idx == -1)
+        return;
+
+    emit dataChanged(index(idx), index(idx), QVector<int>()<<role);
+}
+
+void PapyrusLabelsModel::changed(QList<int> list)
+{
+    for(int i=0; i<list.count(); i++)
+        if(p->db->groupIsDeleted(list.at(i)))
+        {
+            list.removeAt(i);
+            i--;
+        }
+
     bool count_changed = (list.count()==p->list.count());
 
     for( int i=0 ; i<p->list.count() ; i++ )

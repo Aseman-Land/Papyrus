@@ -18,6 +18,7 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     width: 100
@@ -56,7 +57,6 @@ Item {
                     database.deleteGroup(msg_item.groupId)
 
                 hideRollerDialog()
-                groups_list.refresh()
                 main.refresh()
             }
         }
@@ -95,25 +95,12 @@ Item {
         clip: true
         maximumFlickVelocity: View.flickVelocity
 
-        model: ListModel {}
+        model: LabelsModel {}
         delegate: Rectangle {
             id: item
             width: groups_list.width
             height:  50*Devices.density
-            color: press? "#3B97EC" : "#00000000"
-
-            property string text: name
-            property int groupId: gid
-            property bool press: false
-
-            onGroupIdChanged: clr_item.color = database.groupColor(groupId)
-            onPressChanged: hideRollerDialog()
-
-            Connections{
-                target: groups_list
-                onMovementStarted: press = false
-                onFlickStarted: press = false
-            }
+            color: marea.pressed? "#3B97EC" : "#00000000"
 
             Rectangle{
                 id: clr_item
@@ -123,7 +110,7 @@ Item {
                 anchors.left: parent.left
                 anchors.margins: 2*Devices.density
                 anchors.leftMargin: 10*Devices.density
-                color: database.groupColor(groupId)
+                color: model.color
             }
 
             Text{
@@ -132,7 +119,7 @@ Item {
                 anchors.right: parent.right
                 anchors.margins: 30*Devices.density
                 y: parent.height/2 - height/2
-                text: parent.text
+                text: model.name
                 font.pixelSize: 12*Devices.fontDensity
                 font.family: AsemanApp.globalFont.family
                 color: item.press? "#ffffff" : "#333333"
@@ -140,16 +127,11 @@ Item {
             }
 
             MouseArea{
+                id: marea
                 anchors.fill: parent
-                onPressed: item.press = true
-                onReleased: item.press = false
+                onPressed: hideRollerDialog()
                 onClicked: {
-                    var component = Qt.createComponent("AddGroupDialog.qml");
-                    var ag = component.createObject(main);
-                    ag.groupId = item.groupId
-                    ag.accepted.connect(groups_list.refresh)
-                    ag.accepted.connect(main.refresh)
-                    ag.accepted.connect(main.popPreference)
+                    var ag = add_dialog_component.createObject(main, {"groupId":model.id})
                     main.pushPreference(ag)
                 }
             }
@@ -164,9 +146,9 @@ Item {
                 anchors.rightMargin: 10*Devices.density
                 icon: "files/delete.png"
                 normalColor: "#00000000"
-                visible: item.groupId != 0
+                visible: model.id != 0
                 onClicked: {
-                    msg_item.groupId = item.groupId
+                    msg_item.groupId = model.id
                     showRollerDialog( item.mapToItem(papyrus_root,0,0).y, item.mapToItem(papyrus_root,0,item.height).y, msg_item )
                 }
             }
@@ -180,26 +162,6 @@ Item {
             if( !currentItem )
                 return
         }
-
-        Component.onCompleted: {
-            refresh()
-        }
-
-        function refresh(){
-            model.clear()
-
-            var list = database.groups()
-            for( var i=0; i<list.length; i++ ) {
-                var gid = list[i]
-                var name = database.groupName(gid)
-                if( database.groupIsDeleted(gid) )
-                    continue
-
-                model.append({"name": name, "gid": gid})
-            }
-
-            main.focus = true
-        }
     }
 
     ScrollBar {
@@ -207,12 +169,12 @@ Item {
         anchors.right: groups_list.right; anchors.top: groups_list.top; color: "#000000"
     }
 
-    Connections{
+    Connections {
         target: papyrus
         onLanguageChanged: initTranslations()
     }
 
-    function initTranslations(){
+    function initTranslations() {
         title.text       = qsTr("Label Manager")
         delete_warn.text = qsTr("Are you sure?")
         yes_button.text  = qsTr("Delete")
@@ -221,5 +183,15 @@ Item {
 
     Component.onCompleted: {
         initTranslations()
+    }
+
+    Component {
+        id: add_dialog_component
+        AddGroupDialog {
+            onAccepted: {
+                main.refresh()
+                main.popPreference()
+            }
+        }
     }
 }

@@ -52,38 +52,12 @@ Item {
         clip: true
         maximumFlickVelocity: View.flickVelocity
 
-        model: ListModel {}
+        model: HistoryModel {}
         delegate: Rectangle {
             id: item
             width: history_list.width
             height: 50*Devices.density
-            color: press? "#3B97EC" : "#00000000"
-
-            property string text
-            property int date: daysDate
-            property bool press: false
-
-            onDateChanged: {
-                var days = date
-                if( days === CalendarConv.currentDays )
-                    text = qsTr("Today")
-                else
-                if( days === CalendarConv.currentDays-1 )
-                    text = qsTr("Yesterday")
-                else
-                if( days === CalendarConv.currentDays-2 )
-                    text = qsTr("Two days ago")
-                else
-                    text = CalendarConv.convertIntToFullStringDate(days)
-
-                papers_count_txt.text = database.papersCountOf(CalendarConv.convertDaysToDate(date))
-            }
-
-            Connections{
-                target: history_list
-                onMovementStarted: press = false
-                onFlickStarted: press = false
-            }
+            color: marea.pressed? "#3B97EC" : "#00000000"
 
             Text{
                 id: txt
@@ -91,7 +65,7 @@ Item {
                 anchors.right: parent.right
                 anchors.margins: 25*Devices.density
                 y: parent.height/2 - height/2
-                text: parent.text
+                text: model.text
                 font.pixelSize: 11*Devices.fontDensity
                 font.family: AsemanApp.globalFont.family
                 color: "#ffffff"
@@ -112,19 +86,19 @@ Item {
                     x: papers_count.width/2 - width/2
                     y: papers_count.height/2 - height/2
                     color: "#235089"
+                    text: model.papersCount
                 }
             }
 
             MouseArea{
+                id: marea
                 anchors.fill: parent
-                onPressed: item.press = true
-                onReleased: item.press = false
                 onClicked: {
-                    var nodes = database.papersOf(CalendarConv.convertDaysToDate(item.date))
+                    var nodes = database.papersOf(CalendarConv.convertDaysToDate(model.date))
                     if( nodes.length === 0 )
                         return
 
-                    main.setCurrentGroup(item.date,PaperManager.Date)
+                    main.setCurrentGroup(model.date,PaperManager.Date)
                     main.popPreference()
                 }
             }
@@ -137,16 +111,6 @@ Item {
         onCurrentItemChanged: {
             if( !currentItem )
                 return
-        }
-
-        Component.onCompleted: {
-            model.clear()
-
-            var bkps = database.dates()
-            for( var i=0; i<bkps.length; i++ )
-                model.append({"daysDate": bkps[i]})
-
-            focus = true
         }
     }
 

@@ -136,7 +136,9 @@ SOURCES += main.cpp \
     databasedatatypes.cpp \
     translationmodel.cpp \
     weathermodel.cpp \
-    papyruslabelsmodel.cpp
+    papyruslabelsmodel.cpp \
+    papyrushistorymodel.cpp \
+    papyrussidebarmodel.cpp
 
 HEADERS += \
     papyrus.h \
@@ -155,7 +157,9 @@ HEADERS += \
     searchhighlighter.h \
     translationmodel.h \
     weathermodel.h \
-    papyruslabelsmodel.h
+    papyruslabelsmodel.h \
+    papyrushistorymodel.h \
+    papyrussidebarmodel.h
 
 TRANSLATIONS += \
     files/translations/lang-en.qm \

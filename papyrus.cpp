@@ -30,10 +30,12 @@
 #include "translationmodel.h"
 #include "backuper.h"
 #include "searchhighlighter.h"
+#include "papyrussidebarmodel.h"
 #include "asemantools/asemantools.h"
 #include "resourcemanager.h"
 #include "weathermodel.h"
 #include "papyruslabelsmodel.h"
+#include "papyrushistorymodel.h"
 #include "simpleqtcryptor/simpleqtcryptor.h"
 #include "asemantools/asemandevices.h"
 #include "asemantools/asemanquickview.h"
@@ -212,6 +214,8 @@ Papyrus::Papyrus(QObject *parent) :
     qmlRegisterType<WeatherData>("Papyrus", 1, 0, "WeatherData");
     qmlRegisterType<WeatherModel>("Papyrus", 1, 0, "WeatherModel");
     qmlRegisterType<PapyrusLabelsModel>("Papyrus", 1, 0, "LabelsModel");
+    qmlRegisterType<PapyrusHistoryModel>("Papyrus", 1, 0, "HistoryModel");
+    qmlRegisterType<PapyrusSideBarModel>("Papyrus", 1, 0, "SideBarModel");
     qmlRegisterUncreatableType<Papyrus>("Papyrus", 1,0, "Papyrus","");
     qmlRegisterUncreatableType<Database>("Papyrus", 1,0, "Database","");
 

@@ -70,6 +70,7 @@ private slots:
     void groupNameChanged(int id);
     void groupColorChanged(int id);
     void groupPapersCountChanged(int id);
+    void paperCreated(int id);
 
 private:
     void roleDataChanged(int id, int role);

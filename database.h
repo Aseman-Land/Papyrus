@@ -47,107 +47,107 @@ public:
     Database(QObject *parent = 0);
     ~Database();
 
-    Q_INVOKABLE void connect();
-    Q_INVOKABLE void disconnect();
-
-    Q_INVOKABLE void setPath( const QString & path );
-    Q_INVOKABLE QString path() const;
-
-    Q_INVOKABLE void setCurrentActivity( int activity );
-    Q_INVOKABLE int currentActivity() const;
-
-    Q_INVOKABLE QList<int> dates();
-    Q_INVOKABLE QList<int> lastThreeDays();
-
-    Q_INVOKABLE int papersCountOf( const QDate & date );
-    Q_INVOKABLE QList<int> papersOf( const QDate & date );
-    Q_INVOKABLE QList<int> papersOf( int group_id );
-    Q_INVOKABLE QList<int> papers();
-    Q_INVOKABLE QList<int> search(const QString & keyword );
-    Q_INVOKABLE QList<int> advanceSearch(const QString & keyword, const QDate & startDate, const QDate & endDate, const QTime & startTime, const QTime & endTime, int group, int domain, const QRectF &geo = QRectF(), const QString & weather = QString() );
-
-    Q_INVOKABLE int createPaper(const QString &uuid = QString());
-    Q_INVOKABLE void deletePaper( int id );
-
-    Q_INVOKABLE void setPaper(int id, const QString & title, const QString & text, int group );
-    Q_INVOKABLE void setPaper(const QString & uuid, const QString & title, const QString & text, const QString & group, const QString & date, const QGeoCoordinate & location , int type, const QString & weather, int temperature);
-
-    Q_INVOKABLE QString paperTitle( int id );
-    Q_INVOKABLE void setPaperTitle( int id, const QString & title );
-
-    Q_INVOKABLE QString paperText( int id );
-    Q_INVOKABLE void setPaperText( int id, const QString & text );
-
-    Q_INVOKABLE int paperType( int id );
-    Q_INVOKABLE void setPaperType( int id, int type );
-
-    Q_INVOKABLE int paperTemperature( int id );
-    Q_INVOKABLE void setPaperTemperature( int id, int tmp );
-
-    Q_INVOKABLE QString paperWeather( int id );
-    Q_INVOKABLE void setPaperWeather( int id, const QString & weather );
-
-    Q_INVOKABLE QGeoCoordinate paperLocation( int id );
-    Q_INVOKABLE void setPaperLocation( int id, const QGeoCoordinate & coo );
-    Q_INVOKABLE void setPaperLocation(int id, const QPointF & point );
-
-    Q_INVOKABLE int paperGroup( int id );
-    Q_INVOKABLE void setPaperGroup( int id, int group );
-
-    Q_INVOKABLE QDateTime paperCreatedDate( int id );
-    Q_INVOKABLE void setPaperCreatedDate( int id, const QDateTime & dt );
-
-    Q_INVOKABLE QDateTime paperModifiedDate( int id );
-    Q_INVOKABLE QString paperUuid( int id );
-    Q_INVOKABLE int paperActivity( int id );
-    Q_INVOKABLE int paperUuidId( const QString & uuid );
-
-    Q_INVOKABLE QStringList paperFiles( int id );
-    Q_INVOKABLE bool hasFiles( int id );
-    Q_INVOKABLE void addFileToPaper( int id, const QString & file );
-    Q_INVOKABLE void addCustomFileToPaper( int id, const QString & file, qint64 date );
-    Q_INVOKABLE void removeFileFromPaper( int id, const QString & file );
-    Q_INVOKABLE bool fileContaintOnDatabase( const QString & file );
-    Q_INVOKABLE qint64 fileTime( int id, const QString & file );
-
-    Q_INVOKABLE QList<int> groups();
-    Q_INVOKABLE bool groupIsDeleted( int id );
-    Q_INVOKABLE int createGroup(const QString &uuid = QString());
-    Q_INVOKABLE void deleteGroup( int id );
-    Q_INVOKABLE void setGroup( const QString & uuid, const QString & name, const QString & color );
-
-    Q_INVOKABLE QString groupName( int id );
-    Q_INVOKABLE void setGroupName( int id, const QString & name );
-
-    Q_INVOKABLE QColor groupColor( int id );
-    Q_INVOKABLE void setGroupColor(int id , const QColor &color);
-
-    Q_INVOKABLE QString groupUuid( int id );
-    Q_INVOKABLE int groupUuidId( const QString & uuid );
-
-    Q_INVOKABLE int groupPapersCount( int id );
-
-    Q_INVOKABLE QList<int> activities();
-
-    Q_INVOKABLE int passwordType();
-    Q_INVOKABLE QString password();
-    Q_INVOKABLE void setPassword(const QString & pass, int type = Numeric );
-
-    Q_INVOKABLE QString syncPassword();
-    Q_INVOKABLE void setSyncPassword( const QString & pass );
-
-    Q_INVOKABLE QString value( const QString & property );
-    Q_INVOKABLE void setValue( const QString & property, const QString & value );
-
-    Q_INVOKABLE int statePapersCount();
-    Q_INVOKABLE int stateDatesCount();
-    Q_INVOKABLE int stateGroupsCount();
-
-    Q_INVOKABLE void setRevision( const QString & id, int revisionOf );
-    Q_INVOKABLE int revisionOf( const QString & id ) const;
-    Q_INVOKABLE SyncItemHash revisions() const;
-
 public slots:
+    void connect();
+    void disconnect();
+
+    void setPath( const QString & path );
+    QString path() const;
+
+    void setCurrentActivity( int activity );
+    int currentActivity() const;
+
+    QList<int> dates();
+    QList<int> lastThreeDays();
+
+    int papersCountOf( const QDate & date );
+    QList<int> papersOf( const QDate & date );
+    QList<int> papersOf( int group_id );
+    QList<int> papers();
+    QList<int> search(const QString & keyword );
+    QList<int> advanceSearch(const QString & keyword, const QDate & startDate, const QDate & endDate, const QTime & startTime, const QTime & endTime, int group, int domain, const QRectF &geo = QRectF(), const QString & weather = QString() );
+
+    int createPaper(const QString &uuid = QString());
+    void deletePaper( int id );
+
+    void setPaper(int id, const QString & title, const QString & text, int group );
+    void setPaper(const QString & uuid, const QString & title, const QString & text, const QString & group, const QString & date, const QGeoCoordinate & location , int type, const QString & weather, int temperature);
+
+    QString paperTitle( int id );
+    void setPaperTitle( int id, const QString & title );
+
+    QString paperText( int id );
+    void setPaperText( int id, const QString & text );
+
+    int paperType( int id );
+    void setPaperType( int id, int type );
+
+    int paperTemperature( int id );
+    void setPaperTemperature( int id, int tmp );
+
+    QString paperWeather( int id );
+    void setPaperWeather( int id, const QString & weather );
+
+    QGeoCoordinate paperLocation( int id );
+    void setPaperLocation( int id, const QGeoCoordinate & coo );
+    void setPaperLocation(int id, const QPointF & point );
+
+    int paperGroup( int id );
+    void setPaperGroup( int id, int group );
+
+    QDateTime paperCreatedDate( int id );
+    void setPaperCreatedDate( int id, const QDateTime & dt );
+
+    QDateTime paperModifiedDate( int id );
+    QString paperUuid( int id );
+    int paperActivity( int id );
+    int paperUuidId( const QString & uuid );
+
+    QStringList paperFiles( int id );
+    bool hasFiles( int id );
+    void addFileToPaper( int id, const QString & file );
+    void addCustomFileToPaper( int id, const QString & file, qint64 date );
+    void removeFileFromPaper( int id, const QString & file );
+    bool fileContaintOnDatabase( const QString & file );
+    qint64 fileTime( int id, const QString & file );
+
+    QList<int> groups();
+    bool groupIsDeleted( int id );
+    int createGroup(const QString &uuid = QString());
+    void deleteGroup( int id );
+    void setGroup( const QString & uuid, const QString & name, const QString & color );
+
+    QString groupName( int id );
+    void setGroupName( int id, const QString & name );
+
+    QColor groupColor( int id );
+    void setGroupColor(int id , const QColor &color);
+
+    QString groupUuid( int id );
+    int groupUuidId( const QString & uuid );
+
+    int groupPapersCount( int id );
+
+    QList<int> activities();
+
+    int passwordType();
+    QString password();
+    void setPassword(const QString & pass, int type = Numeric );
+
+    QString syncPassword();
+    void setSyncPassword( const QString & pass );
+
+    QString value( const QString & property );
+    void setValue( const QString & property, const QString & value );
+
+    int statePapersCount();
+    int stateDatesCount();
+    int stateGroupsCount();
+
+    void setRevision( const QString & id, int revisionOf );
+    int revisionOf( const QString & id ) const;
+    SyncItemHash revisions() const;
+
     void setSignalBlocker(bool stt );
 
     void begin();
@@ -169,6 +169,8 @@ signals:
     void groupNameChanged(int id);
     void groupColorChanged(int id);
     void groupPapersCountChanged(int id);
+    void paperCreated(int id);
+    void paperDeleted(int id);
 
 private:
     void reinit_buffer();

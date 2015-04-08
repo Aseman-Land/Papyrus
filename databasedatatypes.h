@@ -76,6 +76,7 @@ public:
         id = -1;
         type = Enums::Normal;
         temperature = 0;
+        group = 0;
     }
 
     int id;

@@ -226,5 +226,6 @@
         <file>qml/Papyrus/PapyrusShareDialog.qml</file>
         <file>qml/Papyrus/SearchPaperWeather.qml</file>
         <file>qml/Papyrus/FavoriteMessage.qml</file>
+        <file>qml/Papyrus/PaperNormalText.qml</file>
     </qresource>
 </RCC>

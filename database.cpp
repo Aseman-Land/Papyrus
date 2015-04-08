@@ -527,6 +527,7 @@ int Database::createPaper( const QString & uuid )
     savePaper(paper);
 
     emit datesListChanged();
+    emit paperCreated(paper.id);
     return paper.id;
 }
 
@@ -560,6 +561,7 @@ void Database::deletePaper(int id)
 
     setRevision(paper.uuid,-2);
     emit paperGroupChanged(id);
+    emit paperDeleted(id);
 }
 
 void Database::setPaper(int id, const QString &title, const QString &text, int group)
@@ -570,11 +572,19 @@ void Database::setPaper(int id, const QString &title, const QString &text, int g
     if( paper.title == title && paper.text == text && paper.group == group )
         return;
 
+    int old_group = paper.group;
+
     paper.title     = title;
     paper.text      = text;
     paper.group     = group;
     savePaper(paper);
+
     emit paperGroupChanged(id);
+    if(old_group != paper.group)
+    {
+        emit groupPapersCountChanged(old_group);
+        emit groupPapersCountChanged(paper.group);
+    }
 }
 
 void Database::setPaper(const QString &uuid, const QString &title, const QString &text, const QString &group, const QString &date, const QGeoCoordinate & location, int type, const QString & weather, int temperature)
@@ -588,6 +598,7 @@ void Database::setPaper(const QString &uuid, const QString &title, const QString
         group_id = createGroup(group);
 
     PaperClass paper = getPaper(paper_id);
+    int old_group = paper.group;
 
     paper.uuid        = uuid;
     paper.title       = title;
@@ -602,6 +613,11 @@ void Database::setPaper(const QString &uuid, const QString &title, const QString
     savePaper(paper);
     emit datesListChanged();
     emit paperGroupChanged(paper_id);
+    if(old_group != paper.group)
+    {
+        emit groupPapersCountChanged(old_group);
+        emit groupPapersCountChanged(paper.group);
+    }
 }
 
 QString Database::paperTitle(int id)

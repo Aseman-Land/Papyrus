@@ -59,6 +59,8 @@ PapyrusSideBarModel::PapyrusSideBarModel(QObject *parent) :
     connect(p->db, SIGNAL(groupNameChanged(int)), SLOT(groupNameChanged(int)));
     connect(p->db, SIGNAL(groupColorChanged(int)), SLOT(groupColorChanged(int)));
     connect(p->db, SIGNAL(groupPapersCountChanged(int)), SLOT(groupPapersCountChanged(int)));
+    connect(p->db, SIGNAL(paperCreated(int)), SLOT(paperCreated(int)), Qt::QueuedConnection);
+    connect(p->db, SIGNAL(paperDeleted(int)), SLOT(paperCreated(int)), Qt::QueuedConnection);
 
     refresh();
 }
@@ -318,6 +320,18 @@ void PapyrusSideBarModel::groupColorChanged(int id)
 void PapyrusSideBarModel::groupPapersCountChanged(int id)
 {
     roleDataChanged(id, SideBarItemPapersCount);
+}
+
+void PapyrusSideBarModel::paperCreated(int id)
+{
+    const QDateTime &dt = p->db->paperCreatedDate(id);
+    const int date = QDate(1,1,1).daysTo(dt.date());
+
+    const int idx = indexOf(TypeHistory, date);
+    if(idx == -1)
+        return;
+
+    emit dataChanged(index(idx), index(idx), QVector<int>()<<SideBarItemPapersCount);
 }
 
 void PapyrusSideBarModel::roleDataChanged(int id, int role)

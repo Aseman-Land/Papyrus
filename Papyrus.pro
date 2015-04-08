@@ -138,7 +138,9 @@ SOURCES += main.cpp \
     weathermodel.cpp \
     papyruslabelsmodel.cpp \
     papyrushistorymodel.cpp \
-    papyrussidebarmodel.cpp
+    papyrussidebarmodel.cpp \
+    papyruspaperfilesmodel.cpp \
+    papyrustodolistmodel.cpp
 
 HEADERS += \
     papyrus.h \
@@ -159,7 +161,9 @@ HEADERS += \
     weathermodel.h \
     papyruslabelsmodel.h \
     papyrushistorymodel.h \
-    papyrussidebarmodel.h
+    papyrussidebarmodel.h \
+    papyruspaperfilesmodel.h \
+    papyrustodolistmodel.h
 
 TRANSLATIONS += \
     files/translations/lang-en.qm \

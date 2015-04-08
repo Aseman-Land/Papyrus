@@ -88,12 +88,7 @@ Item {
         repeat: false
         interval: 500
         onTriggered: {
-            var component = Qt.createComponent("AttachViewer.qml")
-            var item = component.createObject(gallery_frame);
-            item.paperItem = attach_menu.paperItem
-            item.paper = attach_menu.paper
-            item.editRequest.connect(attach_menu.showCanvas)
-
+            var item = attach_viewer_component.createObject(gallery_frame);
             gallery_frame.item = item
         }
     }
@@ -145,15 +140,14 @@ Item {
         border.color: "#ffffff"
         onClicked: {
             if( !Devices.isTouchDevice ){
-                var list = papyrus.getOpenFileNames( qsTr("Select media files."), "Images (*.png *.jpg);;Musics (*.mp3 *.ogg);;Documents (*.pdf *.txt *.text)" )
-                for( var i=0; i<list.length; i++ ){
-                    var id = repository.insert( list[i] )
-                    attach_menu.selected(id)
-                }
+                var filePath = Desktop.getOpenFileName( View, qsTr("Select file.") )
+                if(filePath.length == 0)
+                    return
+
+                var id = repository.insert(filePath)
+                attach_menu.selected(id)
             } else {
-                var component = Qt.createComponent("AttachInsertDialog.qml")
-                var item = component.createObject(main);
-                item.selected.connect(attach_menu.selected)
+                var item = attach_insert_component.createObject(main)
                 main.pushPreference(item)
             }
         }
@@ -178,9 +172,7 @@ Item {
         border.width: 1*Devices.density
         border.color: "#ffffff"
         onClicked: {
-            var component = Qt.createComponent("PapyrusCanvas.qml")
-            var item = component.createObject(main);
-            item.done.connect(attach_menu.canvasDone)
+            var item = canvas_component.createObject(main);
             main.showDialog(item)
         }
     }
@@ -246,6 +238,29 @@ Item {
         property real root_y: 0
     }
 
+    Component {
+        id: attach_insert_component
+        AttachInsertDialog {
+            onSelected: attach_menu.selected(repID)
+        }
+    }
+
+    Component {
+        id: attach_viewer_component
+        AttachViewer {
+            paperItem: attach_menu.paperItem
+            paper: attach_menu.paper
+            onEditRequest: attach_menu.showCanvas(fid)
+        }
+    }
+
+    Component {
+        id: canvas_component
+        PapyrusCanvas {
+            onDone: attach_menu.canvasDone(fileName, fileId)
+        }
+    }
+
     function selected( id ){
         if( paperItem == -1 )
             paper.save()
@@ -268,9 +283,7 @@ Item {
     }
 
     function showCanvas( fid ) {
-        var component = Qt.createComponent("PapyrusCanvas.qml")
-        var item = component.createObject(main)
-        item.done.connect(attach_menu.canvasDone)
+        var item = canvas_component.createObject(main)
         item.fileId = fid
 
         main.showDialog(item)

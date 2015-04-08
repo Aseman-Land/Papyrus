@@ -18,6 +18,7 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     id: attach_viewer
@@ -27,10 +28,6 @@ Item {
 
     property int paperItem: -1
     property variant paper
-
-    onPaperItemChanged: {
-        attach_list.refresh()
-    }
 
     signal editRequest( string fid )
 
@@ -77,7 +74,6 @@ Item {
                 database.removeFileFromPaper(paperItem,msg_item.fileID)
                 papyrus.deleteFileIfPossible(msg_item.fileID)
                 hideRollerDialog()
-                attach_list.refresh()
             }
         }
 
@@ -114,15 +110,15 @@ Item {
 
         property string edited
 
-        model: ListModel {}
+        model: PaperFilesModel {
+            paperId: attach_viewer.paperItem
+        }
+
         delegate: Rectangle {
             id: item
             width: attach_list.width<4*parent.height/3? attach_list.width : imgWidth
             height: parent.height
             color: "#00000000"
-
-            property string fileId: fid
-            property string path: filePath
 
             property variant viewer
             property alias controlFrame: control_frame
@@ -148,11 +144,11 @@ Item {
             MouseArea{
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
-                onClicked: attach_list.edited = item.fileId
+                onClicked: attach_list.edited = model.id
                 onPressed: hideRollerDialog()
                 onDoubleClicked: {
-                    var p = papyrus.cacheFile(item.path)
-                    Devices.openFile( "file://" + p )
+                    var p = papyrus.cacheFile(model.path)
+                    Devices.openFile( Devices.localFilesPrePath + p )
                 }
             }
 
@@ -162,7 +158,7 @@ Item {
                 height: 30*Devices.density
                 spacing: 10*Devices.density
                 anchors.horizontalCenter: item.horizontalCenter
-                visible: attach_list.edited == item.fileId
+                visible: attach_list.edited == model.id
                 z: 100
 
                 Button {
@@ -175,7 +171,7 @@ Item {
                     normalColor: "#333333"
                     highlightColor: "#222222"
                     onClicked: {
-                        var p = papyrus.cacheFile(item.path)
+                        var p = papyrus.cacheFile(model.path)
                         Devices.openFile( "file://" + p )
                         control_frame.visible = false
                     }
@@ -192,7 +188,7 @@ Item {
                     highlightColor: "#222222"
                     visible: false
                     onClicked: {
-                        attach_viewer.editRequest(fileId)
+                        attach_viewer.editRequest(model.id)
                     }
                 }
 
@@ -206,7 +202,7 @@ Item {
                     normalColor: "#333333"
                     highlightColor: "#222222"
                     onClicked: {
-                        msg_item.fileID = item.fileId
+                        msg_item.fileID = model.id
                         showRollerDialog( item.mapToItem(papyrus_root,0,item.imgY).y,
                                           item.mapToItem(papyrus_root,0,item.imgY).y + item.imgHeight, msg_item )
                         control_frame.visible = false
@@ -215,10 +211,10 @@ Item {
             }
 
             Component.onCompleted: {
-                var suffix = Tools.fileSuffix(item.path)
+                var suffix = model.suffix
                 var component;
                 if( suffix === "jpg" || suffix === "jpeg" || suffix === "png" ) {
-                    component = Qt.createComponent("ImageViewer.qml");
+                    component = image_viewer_component;
                     edit_btn.visible = papyrus.proBuild
                 }
                 else
@@ -226,14 +222,13 @@ Item {
                     component = music_viewer_component;
                 else
                 if( suffix === "txt" || suffix === "text" )
-                    component = Qt.createComponent("TextViewer.qml");
+                    component = text_viewer_component;
                 else
                 if( suffix === "pdf" )
-                    component = Qt.createComponent("PdfViewer.qml");
+                    component = pdf_viewer_component;
 
-                var it = component.createObject(item);
-                it.fileId = item.fileId
-                it.path = item.path
+                var it = component.createObject(item, {"path": model.path, "fileId": model.id});
+                it.anchors.centerIn = item
                 viewer = it
 
                 it.deleteRequest.connect( attach_viewer.deleteRequest )
@@ -253,27 +248,10 @@ Item {
         highlight: Rectangle { color: "#3B97EC"; radius: 3; smooth: true }
         currentIndex: -1
 
-        function refresh() {
-            if( !model )
-                return
-
-            model.clear()
-            if( attach_viewer.paperItem == -1 )
-                return
-
-            var files = database.paperFiles(attach_viewer.paperItem)
-            for( var i=0; i<files.length; i++ )
-                model.append({ "fid": files[i], "filePath": repository.getPath(files[i])})
-
-            focus = true
-        }
-
         onCurrentItemChanged: {
             if( !currentItem )
                 return
         }
-
-        Component.onCompleted: refresh()
     }
 
     ScrollBar {
@@ -292,6 +270,21 @@ Item {
         MusicViewer{
             onPressedChanged: attach_list.interactive = !pressed
         }
+    }
+
+    Component {
+        id: image_viewer_component
+        ImageViewer {}
+    }
+
+    Component {
+        id: text_viewer_component
+        TextViewer {}
+    }
+
+    Component {
+        id: pdf_viewer_component
+        PdfViewer {}
     }
 
     function initTranslations(){

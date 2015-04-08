@@ -112,7 +112,7 @@ Rectangle {
                 anchors.margins: 30*Devices.density
                 anchors.leftMargin: 6*Devices.density
                 y: parent.height/2 - height/2
-                text: model.type != SideBarModel.TypeAction? model.name + " (" + model.papersCount + ")" : model.name
+                text: model.type != SideBarModel.TypeAction && papyrus.groupsCount? model.name + " (" + model.papersCount + ")" : model.name
                 font.pixelSize: 9*Devices.fontDensity
                 font.family: AsemanApp.globalFont.family
                 horizontalAlignment: Qt.AlignLeft

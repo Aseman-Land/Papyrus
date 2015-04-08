@@ -23,7 +23,6 @@ Item {
     id: item
     width: img.width
     height: img.height
-    anchors.centerIn: parent
 
     property string fileId: fid
     property string path: filePath
@@ -32,14 +31,14 @@ Item {
 
     signal deleteRequest( variant item )
 
-    Image{
+    Image {
         id: img
         anchors.centerIn: parent
         asynchronous: true
         width: smaller? sourceSize.width : (ratio>1? frameWidth : frameHeight*ratio)
         height: smaller? sourceSize.height : (ratio>1? frameWidth/ratio : frameHeight)
         fillMode: Image.PreserveAspectFit
-        source: "file://" + path
+        source: Devices.localFilesPrePath + path
 
         property real frameWidth: frameHeight
         property real frameHeight: item.parent.height

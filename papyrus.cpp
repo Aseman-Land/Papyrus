@@ -38,6 +38,7 @@
 #include "papyrushistorymodel.h"
 #include "papyruspaperfilesmodel.h"
 #include "papyrustodolistmodel.h"
+#include "papercoreobject.h"
 #include "simpleqtcryptor/simpleqtcryptor.h"
 #include "asemantools/asemandevices.h"
 #include "asemantools/asemanquickview.h"
@@ -220,6 +221,7 @@ Papyrus::Papyrus(QObject *parent) :
     qmlRegisterType<PapyrusSideBarModel>("Papyrus", 1, 0, "SideBarModel");
     qmlRegisterType<PapyrusPaperFilesModel>("Papyrus", 1, 0, "PaperFilesModel");
     qmlRegisterType<PapyrusToDoListModel>("Papyrus", 1, 0, "ToDoListModel");
+    qmlRegisterType<PaperCoreObject>("Papyrus", 1, 0, "PaperCore");
     qmlRegisterUncreatableType<Papyrus>("Papyrus", 1,0, "Papyrus","");
     qmlRegisterUncreatableType<Database>("Papyrus", 1,0, "Database","");
 

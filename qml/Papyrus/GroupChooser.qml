@@ -18,6 +18,7 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     id: group_chooser
@@ -31,64 +32,30 @@ Item {
 
     property bool signal_blocker: false
 
+    property PaperCore paperCore
     property variant paperItem: parent
-    property alias group: gc_back.group
 
     property bool press: false
-
-    onGroupChanged: {
-        if( !signal_blocker )
-            group_chooser.groupSelected(group)
-    }
-
-    signal groupSelected( int id )
-
-    Component.onCompleted: {
-        signal_blocker = true
-        group = 0
-        signal_blocker = false
-    }
 
     GroupChooserBack {
         id: gc_back
         press: mousearea.pressed
+        group: paperCore.group
     }
 
     MouseArea{
         id: mousearea
         anchors.fill: group_chooser
         onClicked: {
-            selectGroup()
+            var paper = group_selector_component.createObject(papyrus_root);
+            var point = mapToItem(papyrus_root,width/2,height)
+            var h = paper.realHeight()+40*Devices.density
+            if( h > 5*papyrus_root.height/9 )
+                h = 5*papyrus_root.height/9
+
+            showPointDialog( paper, 0, point.y - 2, 240*Devices.density, h )
             Devices.hideKeyboard()
         }
-    }
-
-    function selectGroup(){
-        var paper = group_selector_component.createObject(papyrus_root);
-        var point = mapToItem(papyrus_root,width/2,height)
-        var h = paper.realHeight()+40*Devices.density
-        if( h > 5*papyrus_root.height/9 )
-            h = 5*papyrus_root.height/9
-
-        showPointDialog( paper, 0, point.y - 2, 240*Devices.density, h )
-    }
-
-    function finished( gid ){
-        hidePointDialog()
-        if( gid == -1 )
-        {
-            addNewGroup()
-        }
-        else
-        {
-            group_chooser.group = gid
-            group_chooser.groupSelected(gid)
-        }
-    }
-
-    function addNewGroup(){
-        var add_group = add_group_component.createObject(main);
-        main.showDialog(add_group)
     }
 
     Connections{
@@ -102,7 +69,15 @@ Item {
     Component {
         id: group_selector_component
         GroupSelector{
-            onSelected: group_chooser.finished(guid)
+            onSelected: {
+                hidePointDialog()
+                if( guid == -1 ) {
+                    var add_group = add_group_component.createObject(main);
+                    main.showDialog(add_group)
+                }
+                else
+                    paperCore.group = guid
+            }
         }
     }
 
@@ -111,7 +86,7 @@ Item {
         AddGroupDialog {
             groupChooserItem: group_chooser
             onAccepted: {
-                group_chooser.finished(guid)
+                paperCore.group = guid
                 main.closeDialog()
             }
         }

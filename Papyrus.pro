@@ -140,7 +140,8 @@ SOURCES += main.cpp \
     papyrushistorymodel.cpp \
     papyrussidebarmodel.cpp \
     papyruspaperfilesmodel.cpp \
-    papyrustodolistmodel.cpp
+    papyrustodolistmodel.cpp \
+    papercoreobject.cpp
 
 HEADERS += \
     papyrus.h \
@@ -163,7 +164,8 @@ HEADERS += \
     papyrushistorymodel.h \
     papyrussidebarmodel.h \
     papyruspaperfilesmodel.h \
-    papyrustodolistmodel.h
+    papyrustodolistmodel.h \
+    papercoreobject.h
 
 TRANSLATIONS += \
     files/translations/lang-en.qm \

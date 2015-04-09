@@ -37,6 +37,7 @@ class Database : public QObject
 {
     Q_OBJECT
     Q_ENUMS(PasswordType)
+    friend class PaperCoreObject;
 
 public:
     enum PasswordType {
@@ -162,24 +163,38 @@ signals:
     void revisionChanged( const QString &iid, int revision );
     void filesListChanged();
 
-    void paperChanged( int id );
-    void paperGroupChanged( int id );
     void fileDeleted( const QString & file );
 
     void groupNameChanged(int id);
     void groupColorChanged(int id);
     void groupPapersCountChanged(int id);
+
+    void paperChanged( int id );
     void paperCreated(int id);
     void paperDeleted(int id);
+
+    void paperUuidChanged(int id);
+    void paperTitleChanged(int id);
+    void paperTextChanged(int id);
+    void paperCreateChanged(int id);
+    void paperModifiedChanged(int id);
+    void paperLocationChanged(int id);
+    void paperGroupChanged(int id);
+    void paperActivityChanged(int id);
+    void paperWeatherChanged(int id);
+    void paperTemperatureChanged(int id);
+    void paperFilesChanged(int id);
+    void paperTypeChanged(int id);
 
 private:
     void reinit_buffer();
     void update_database();
 
-    PaperClass getPaper( int id );
     void savePaper(PaperClass paper);
     void saveGroup(GroupClass group);
     void saveActivity(ActivityClass activity);
+
+    PaperClass getPaper( int id );
 
     QList<int> searchQuery(const QString &query , const QString &keyword, const QHash<QString, QVariant> &boundValues = QHash<QString, QVariant>());
 

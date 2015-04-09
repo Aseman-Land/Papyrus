@@ -90,7 +90,6 @@ public:
     int activity;
     QString weather;
     int temperature;
-    QStringList files;
     Enums::PaperType type;
 };
 

@@ -572,19 +572,10 @@ void Database::setPaper(int id, const QString &title, const QString &text, int g
     if( paper.title == title && paper.text == text && paper.group == group )
         return;
 
-    int old_group = paper.group;
-
     paper.title     = title;
     paper.text      = text;
     paper.group     = group;
     savePaper(paper);
-
-    emit paperGroupChanged(id);
-    if(old_group != paper.group)
-    {
-        emit groupPapersCountChanged(old_group);
-        emit groupPapersCountChanged(paper.group);
-    }
 }
 
 void Database::setPaper(const QString &uuid, const QString &title, const QString &text, const QString &group, const QString &date, const QGeoCoordinate & location, int type, const QString & weather, int temperature)
@@ -598,7 +589,6 @@ void Database::setPaper(const QString &uuid, const QString &title, const QString
         group_id = createGroup(group);
 
     PaperClass paper = getPaper(paper_id);
-    int old_group = paper.group;
 
     paper.uuid        = uuid;
     paper.title       = title;
@@ -612,12 +602,6 @@ void Database::setPaper(const QString &uuid, const QString &title, const QString
 
     savePaper(paper);
     emit datesListChanged();
-    emit paperGroupChanged(paper_id);
-    if(old_group != paper.group)
-    {
-        emit groupPapersCountChanged(old_group);
-        emit groupPapersCountChanged(paper.group);
-    }
 }
 
 QString Database::paperTitle(int id)
@@ -843,6 +827,7 @@ void Database::addCustomFileToPaper(int id, const QString &file, qint64 date)
     query.bindValue(":atime",QTime(0,0,0).secsTo(modified.time()));
     query.exec();
 
+    DB_EMIT paperFilesChanged(id);
     DB_EMIT filesListChanged();
     COMMIT
 }
@@ -860,6 +845,7 @@ void Database::removeFileFromPaper(int id, const QString &file)
     if( !containt )
         DB_EMIT fileDeleted(file);
 
+    DB_EMIT paperFilesChanged(id);
     DB_EMIT filesListChanged();
     COMMIT
 }
@@ -1470,6 +1456,8 @@ PaperClass Database::getPaper(int id)
 
 void Database::savePaper(PaperClass paper)
 {
+    const PaperClass old = getPaper(paper.id);
+
     bool allow_exec = true;
     if( paper.title.isEmpty() && paper.text.isEmpty() && paper.modified.isNull() )
     {
@@ -1530,6 +1518,36 @@ void Database::savePaper(PaperClass paper)
         setRevision(paper.uuid,-1);
 
     DB_EMIT paperChanged(paper.id);
+    if(!p->signal_blocker)
+    {
+        if(old.uuid != paper.uuid)
+            emit paperUuidChanged(paper.id);
+        if(old.title != paper.title)
+            emit paperTitleChanged(paper.id);
+        if(old.text != paper.text)
+            emit paperTextChanged(paper.id);
+        if(old.group != paper.group)
+        {
+            emit paperGroupChanged(paper.id);
+            emit groupPapersCountChanged(old.group);
+            emit groupPapersCountChanged(paper.group);
+        }
+        if(old.create != paper.create)
+            emit paperCreateChanged(paper.id);
+        if(old.modified != paper.modified)
+            emit paperModifiedChanged(paper.id);
+        if(old.location != paper.location)
+            emit paperLocationChanged(paper.id);
+        if(old.activity != paper.activity)
+            emit paperActivityChanged(paper.id);
+        if(old.weather != paper.weather)
+            emit paperWeatherChanged(paper.id);
+        if(old.temperature != paper.temperature)
+            emit paperTemperatureChanged(paper.id);
+        if(old.type != paper.type)
+            emit paperTypeChanged(paper.id);
+    }
+
     COMMIT
 }
 

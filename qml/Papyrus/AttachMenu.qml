@@ -18,6 +18,7 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     id: attach_menu
@@ -27,29 +28,11 @@ Item {
     property real minimumHeight: papyrus_root.height - 50*Devices.density - View.navigationBarHeight - View.statusBarHeight
 
     property bool opened: false
-    property int paperItem
-    property string paperUuid: database.paperUuid(paperItem)
-    property variant paper
     property variant attachments
     property bool paperIsEmpty: true
 
-    onPaperItemChanged: {
-        if( paperItem == -1 )
-        {
-            attachments = 0
-            attach_img.dynamicSource = "files/attachment.png"
-            return
-        }
-
-        attachments = database.paperFiles(paperItem)
-    }
-
-    onAttachmentsChanged: {
-        if( !attachments )
-            return
-
-        attach_img.dynamicSource = (attachments.length === 0)? "files/attachment.png" : "files/attachment_blue.png"
-    }
+    property PaperCore paperCore
+    property variant paper
 
     onOpenedChanged: {
         if( opened )
@@ -189,7 +172,7 @@ Item {
         border.width: 1*Devices.density
         border.color: attach_menu.opened || !sync.tokenAvailable || attach_menu.paperIsEmpty? "#ffffff" : (synced!=-1? "#50ab99" : "#C51313")
 
-        property int synced: database.revisionOf(paperUuid)
+        property int synced: database.revisionOf(paperCore.uuid)
 
         property bool press: false
         property color normalColor: attach_menu.opened? "#00000000" : "#cccccc"
@@ -203,17 +186,23 @@ Item {
 
         Connections {
             target: database
-            onRevisionChanged: if( iid == attach_menu.paperUuid )toggle_btn.synced = database.revisionOf( database.paperUuid(attach_menu.paperItem) )
+            onRevisionChanged: if( iid == paperCore.uuid )toggle_btn.synced = database.revisionOf( database.paperUuid(paperCore.paperId) )
         }
 
         Image {
             id: attach_img
             anchors.fill: parent
             anchors.margins: 10*Devices.density
-            source: toggle_btn.press || attach_menu.opened? "files/attachment.png" : dynamicSource
             smooth: true
-
-            property string dynamicSource: "files/attachment.png"
+            source: {
+                if(toggle_btn.press || attach_menu.opened)
+                    return "files/attachment.png"
+                else
+                if(paperCore.paperId == -1 || paperCore.files.length == 0)
+                    return "files/attachment.png"
+                else
+                    return "files/attachment_blue.png"
+            }
         }
 
         MouseArea {
@@ -248,7 +237,7 @@ Item {
     Component {
         id: attach_viewer_component
         AttachViewer {
-            paperItem: attach_menu.paperItem
+            paperItem: paperCore.paperId
             paper: attach_menu.paper
             onEditRequest: attach_menu.showCanvas(fid)
         }
@@ -262,24 +251,7 @@ Item {
     }
 
     function selected( id ){
-        if( paperItem == -1 )
-            paper.save()
-
-        var attachments = database.paperFiles(paperItem)
-        var attach_res = new Array
-
-        for( var i=0; i<attachments.length; i++ )
-            attach_res[attach_res.length] = attachments[i]
-
-        attach_res[attach_res.length] = id
-        attach_menu.attachments = attach_res
-
-        database.addFileToPaper(paperItem,id)
-
-        if( gallery_frame.item ){
-            gallery_frame.item.paperItem = -1
-            gallery_frame.item.paperItem = paperItem
-        }
+        paperCore.addFile(id)
     }
 
     function showCanvas( fid ) {
@@ -290,22 +262,11 @@ Item {
     }
 
     function canvasDone( fileName, fileId ) {
-        if( fileId.length == 0 ) {
-            var id = repository.insert( fileName )
-            attach_menu.selected(id)
-        } else {
-            var newFileId = repository.insert( fileName )
-            var filePath  = repository.getPath(fileId)
-
-            var date = database.fileTime(paperItem,fileId)
-            database.removeFileFromPaper(paperItem,fileId)
-            database.addCustomFileToPaper(paperItem,newFileId,date)
-
-            if( gallery_frame.item ){
-                gallery_frame.item.paperItem = -1
-                gallery_frame.item.paperItem = paperItem
-            }
-        }
+        var newFileId = repository.insert(fileName)
+        if( fileId.length == 0 )
+            attach_menu.selected(newFileId)
+        else
+            paperCore.replaceFile(fileId, newFileId)
     }
 
     function hide(){

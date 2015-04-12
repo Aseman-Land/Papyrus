@@ -21,12 +21,13 @@ import Papyrus 1.0
 import AsemanTools 1.0
 
 PapyrusPaper {
-    id: paper_todo
+    id: paper
     width: 100
     height: 200
     anchors.fill: parent
 
     property string text: paperCore.text
+    property int direction: Tools.directionOf(text)
 
     onTextChanged: tdmodel.setText(text)
 
@@ -41,15 +42,82 @@ PapyrusPaper {
         height: Devices.keyboard? parent.height-Devices.keyboardHeight : parent.height
         interactive: paper.interactive
         model: tdmodel
-        delegate: Item {
+
+        property int focusOnNew: -1
+
+        delegate: Row {
             width: listv.width
-            height: txt.height + 12*Devices.density
+            height: Math.max(txt.height,check_frame.height) + 4*Devices.density
+            layoutDirection: paper.direction
+
+            Connections {
+                target: listv
+                onContentYChanged: if(txt.selectionStart == txt.selectionEnd) txt.hidePicker()
+            }
+
+            Item {
+                id: check_frame
+                anchors.verticalCenter: parent.verticalCenter
+                height: 40*Devices.density
+                width: height
+                visible: model.type == ToDoListModel.TypeCheckable
+
+                Rectangle {
+                    id: check
+                    anchors.fill: parent
+                    anchors.margins: 6*Devices.density
+                    radius: height/2
+                    border.color: check_check.color
+                    border.width: 1*Devices.density
+                    color: "#00000000"
+
+                    Rectangle {
+                        id: check_check
+                        color: database.groupColor(paperCore.group)
+                        radius: height/2
+                        anchors.fill: parent
+                        anchors.margins: 3*Devices.density
+                        visible: model.checked
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: model.checked = !model.checked
+                }
+            }
+
+            Item {
+                id: normal_pad
+                visible: model.type == ToDoListModel.TypeTextOnly
+                width: 20*Devices.density
+                height: parent.height
+            }
 
             TextLineCore {
                 id: txt
-                width: parent.width
+                width: check_frame.visible? parent.width-check_frame.width : parent.width-normal_pad.width
                 anchors.verticalCenter: parent.verticalCenter
                 text: model.text
+                onPressChanged: listv.interactive = !press
+                onTextChanged: if(inited) model.text = text
+                onAccepted: {
+                    var newText = text.slice(cursorPosition, length)
+                    text = text.slice(0, cursorPosition)
+                    listv.focusOnNew = index+1
+                    tdmodel.insertLine(index+1, newText)
+                }
+
+                property bool inited: false
+                Component.onCompleted: inited = true
+            }
+
+            Component.onCompleted: {
+                if(index == listv.focusOnNew) {
+                    listv.focusOnNew = -1
+                    txt.cursorPosition = 0
+                    txt.focus = true
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 #include "papyrustodolistmodel.h"
 
+#include <QDebug>
+
 class PapyrusToDoListItem
 {
 public:
@@ -26,6 +28,7 @@ PapyrusToDoListModel::PapyrusToDoListModel(QObject *parent) :
     QAbstractListModel(parent)
 {
     p = new PapyrusToDoListModelPrivate;
+    p->list << PapyrusToDoListItem();
 }
 
 int PapyrusToDoListModel::id(const QModelIndex &index) const
@@ -90,6 +93,9 @@ bool PapyrusToDoListModel::setData(const QModelIndex &index, const QVariant &val
 
     p->text = generateText();
     emit textChanged();
+
+    if(result)
+        emit dataChanged(index, index, QVector<int>()<<role);
 
     return result;
 }
@@ -163,6 +169,33 @@ void PapyrusToDoListModel::setText(const QString &txt)
     }
 
     changed(list);
+    emit textChanged();
+}
+
+void PapyrusToDoListModel::insertLine(int idx, const QString &text)
+{
+    PapyrusToDoListItem item;
+    item.type = TypeCheckable;
+    item.text = text;
+    item.checked = false;
+
+    QList<PapyrusToDoListItem> list = p->list;
+    list.insert(idx, item);
+
+    changed(list);
+
+    p->text = generateText();
+    emit textChanged();
+}
+
+void PapyrusToDoListModel::deleteLine(int idx)
+{
+    QList<PapyrusToDoListItem> list = p->list;
+    list.removeAt(idx);
+
+    changed(list);
+
+    p->text = generateText();
     emit textChanged();
 }
 

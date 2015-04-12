@@ -78,7 +78,6 @@
         <file>qml/Papyrus/Synchronization.qml</file>
         <file>qml/Papyrus/SynchronizationItem.qml</file>
         <file>qml/Papyrus/TextViewer.qml</file>
-        <file>qml/Papyrus/ToDoItem.qml</file>
         <file>qml/Papyrus/files/active-troll.png</file>
         <file>qml/Papyrus/files/add.png</file>
         <file>qml/Papyrus/files/all-papers.png</file>

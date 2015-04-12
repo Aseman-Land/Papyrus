@@ -43,6 +43,8 @@ public:
 
 public slots:
     void setText(const QString &txt);
+    void insertLine(int idx, const QString &text);
+    void deleteLine(int idx);
 
 signals:
     void countChanged();

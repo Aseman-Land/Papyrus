@@ -27,7 +27,7 @@ AnimationItem {
     height: fixedHeight
     z: 100+paperZ
     scale: paperTrigger? 1+5*Devices.density/height : 1
-    anim_time: 400
+    anim_time: 600
 
     property int paperZ: 0
     property bool paperTrigger
@@ -55,15 +55,13 @@ AnimationItem {
     signal outMoveFinished()
     signal saved( int id )
 
-    onAnimationFinished: tempDuration = 0
-
     onWidthChanged: {
         if( stayOut )
             x = 20 + pad - width
     }
 
-    function save(){
-        paper.saved(paper_item)
+    function save() {
+        core.save()
     }
 
     function deleteRequest(){
@@ -112,22 +110,105 @@ AnimationItem {
         anchors.fill: parent
     }
 
-    DistanceCounter {
-        id: counter
-    }
-
     PaperCore {
         id: core
         onTitleChanged: txt.text = title
     }
 
-    Item {
+    PaperDragArea {
         id: flick_frame
         anchors.fill: parent
         anchors.topMargin: txt_frame.y + txt.height
         anchors.bottomMargin: 20+pad + 45*Devices.density
-        z: 20
         clip: true
+        onPressed: {
+            Devices.hideKeyboard()
+            last_x = mouseX
+            first_x = paper.x
+            last_x_size = 0
+        }
+        onReleased: {
+            startAnimation()
+            if( paper.x == 0 )
+                paper.outMoveFinished()
+            else
+            if( paper.x < 0 )
+            {
+                if( (last_x_size < (first_x==0?1:-1) && paper.x < -main.width/4) || paper.x < -3*main.width/4 )
+                {
+                    paper.x = closeX
+                    paper.stayOut = true
+                    paper.closed(paper)
+                }
+                else
+                {
+                    paper.x = 0
+                    paper.stayOut = false
+                    if( first_x == closeX )
+                        paper.entered(paper)
+                }
+                paper.paperTrigger = false
+            }
+            else
+            {
+                paper.x = 0
+            }
+        }
+
+        onMouseXChanged: {
+            pasteButton.textItem = 0
+            var sz = mouseX-last_x
+            last_x_size = (sz == 0)? last_x_size : sz
+
+            paper.x = paper.x + sz
+            if( paper.x > 0 )
+            {
+                paper.outMove(sz)
+                paper.x = 0
+                paper.paperTrigger = false
+            }
+            else
+                paper.paperTrigger = true
+        }
+
+        property real last_x
+        property real first_x
+        property real last_x_size: 0
+
+        Item {
+            id: paper_frame
+            height: parent.height
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 20*Devices.density
+            anchors.rightMargin: 20*Devices.density
+
+            property variant item: {
+                var component
+                var map = {"paperCore": core}
+                switch(core.type)
+                {
+                case Enums.ToDo:
+                    component = Qt.createComponent("PaperToDo.qml")
+                    break;
+
+                default:
+                case Enums.Normal:
+                    component = Qt.createComponent("PaperNormalText.qml")
+                    break;
+                }
+
+                return component.createObject(paper_frame, map)
+            }
+            property variant oldItem
+
+            onItemChanged: {
+                if(oldItem)
+                    oldItem.destroy()
+
+                oldItem = item
+            }
+        }
 
         Rectangle {
             anchors.top: parent.top
@@ -168,7 +249,6 @@ AnimationItem {
         anchors.rightMargin: group_chooser.x + group_chooser.width
         height: 200*Devices.density
         clip: true
-        z: 20
 
         STextInput{
             id: placeholder_txt

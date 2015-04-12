@@ -20,10 +20,11 @@ import QtQuick 2.0
 import Papyrus 1.0
 import AsemanTools 1.0
 
-Item {
+PapyrusPaper {
     id: paper_todo
     width: 100
     height: 200
+    anchors.fill: parent
 
     property alias text: tdmodel.text
     property int alignment: TextEdit.AlignLeft

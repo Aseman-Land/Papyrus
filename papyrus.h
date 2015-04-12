@@ -24,6 +24,7 @@
 #include <QStringList>
 #include <QSettings>
 #include <QScreen>
+#include <QFont>
 
 class AsemanCalendarConverter;
 class Repository;
@@ -46,6 +47,8 @@ class Papyrus : public QObject
     Q_PROPERTY( bool    fullscreen            READ fullscreen            WRITE setFullscreen            NOTIFY fullscreenChanged)
     Q_PROPERTY( QSize   size                  READ size                  WRITE setSize                  NOTIFY sizeChanged)
     Q_PROPERTY( MapMode mapMode               READ mapMode               WRITE setMapMode               NOTIFY mapModeChanged)
+    Q_PROPERTY( QFont   titleFont             READ titleFont             WRITE setTitleFont             NOTIFY titleFontChanged)
+    Q_PROPERTY( QFont   bodyFont              READ bodyFont              WRITE setBodyFont              NOTIFY bodyFontChanged)
     Q_PROPERTY( QString resourcePath          READ resourcePath          NOTIFY resourcePathChanged)
     Q_PROPERTY( Qt::LayoutDirection  languageDirection  READ languageDirection NOTIFY languageDirectionChanged )
 

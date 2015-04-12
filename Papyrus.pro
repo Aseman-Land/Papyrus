@@ -141,7 +141,9 @@ SOURCES += main.cpp \
     papyrussidebarmodel.cpp \
     papyruspaperfilesmodel.cpp \
     papyrustodolistmodel.cpp \
-    papercoreobject.cpp
+    papercoreobject.cpp \
+    papyrusabstractpaper.cpp \
+    papyruspaperdragarea.cpp
 
 HEADERS += \
     papyrus.h \
@@ -165,7 +167,9 @@ HEADERS += \
     papyrussidebarmodel.h \
     papyruspaperfilesmodel.h \
     papyrustodolistmodel.h \
-    papercoreobject.h
+    papercoreobject.h \
+    papyrusabstractpaper.h \
+    papyruspaperdragarea.h
 
 TRANSLATIONS += \
     files/translations/lang-en.qm \

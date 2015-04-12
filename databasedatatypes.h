@@ -29,6 +29,7 @@ class Enums : public QObject
     Q_OBJECT
     Q_ENUMS(PaperType)
     Q_ENUMS(SearchPaperType)
+
 public:
     enum PaperType {
         Normal = 0,

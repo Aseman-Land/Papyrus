@@ -84,7 +84,6 @@ Item {
     Component {
         id: add_group_component
         AddGroupDialog {
-            groupChooserItem: group_chooser
             onAccepted: {
                 paperCore.group = guid
                 main.closeDialog()

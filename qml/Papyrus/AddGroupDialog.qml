@@ -18,12 +18,12 @@
 
 import QtQuick 2.2
 import AsemanTools 1.0
+import Papyrus 1.0
 
 Item {
     id: add_group
 
     property int groupId
-    property variant groupChooserItem
 
     signal accepted( string guid )
 
@@ -105,9 +105,6 @@ Item {
         var gId = (groupId)? groupId : database.createGroup()
         database.setGroupName(gId, txt.text==""? placeholder_txt.text : txt.text )
         database.setGroupColor( gId, color_list.currentColor )
-
-        if( groupChooserItem )
-            groupChooserItem.group = gId
 
         add_group.accepted( gId )
     }

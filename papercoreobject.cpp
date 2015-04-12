@@ -258,8 +258,8 @@ void PaperCoreObject::setPaper(int id)
         return;
 
     p->paperId = id;
-    emit paperIdChanged();
 
+    emit paperIdChanged();
     refresh();
 }
 

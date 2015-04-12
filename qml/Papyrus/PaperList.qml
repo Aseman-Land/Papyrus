@@ -67,6 +67,7 @@ Item {
         }
 
         function refresh() {
+            model.clear()
             for( var i=0; i<paper_list.list.length; i++ )
                 model.append({"pid":paper_list.list[i]})
         }

@@ -12,6 +12,12 @@ PapyrusPaper {
 
     onTextChanged: txt.text = text
 
+    SearchHighlighter {
+        id: highlighter
+        searchKeyword: lastSearchKeyword
+        Component.onCompleted: textDocument = txt.textDocument
+    }
+
     Flickable {
         id: flick
         width: parent.width
@@ -56,6 +62,14 @@ PapyrusPaper {
             else if (contentY+height <= r.y+r.height)
                 contentY = r.y+r.height-height;
         }
+    }
+
+    ScrollBar {
+        scrollArea: flick; height: flick.height; width: 6*Devices.density; anchors.top: flick.top
+        anchors.right: txt.horizontalAlignment == Text.AlignRight? parent.left : parent.right
+        anchors.rightMargin: txt.horizontalAlignment == Text.AlignRight? -width-3*Devices.density : 3*Devices.density
+        z: 20
+        color: "#888888"
     }
 }
 

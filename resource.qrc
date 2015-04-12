@@ -46,7 +46,6 @@
         <file>qml/Papyrus/PaperEditDialog.qml</file>
         <file>qml/Papyrus/PaperItem.qml</file>
         <file>qml/Papyrus/PaperItemConnector.qml</file>
-        <file>qml/Papyrus/PaperLabel.qml</file>
         <file>qml/Papyrus/PaperList.qml</file>
         <file>qml/Papyrus/PaperListItem.qml</file>
         <file>qml/Papyrus/PaperManagerItem.qml</file>

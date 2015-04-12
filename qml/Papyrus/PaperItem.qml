@@ -297,6 +297,63 @@ AnimationItem {
         text: core.paperId == -1? "" : CalendarConv.convertDateTimeToString(core.create)
     }
 
+    Row {
+        id: btn_box
+        height: 30*Devices.density
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.margins: 20+pad + 10*Devices.density
+        spacing: 2*Devices.density
+
+        Button{
+            id: edit_btn
+            width: height
+            height: parent.height
+            icon: press? "files/edit_hover_64.png" : "files/edit_64.png"
+            iconHeight: 32*Devices.density
+            normalColor: "#00000000"
+            highlightColor: "#00000000"
+            opacity: press? 1 : 0.1
+            onClicked: {
+                main.focus = true
+                paper.edit()
+            }
+        }
+
+        Button {
+            id: menu_btn
+            width: height
+            height: parent.height
+            icon: press? "files/menu_hover_64.png" : "files/menu_64.png"
+            iconHeight: 32*Devices.density
+            normalColor: "#00000000"
+            highlightColor: "#00000000"
+            opacity: press? 1 : 0.1
+            visible: portrait
+            onClicked: {
+                showMenu()
+                main.focus = true
+                Devices.hideKeyboard()
+            }
+        }
+    }
+
+    Button {
+        id: listview_btn
+        height: 30*Devices.density
+        width: height
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.margins: 20+pad + 10*Devices.density
+        icon: press? "files/listview_hover.png" : "files/listview.png"
+        iconHeight: 30*Devices.density
+        normalColor: "#00000000"
+        highlightColor: "#00000000"
+        opacity: press? 1 : 0.2
+        z: 20
+        onClicked: main.showListView()
+    }
+
     AttachMenu {
         id: attach_menu
         anchors.bottom: paper.bottom
@@ -319,7 +376,20 @@ AnimationItem {
         placeholder_txt.text = qsTr("Title")
     }
 
+    function edit(){
+        main.closePanel()
+        var msg = showSubMessage(paper_edit_component)
+        Devices.hideKeyboard()
+    }
+
     Component.onCompleted: {
         initTranslations()
+    }
+
+    Component {
+        id: paper_edit_component
+        PaperEditDialog {
+            paperItem: paper
+        }
     }
 }

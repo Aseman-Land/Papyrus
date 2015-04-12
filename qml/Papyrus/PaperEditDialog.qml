@@ -26,24 +26,21 @@ Item {
     anchors.topMargin: View.statusBarHeight
     anchors.bottomMargin: View.navigationBarHeight
 
-    property variant item
-    property variant paperItem: item? item.paperItem : 0
+    property variant paperItem
 
-    property variant coo: edit_dialog.item? database.paperLocation(edit_dialog.item.paperItem.paperItem) : 0
+    property variant coo: database.paperLocation(edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0)
     property real longitude: coo? coo.longitude : 0
     property real latitude: coo? coo.latitude : 0
 
     Connections {
         target: database
         onPaperChanged: {
-            if( !item )
-                return
-            if( id != item.paperItem.paperItem )
+            if( id != paperItem.paperItem )
                 return
 
-            var tmp = item
-            item = 0
-            item = tmp
+            var tmp = paperItem
+            paperItem = 0
+            paperItem = tmp
         }
     }
 
@@ -110,29 +107,29 @@ Item {
                 columns: Math.floor((parent.width - 20*Devices.density)/(92*Devices.density))
 
                 PaperTypeButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                 }
                 PaperCalendarButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                 }
                 PaperClockButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                 }
                 PaperWeatherButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                     visible: papyrus.proBuild
                 }
                 PaperMapButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                 }
                 PaperTemperatureButton {
-                    paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                    paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                    paperObject: edit_dialog.paperItem
+                    paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
                     visible: papyrus.proBuild
                 }
             }
@@ -141,8 +138,8 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: button_box.width
                 height: 52*Devices.density
-                paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                paperObject: edit_dialog.paperItem
+                paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
             }
 
             PaperMapView {
@@ -159,8 +156,8 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: button_box.width
                 height: 52*Devices.density
-                paperObject: edit_dialog.item? edit_dialog.item.paperItem : 0
-                paperItem: edit_dialog.item? edit_dialog.item.paperItem.paperItem : 0
+                paperObject: edit_dialog.paperItem
+                paperItem: edit_dialog.paperItem.paperItem? edit_dialog.paperItem.paperItem : 0
             }
         }
     }

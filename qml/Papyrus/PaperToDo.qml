@@ -26,15 +26,39 @@ PapyrusPaper {
     height: 200
     anchors.fill: parent
 
-    property alias text: tdmodel.text
-    property int alignment: TextEdit.AlignLeft
-    property font font
-    property color color
+    property string text: paperCore.text
+
+    onTextChanged: tdmodel.setText(text)
 
     ToDoListModel {
         id: tdmodel
+        onTextChanged: paperCore.text = text
     }
 
-    function focusOn( x, y ){
+    ListView {
+        id: listv
+        width: parent.width
+        height: Devices.keyboard? parent.height-Devices.keyboardHeight : parent.height
+        interactive: paper.interactive
+        model: tdmodel
+        delegate: Item {
+            width: listv.width
+            height: txt.height + 12*Devices.density
+
+            TextLineCore {
+                id: txt
+                width: parent.width
+                anchors.verticalCenter: parent.verticalCenter
+                text: model.text
+            }
+        }
+    }
+
+    ScrollBar {
+        scrollArea: listv; height: listv.height; width: 6*Devices.density; anchors.top: listv.top
+        anchors.right: txt.horizontalAlignment == Text.AlignRight? parent.left : parent.right
+        anchors.rightMargin: txt.horizontalAlignment == Text.AlignRight? -width-3*Devices.density : 3*Devices.density
+        z: 20
+        color: "#888888"
     }
 }

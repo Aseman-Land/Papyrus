@@ -333,7 +333,7 @@ qreal AsemanDevices::density() const
 qreal AsemanDevices::fontDensity() const
 {
 #ifdef Q_OS_ANDROID
-    qreal ratio = (1.28)*1.35;
+    qreal ratio = isMobile()? (1.28)*1.25 : (1.28)*1.35;
     return p->java_layer->density()*ratio;
 #else
 #ifdef Q_OS_IOS
@@ -460,6 +460,9 @@ QString AsemanDevices::documentsLocation()
 
 QString AsemanDevices::resourcePath()
 {
+#ifdef Q_OS_ANDROID
+    return "assets:";
+#else
 #ifndef Q_OS_MAC
     QString result = QCoreApplication::applicationDirPath() + "/../share/" + QCoreApplication::applicationName().toLower();
     QFileInfo file(result);
@@ -469,6 +472,16 @@ QString AsemanDevices::resourcePath()
         return QCoreApplication::applicationDirPath() + "/";
 #else
     return QCoreApplication::applicationDirPath() + "/../Resources/";
+#endif
+#endif
+}
+
+QString AsemanDevices::resourcePathQml()
+{
+#ifdef Q_OS_ANDROID
+    return resourcePath();
+#else
+    return localFilesPrePath() + resourcePath();
 #endif
 }
 
@@ -527,6 +540,16 @@ void AsemanDevices::openFile(const QString &address)
 #ifdef Q_OS_ANDROID
     const QMimeType & t = p->mime_db.mimeTypeForFile(address);
     p->java_layer->openFile( address, t.name() );
+#else
+    QDesktopServices::openUrl( QUrl(address) );
+#endif
+}
+
+void AsemanDevices::shareFile(const QString &address)
+{
+#ifdef Q_OS_ANDROID
+    const QMimeType & t = p->mime_db.mimeTypeForFile(address);
+    p->java_layer->shareFile( address, t.name() );
 #else
     QDesktopServices::openUrl( QUrl(address) );
 #endif

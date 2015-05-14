@@ -25,14 +25,12 @@ android {
             QT += widgets
 
             HEADERS += \
-                asemantools/asemanmimeapps.h \
                 asemantools/qtsingleapplication/qtsinglecoreapplication.h \
                 asemantools/qtsingleapplication/qtsingleapplication.h \
                 asemantools/qtsingleapplication/qtlockedfile.h \
                 asemantools/qtsingleapplication/qtlocalpeer.h
 
             SOURCES += \
-                asemantools/asemanmimeapps.cpp \
                 asemantools/qtsingleapplication/qtsinglecoreapplication.cpp \
                 asemantools/qtsingleapplication/qtsingleapplication.cpp \
                 asemantools/qtsingleapplication/qtlockedfile.cpp \
@@ -60,6 +58,21 @@ contains(QT,widgets) {
     HEADERS +=  \
         asemantools/asemannativenotification.h \
         asemantools/asemannativenotificationitem.h
+}
+contains(QT,multimedia) {
+    DEFINES += ASEMAN_MULTIMEDIA
+    SOURCES +=  \
+        asemantools/asemanaudiorecorder.cpp \
+        asemantools/asemanaudioencodersettings.cpp
+    HEADERS +=  \
+        asemantools/asemanaudiorecorder.h \
+        asemantools/asemanaudioencodersettings.h
+}
+contains(QT,webkitwidgets) {
+    DEFINES += ASEMAN_WEBKIT
+}
+contains(QT,webenginewidgets) {
+    DEFINES += ASEMAN_WEBENGINE
 }
 linux {
 contains(QT,dbus) {
@@ -91,13 +104,18 @@ SOURCES += \
     asemantools/asemanimagecoloranalizor.cpp \
     asemantools/asemancountriesmodel.cpp \
     asemantools/asemanmimedata.cpp \
+    asemantools/asemanmimeapps.cpp \
     asemantools/asemandragobject.cpp \
     asemantools/asemandownloader.cpp \
     asemantools/asemannotification.cpp \
     asemantools/asemanautostartmanager.cpp \
     asemantools/asemanquickitemimagegrabber.cpp \
     asemantools/asemanquickobject.cpp \
-    asemantools/asemanfilesystemmodel.cpp
+    asemantools/asemanfilesystemmodel.cpp \
+    asemantools/asemandebugobjectcounter.cpp \
+    asemantools/asemanfiledownloaderqueue.cpp \
+    asemantools/asemanfiledownloaderqueueitem.cpp \
+    asemantools/asemanwebpagegrabber.cpp
 
 HEADERS += \
     asemantools/asemandevices.h \
@@ -117,13 +135,18 @@ HEADERS += \
     asemantools/asemanimagecoloranalizor.h \
     asemantools/asemancountriesmodel.h \
     asemantools/asemanmimedata.h \
+    asemantools/asemanmimeapps.h \
     asemantools/asemandragobject.h \
     asemantools/asemandownloader.h \
     asemantools/asemannotification.h \
     asemantools/asemanautostartmanager.h \
     asemantools/asemanquickitemimagegrabber.h \
     asemantools/asemanquickobject.h \
-    asemantools/asemanfilesystemmodel.h
+    asemantools/asemanfilesystemmodel.h \
+    asemantools/asemandebugobjectcounter.h \
+    asemantools/asemanfiledownloaderqueue.h \
+    asemantools/asemanfiledownloaderqueueitem.h \
+    asemantools/asemanwebpagegrabber.h
 
 OTHER_FILES += \
     asemantools/android-build/src/land/aseman/android/AsemanActivity.java \

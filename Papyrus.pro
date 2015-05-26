@@ -221,7 +221,7 @@ android {
     } else {
         buildClickPkg()
     }
-} else:linux {
+} else:linux|openbsd {
     target = $$TARGET
     target.path = $$BIN_PATH
     translations.files = $$TRANSLATIONS

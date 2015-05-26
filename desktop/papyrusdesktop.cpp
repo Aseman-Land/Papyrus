@@ -182,7 +182,7 @@ void PapyrusDesktop::init_toolbar()
     p->toolbar->setMovable(false);
     p->toolbar->setPalette(palette);
     p->toolbar->setIconSize(QSize(22,22));
-#ifndef Q_OS_LINUX
+#if !defined(Q_OS_LINUX) && !defined(Q_OS_OPENBSD)
     p->toolbar->setStyleSheet("QToolBar{border: 0px solid transparent; background: transparent}");
 #endif
 

@@ -307,7 +307,7 @@ bool Papyrus::start()
     else
 #endif
     {
-        p->viewer = new AsemanQuickView(AsemanQuickView::AllExceptLogger);
+        p->viewer = new AsemanQuickView();
         p->viewer->installEventFilter(this);
         p->viewer->engine()->rootContext()->setContextProperty( "papyrus", this );
         p->viewer->engine()->rootContext()->setContextProperty( "database", papyrus_database );

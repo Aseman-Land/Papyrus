@@ -1,12 +1,12 @@
 #ifndef ASEMANFILESYSTEMMODEL_H
 #define ASEMANFILESYSTEMMODEL_H
 
-#include <QAbstractListModel>
+#include "asemanabstractlistmodel.h"
 #include <QStringList>
 #include <QFileInfo>
 
 class AsemanFileSystemModelPrivate;
-class AsemanFileSystemModel : public QAbstractListModel
+class AsemanFileSystemModel : public AsemanAbstractListModel
 {
     Q_OBJECT
     Q_ENUMS(SortFlag)

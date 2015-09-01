@@ -21,10 +21,10 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QAbstractListModel>
+#include "asemanabstractlistmodel.h"
 
 class AsemanCountriesModelPrivate;
-class AsemanCountriesModel : public QAbstractListModel
+class AsemanCountriesModel : public AsemanAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int count READ count NOTIFY countChanged)
@@ -50,7 +50,8 @@ public:
         LatlngRole,
         DemonymRole,
         BordersRole,
-        AreaRole
+        AreaRole,
+        KeyRole
     };
 
     AsemanCountriesModel(QObject *parent = 0);
@@ -63,6 +64,8 @@ public:
 
     QHash<qint32,QByteArray> roleNames() const;
     int count() const;
+
+    Q_INVOKABLE int indexOf(const QString &name);
 
 signals:
     void countChanged();

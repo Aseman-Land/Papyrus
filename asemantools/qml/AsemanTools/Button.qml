@@ -32,6 +32,7 @@ Rectangle {
     property alias textFont: txt.font
 
     property alias hoverEnabled: marea.hoverEnabled
+    property alias containsMouse: marea.containsMouse
 
     property alias iconHeight: icn.height
     property bool iconCenter: false
@@ -39,11 +40,14 @@ Rectangle {
     property bool press: marea.pressed
     property bool enter: marea.containsMouse
 
-    property string highlightColor: masterPalette.highlight
+    property bool triggeredOnHover: false
+
+    property color highlightColor: masterPalette.highlight
     property string normalColor: "#00000000"
     property string hoverColor: normalColor
 
     property alias textColor: txt.color
+    property alias rowWidth: row.width
 
     property alias cursorShape: marea.cursorShape
     property real textMargin: 0
@@ -52,6 +56,7 @@ Rectangle {
     property color tooltipTextColor: "#ffffff"
     property font tooltipFont
     property string tooltipText
+    property int tooltipPosition: Qt.RightEdge
 
     signal clicked()
 
@@ -88,7 +93,12 @@ Rectangle {
         anchors.fill: parent
         hoverEnabled: true
         onClicked: button.clicked()
-        onEntered: if( !tooltipItem && tooltipText.length != 0 ) tooltipItem = tooltip_component.createObject(button)
+        onEntered: {
+            if(triggeredOnHover)
+                button.clicked()
+            if( !tooltipItem && tooltipText.length != 0 )
+                tooltipItem = tooltip_component.createObject(button)
+        }
         onExited: if( tooltipItem ) tooltipItem.end()
 
         property variant tooltipItem
@@ -98,13 +108,42 @@ Rectangle {
         id: tooltip_component
 
         Rectangle {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.right
-            anchors.margins: 2*Devices.density
             color: tooltipColor
             width: tooltip_txt.width + 14*Devices.density
             height: tooltip_txt.height + 14*Devices.density
             radius: 3*Devices.density
+            x: {
+                switch(tooltipPosition) {
+                case Qt.TopEdge:
+                case Qt.BottomEdge:
+                    return parent.width/2 - width/2
+                    break
+
+                case Qt.LeftEdge:
+                    return -width - 2*Devices.density
+                    break
+
+                case Qt.RightEdge:
+                    return parent.width + 2*Devices.density
+                    break
+                }
+            }
+            y: {
+                switch(tooltipPosition) {
+                case Qt.TopEdge:
+                    return -height - 2*Devices.density
+                    break
+
+                case Qt.BottomEdge:
+                    return parent.height + 2*Devices.density
+                    break
+
+                case Qt.LeftEdge:
+                case Qt.RightEdge:
+                    return parent.height/2 - height/2
+                    break
+                }
+            }
 
             Text {
                 id: tooltip_txt

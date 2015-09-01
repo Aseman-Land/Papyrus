@@ -40,6 +40,8 @@ class AsemanDesktopTools : public QObject
     Q_PROPERTY(int desktopSession READ desktopSession NOTIFY desktopSessionChanged)
     Q_PROPERTY(QStringList fontFamilies READ fontFamilies NOTIFY fakeSignal)
     Q_PROPERTY(QString menuStyle READ menuStyle WRITE setMenuStyle NOTIFY menuStyleChanged)
+    Q_PROPERTY(QObject* currentMenuObject READ currentMenuObject NOTIFY currentMenuObjectChanged)
+    Q_PROPERTY(QString tooltip READ tooltip WRITE setTooltip NOTIFY tooltipChanged)
 
     Q_ENUMS(DesktopSession)
     Q_ENUMS(YesOrNoType)
@@ -66,7 +68,7 @@ public:
         Critical
     };
 
-    int desktopSession() const;
+    static int desktopSession();
 
     QColor titleBarColor() const;
     QColor titleBarTransparentColor() const;
@@ -78,6 +80,11 @@ public:
     void setMenuStyle(const QString &style);
     QString menuStyle() const;
 
+    void setTooltip(const QString &txt);
+    QString tooltip() const;
+
+    QObject *currentMenuObject() const;
+
 public slots:
     QString getOpenFileName(QWindow *window = 0, const QString &title = QString(), const QString &filter = QString(), const QString & startPath = QDir::homePath() );
     QString getSaveFileName(QWindow *window = 0, const QString &title = QString(), const QString &filter = QString(), const QString & startPath = QDir::homePath() );
@@ -87,6 +94,7 @@ public slots:
     QString getText(QWindow *window = 0, const QString &title = QString(), const QString &text = QString(), const QString &defaultText = QString());
     int showMenu( const QVariantList & actions, QPoint point = QPoint() );
     bool yesOrNo(QWindow *window, const QString &title, const QString &text, int type = Warning);
+    void showMessage(QWindow *window, const QString &title, const QString &text, int type = Information);
 
 signals:
     void titleBarColorChanged();
@@ -96,6 +104,8 @@ signals:
     void desktopSessionChanged();
     void menuStyleChanged();
     void fakeSignal();
+    void currentMenuObjectChanged();
+    void tooltipChanged();
 
 private:
     QMenu *menuOf(const QVariantList &list, QList<QAction*> *actions = 0, QMenu *parent = 0);

@@ -1,4 +1,6 @@
 module AsemanTools
+classname AsemanToolsPlugin
+typeinfo plugins.qmltypes
 AnimationItem 1.0 AnimationItem.qml
 Indicator 1.0 Indicator.qml
 PointingDialog 1.0 PointingDialog.qml
@@ -10,12 +12,15 @@ AsemanAbout 1.0 AsemanAbout.qml
 SlideMenu 1.0 SlideMenu.qml
 CheckBox 1.0 CheckBox.qml
 MenuButton 1.0 MenuButton.qml
+MenuIcon 1.0 MenuIcon.qml
 STextEdit 1.0 STextEdit.qml
 ColorList 1.0 ColorList.qml
+MenuController 1.0 MenuController.qml
 ModernProgressBar 1.0 ModernProgressBar.qml
 RollerDialog 1.0 RollerDialog.qml
 STextInput 1.0 STextInput.qml
 CursorPicker 1.0 CursorPicker.qml
+RoundedImage 1.0 RoundedImage.qml
 NormalWheelScroll 1.0 NormalWheelScroll.qml
 ScrollBar 1.0 ScrollBar.qml
 SubMessage 1.0 SubMessage.qml
@@ -39,3 +44,4 @@ ColorfullListView 1.0 ColorfullListView.qml
 SideMenu 1.0 SideMenu.qml
 AsemanLogo 1.0 AsemanLogo.qml
 QueueList 1.0 QueueList.qml
+MaterialDesignButton 1.0 MaterialDesignButton.qml

@@ -23,6 +23,7 @@
 #include <QColor>
 #include <QStringList>
 #include <QGeoCoordinate>
+#include <QObject>
 
 class Enums : public QObject
 {

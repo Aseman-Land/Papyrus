@@ -19,7 +19,7 @@ For other distributions search for the corresponding packages.
 
 #### Get source code from git repository
 
-Get cutegram codes using this command:
+Get Papyrus code using this command:
 
     git clone https://github.com/Aseman-Land/Papyrus.git
 
